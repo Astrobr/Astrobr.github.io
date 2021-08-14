@@ -1,0 +1,31 @@
+<%- _js(cdn('mathjax', '2.7.5', 'unpacked/MathJax.js?config=TeX-MML-AM_CHTML'), true) %>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        showProcessingMessages: false,
+        messageStyle: "none",
+        'HTML-CSS': {
+            matchFontHeight: false,
+            linebreaks: { automatic: true },
+        },
+        SVG: {
+            matchFontHeight: false,
+            linebreaks: { automatic: true },
+        },
+        CommonHTML: {
+            matchFontHeight: false,
+            linebreaks: { automatic: true },
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ],
+            displayMath: [ 
+                ['$$','$$'], 
+                ["\\[","\\]"] 
+            ]
+        }
+    });
+});
+</script>
