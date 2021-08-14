@@ -1,2 +1,2 @@
-# astroblog.github.io
+# astroblog
 Astrobear's blog. 
