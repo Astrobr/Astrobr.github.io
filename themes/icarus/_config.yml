@@ -144,7 +144,7 @@ widgets:
         # Author name to be shown in the profile widget
         author: Astrobear
         # Title of the author to be shown in the profile widget
-        author_title: Student
+        author_title: Student, Aviation, Astronomy, Photography
         # Author's current location to be shown in the profile widget
         location: PRC
         # Path or URL to the avatar to be shown in the profile widget
