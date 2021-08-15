@@ -2,7 +2,7 @@ language: node_js
 node_js: stable
 branches:
   only:
-  - hexo
+  - main
 before_install:
 - openssl aes-256-cbc -K $encrypted_3733ff373045_key -iv $encrypted_3733ff373045_iv
   -in astrobear_rsa.enc -out ~/.ssh/astrobear_rsa -d
