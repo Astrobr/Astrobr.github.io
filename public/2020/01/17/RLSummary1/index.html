@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>Summary of Reinforcement Learning 1 - Astroblog</title>
+
+
+    <meta name="description" content="A brief introduction to reinforcement learning.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Summary of Reinforcement Learning 1">
+<meta property="og:url" content="http://astrobear.top/2020/01/17/RLSummary1/index.html">
+<meta property="og:site_name" content="Astroblog">
+<meta property="og:description" content="A brief introduction to reinforcement learning.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://astrobear.top/resource/astroblog/thumbnail/t3.jpeg">
+<meta property="article:published_time" content="2020-01-17T13:14:00.000Z">
+<meta property="article:modified_time" content="2021-08-15T03:46:26.301Z">
+<meta property="article:author" content="Astrobear">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Research">
+<meta property="article:tag" content="RL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://astrobear.top/resource/astroblog/thumbnail/t3.jpeg">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.png" alt="Summary of Reinforcement Learning 1" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="/2020/01/03/Gallery">Gallery</a>
+                
+                <a class="navbar-item"
+                href="/2020/01/03/About">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="https://astrobear.top/resource/astroblog/thumbnail/t3.jpeg" alt="Summary of Reinforcement Learning 1">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-01-17T13:14:00.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-01-17</time>
+                
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2021-08-15T03:46:26.301Z"><i class="far fa-calendar-check">&nbsp;</i>2021-08-15</time>
+                
+                
+                <div class="level-item">
+                <i class="far fa-folder-open has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/categories/CS/">CS</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7 minutes read (About 1046 words)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span> visits
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Summary of Reinforcement Learning 1
+            
+        </h1>
+        <div class="content">
+            <!--<h3 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h3><p>This blog is the first one of my series of blogs that summary the key points of reinforcement learning, other blogs will be updated recently according to my learning progress. </p>
+<p>These series of blogs of mine are mostly based on the following works and I’m really grateful to the contributors: </p>
+<ul>
+<li>Online courses of <a href="https://www.youtube.com/watch?v=FgzM3zpZ55o&list=PLoROMvodv4rOSOPzutgyCTapiGlY2Nd8u">Stanford University CS234: Reinforcement Learning, Emma Brunskill</a> and <a href="https://drive.google.com/drive/folders/1tDME7YQWuipE7WVi0QHFoLhMOvAQdWIn">lecture notes</a>.</li>
+<li><a href="https://blog.csdn.net/solo95/category_9298323.html">Blogs of 从流域到海域</a>.</li>
+<li><a href="https://zhuanlan.zhihu.com/reinforce">Blogs of 叶强</a>.</li>
+</ul>
+<p>If you find any mistake in my articles, please feel free to tell me in comments.</p>
+<h3 id="What-is-reinforcement-learning-RL"><a href="#What-is-reinforcement-learning-RL" class="headerlink" title="What is reinforcement learning (RL)?"></a>What is reinforcement learning (RL)?</h3><p>RL is a kind of machine learning method that mainly focuses on the interaction between the agent (subject) and the model (environment, world). Through this interaction, the agent can gain experience and then have a better performance in some specific aspects. For example, a robot player can get a high score in a game after being trained by using RL method, or we can make the autopilot of the car to control it keep its lane and drive to the destination smoothly without any collision.</p>
+<p>A RL agent may interact with the world, and then recieve some feedback signal for each interaction. By jduging whether the feedback signal is good (beneficial to the agent’s desire performance) or not, the agent can then change its way interacting with the world (make better decisions) in order to reach the best performance. By accumulating these experiences, the agent can become more and more “smarter” and has a better performance.</p>
+<h3 id="Some-basic-notions-of-RL"><a href="#Some-basic-notions-of-RL" class="headerlink" title="Some basic notions of RL"></a>Some basic notions of RL</h3><p>Because in the real world, we make decisions in a sequence in a period. Therefore, we need to introduce “time” to clearly indicate the quantities related to the agent at the specific position on the time axis. The notation with subscript “t” means time it is in a time sequence. </p>
+<ul>
+<li><strong>Agent</strong>: The subject of RL, it is agent that interact with the world.</li>
+<li><strong>Model</strong>: The world, the environment, the <em>agent</em> stays in the <em>model</em>.</li>
+<li><strong>Reward</strong>: $ {r_t} $ , the feedback signal from the <em>model</em>, <em>agent</em> recieves the <em>reward</em>. The <em>reward</em> can have different values according to the different <strong>states</strong> of the <em>agent</em>.</li>
+<li><strong>State</strong>: ${s_t}$ , the <em>state</em> of the <em>agent</em>. The <em>state</em> can be either finite or infinite, and it is set by people.</li>
+<li><strong>Action</strong>: ${a_t}$ , the movement of the <em>agent</em> in the <em>model</em>, <em>actions</em> are different under different <em>states</em>.</li>
+<li><strong>Observation</strong>: ${o_t}$ , the <em>agent</em> need to observe its <em>state</em> and determine the <em>reward</em>.</li>
+<li><strong>History</strong>: a sequence of <em>action</em>, <em>reward</em>, <em>observation</em>, which is: $h_t=(a_1,o_1,r_1,…,a_t,o_t,r_t)$.</li>
+<li><strong>Sequential Decision Making</strong>: make decision base on the <em>history</em>, that is: $a_{t+1}=f(h_t)$.</li>
+</ul>
+<p>Figure 1.1 shows how an agent interact with its world.</p>
+<p><img src="https://astrobear.top/resource/astroblog/content/rl1.1.jpeg" alt="Figure 1.1"></p>
+<h3 id="How-to-model-the-world"><a href="#How-to-model-the-world" class="headerlink" title="How to model the world?"></a>How to model the world?</h3><h4 id="Markov-Property"><a href="#Markov-Property" class="headerlink" title="Markov Property"></a>Markov Property</h4><p>$P(s_{t+1}|s_t,a_t,…,s_1,a_1)=P(s_{t+1}|s_t,a_t)$</p>
+<p>Left-hand side is called the <em>transition dynamics</em> of the world, whcih means the probability distribution over $S$. In RL, we often use this assumption. </p>
+<p>A model consists of the two elements below. </p>
+<h4 id="Transition-dynamics-P-s-t-1-s-t-a-t"><a href="#Transition-dynamics-P-s-t-1-s-t-a-t" class="headerlink" title="Transition dynamics $P(s_{t+1}|s_t,a_t)$"></a>Transition dynamics $P(s_{t+1}|s_t,a_t)$</h4><p>The probability of a specific state in the next timestep. Because an agent always has many states, $P$ is often a matrix. The dimension of $P$ denpends on the dimension of the state space. </p>
+<h4 id="Reward-function-R-s-a"><a href="#Reward-function-R-s-a" class="headerlink" title="Reward function $R(s,a)$"></a>Reward function $R(s,a)$</h4><p>Usually, we consider the reward $r_t$ to be received on the transition between states, $s_t\rightarrow{s_{t+1}}$. A reward function is used to predict rewards, which can be written in the form $R(s,a)=\Bbb E[r_t|s_t=s,a_t=a]$.</p>
+<h3 id="How-to-make-a-RL-agent"><a href="#How-to-make-a-RL-agent" class="headerlink" title="How to make a RL agent?"></a>How to make a RL agent?</h3><p>Let the agent state be a function of the history, $s_t^a=g(h_t)$.</p>
+<p>An agent often consists the three elements below.</p>
+<h4 id="Policy-pi-a-t-s-a-t"><a href="#Policy-pi-a-t-s-a-t" class="headerlink" title="Policy $\pi(a_t|s_a^t)$"></a>Policy $\pi(a_t|s_a^t)$</h4><p>Policy is a mapping from the state to an action, which means we can determine the action through the policy if we know the state. Please notice that the policy we mention here is stochastic.  When the agent want to take an action and $\pi$ is stochastic, it picks action $a\in A$ with probability</p>
+<p>$P(a_t=a)=\pi(a|s_t^a)$.</p>
+<h4 id="Value-function-V-pi"><a href="#Value-function-V-pi" class="headerlink" title="Value function $V^\pi$"></a>Value function $V^\pi$</h4><p>If we have discount factor $\gamma\in [0,1]$, which is used to weigh immediate rewards versus delayed rewards, value function is an expected sum of discounted rewards</p>
+<p>$V^\pi=\Bbb E_\pi[r_t+\gamma r_{t+1}+\gamma ^2 r_{t+2}+…|s_t=s]$.</p>
+<h4 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h4><p>The agent in RL may have a model. I have introduced how to make a model in section 3.</p>
+<h3 id="Three-questions-we-are-facing"><a href="#Three-questions-we-are-facing" class="headerlink" title="Three questions we are facing"></a>Three questions we are facing</h3><h4 id="Do-we-need-exploration-or-exploitation"><a href="#Do-we-need-exploration-or-exploitation" class="headerlink" title="Do we need exploration or exploitation?"></a>Do we need exploration or exploitation?</h4><p>In RL, the agent must be able to optimize its actions to maximize the reward signal it receives. We have 2 ways to achieve this target, the first is to let the agent exploit what it already knows, the second is to explore the world where is unknown for the agent. This leads to a trade-off between exploration and exploitation.</p>
+<h4 id="Can-the-agent-generalize-its-experience"><a href="#Can-the-agent-generalize-its-experience" class="headerlink" title="Can the agent generalize its experience?"></a>Can the agent generalize its experience?</h4><p>In actual world, the agent often has infinite states. However, it is impossible for us to include all of them in RL. Can the agent learn whether some actions are good or bad in previously unseen states?</p>
+<h4 id="Delayed-consequences"><a href="#Delayed-consequences" class="headerlink" title="Delayed consequences"></a>Delayed consequences</h4><p>The action executed by the agent may let it recieve high reward at present state. However, this action may have negative effects in the future. Or we can also ask, if the rewards are caused by the action the agent just took or because of the action taken much earlier?</p>
+<h3 id="What’s-next"><a href="#What’s-next" class="headerlink" title="What’s next?"></a>What’s next?</h3><p>Now we have known the basic frame and its components of reinforcement learning. But what is the exact form of the transition dynamics, reward function, policy, value function? And what’s the relationship between these functions? How can I use these functions to make an agent? We will discuss these questions in the next chapter.</p>
+-->
+            
+                  
+                  
+                    <h3 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h3><p>This blog is the first one of my series of blogs that summary the key points of reinforcement learning, other blogs will be updated recently according to my learning progress. </p>
+<p>These series of blogs of mine are mostly based on the following works and I’m really grateful to the contributors: </p>
+<ul>
+<li>Online courses of <a href="https://www.youtube.com/watch?v=FgzM3zpZ55o&list=PLoROMvodv4rOSOPzutgyCTapiGlY2Nd8u">Stanford University CS234: Reinforcement Learning, Emma Brunskill</a> and <a href="https://drive.google.com/drive/folders/1tDME7YQWuipE7WVi0QHFoLhMOvAQdWIn">lecture notes</a>.</li>
+<li><a href="https://blog.csdn.net/solo95/category_9298323.html">Blogs of 从流域到海域</a>.</li>
+<li><a href="https://zhuanlan.zhihu.com/reinforce">Blogs of 叶强</a>.</li>
+</ul>
+<p>If you find any mistake in my articles, please feel free to tell me in comments.</p>
+<h3 id="What-is-reinforcement-learning-RL"><a href="#What-is-reinforcement-learning-RL" class="headerlink" title="What is reinforcement learning (RL)?"></a>What is reinforcement learning (RL)?</h3><p>RL is a kind of machine learning method that mainly focuses on the interaction between the agent (subject) and the model (environment, world). Through this interaction, the agent can gain experience and then have a better performance in some specific aspects. For example, a robot player can get a high score in a game after being trained by using RL method, or we can make the autopilot of the car to control it keep its lane and drive to the destination smoothly without any collision.</p>
+<p>A RL agent may interact with the world, and then recieve some feedback signal for each interaction. By jduging whether the feedback signal is good (beneficial to the agent’s desire performance) or not, the agent can then change its way interacting with the world (make better decisions) in order to reach the best performance. By accumulating these experiences, the agent can become more and more “smarter” and has a better performance.</p>
+<h3 id="Some-basic-notions-of-RL"><a href="#Some-basic-notions-of-RL" class="headerlink" title="Some basic notions of RL"></a>Some basic notions of RL</h3><p>Because in the real world, we make decisions in a sequence in a period. Therefore, we need to introduce “time” to clearly indicate the quantities related to the agent at the specific position on the time axis. The notation with subscript “t” means time it is in a time sequence. </p>
+<ul>
+<li><strong>Agent</strong>: The subject of RL, it is agent that interact with the world.</li>
+<li><strong>Model</strong>: The world, the environment, the <em>agent</em> stays in the <em>model</em>.</li>
+<li><strong>Reward</strong>: $ {r_t} $ , the feedback signal from the <em>model</em>, <em>agent</em> recieves the <em>reward</em>. The <em>reward</em> can have different values according to the different <strong>states</strong> of the <em>agent</em>.</li>
+<li><strong>State</strong>: ${s_t}$ , the <em>state</em> of the <em>agent</em>. The <em>state</em> can be either finite or infinite, and it is set by people.</li>
+<li><strong>Action</strong>: ${a_t}$ , the movement of the <em>agent</em> in the <em>model</em>, <em>actions</em> are different under different <em>states</em>.</li>
+<li><strong>Observation</strong>: ${o_t}$ , the <em>agent</em> need to observe its <em>state</em> and determine the <em>reward</em>.</li>
+<li><strong>History</strong>: a sequence of <em>action</em>, <em>reward</em>, <em>observation</em>, which is: $h_t=(a_1,o_1,r_1,…,a_t,o_t,r_t)$.</li>
+<li><strong>Sequential Decision Making</strong>: make decision base on the <em>history</em>, that is: $a_{t+1}=f(h_t)$.</li>
+</ul>
+<p>Figure 1.1 shows how an agent interact with its world.</p>
+<p><img src="https://astrobear.top/resource/astroblog/content/rl1.1.jpeg" alt="Figure 1.1"></p>
+<h3 id="How-to-model-the-world"><a href="#How-to-model-the-world" class="headerlink" title="How to model the world?"></a>How to model the world?</h3><h4 id="Markov-Property"><a href="#Markov-Property" class="headerlink" title="Markov Property"></a>Markov Property</h4><p>$P(s_{t+1}|s_t,a_t,…,s_1,a_1)=P(s_{t+1}|s_t,a_t)$</p>
+<p>Left-hand side is called the <em>transition dynamics</em> of the world, whcih means the probability distribution over $S$. In RL, we often use this assumption. </p>
+<p>A model consists of the two elements below. </p>
+<h4 id="Transition-dynamics-P-s-t-1-s-t-a-t"><a href="#Transition-dynamics-P-s-t-1-s-t-a-t" class="headerlink" title="Transition dynamics $P(s_{t+1}|s_t,a_t)$"></a>Transition dynamics $P(s_{t+1}|s_t,a_t)$</h4><p>The probability of a specific state in the next timestep. Because an agent always has many states, $P$ is often a matrix. The dimension of $P$ denpends on the dimension of the state space. </p>
+<h4 id="Reward-function-R-s-a"><a href="#Reward-function-R-s-a" class="headerlink" title="Reward function $R(s,a)$"></a>Reward function $R(s,a)$</h4><p>Usually, we consider the reward $r_t$ to be received on the transition between states, $s_t\rightarrow{s_{t+1}}$. A reward function is used to predict rewards, which can be written in the form $R(s,a)=\Bbb E[r_t|s_t=s,a_t=a]$.</p>
+<h3 id="How-to-make-a-RL-agent"><a href="#How-to-make-a-RL-agent" class="headerlink" title="How to make a RL agent?"></a>How to make a RL agent?</h3><p>Let the agent state be a function of the history, $s_t^a=g(h_t)$.</p>
+<p>An agent often consists the three elements below.</p>
+<h4 id="Policy-pi-a-t-s-a-t"><a href="#Policy-pi-a-t-s-a-t" class="headerlink" title="Policy $\pi(a_t|s_a^t)$"></a>Policy $\pi(a_t|s_a^t)$</h4><p>Policy is a mapping from the state to an action, which means we can determine the action through the policy if we know the state. Please notice that the policy we mention here is stochastic.  When the agent want to take an action and $\pi$ is stochastic, it picks action $a\in A$ with probability</p>
+<p>$P(a_t=a)=\pi(a|s_t^a)$.</p>
+<h4 id="Value-function-V-pi"><a href="#Value-function-V-pi" class="headerlink" title="Value function $V^\pi$"></a>Value function $V^\pi$</h4><p>If we have discount factor $\gamma\in [0,1]$, which is used to weigh immediate rewards versus delayed rewards, value function is an expected sum of discounted rewards</p>
+<p>$V^\pi=\Bbb E_\pi[r_t+\gamma r_{t+1}+\gamma ^2 r_{t+2}+…|s_t=s]$.</p>
+<h4 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h4><p>The agent in RL may have a model. I have introduced how to make a model in section 3.</p>
+<h3 id="Three-questions-we-are-facing"><a href="#Three-questions-we-are-facing" class="headerlink" title="Three questions we are facing"></a>Three questions we are facing</h3><h4 id="Do-we-need-exploration-or-exploitation"><a href="#Do-we-need-exploration-or-exploitation" class="headerlink" title="Do we need exploration or exploitation?"></a>Do we need exploration or exploitation?</h4><p>In RL, the agent must be able to optimize its actions to maximize the reward signal it receives. We have 2 ways to achieve this target, the first is to let the agent exploit what it already knows, the second is to explore the world where is unknown for the agent. This leads to a trade-off between exploration and exploitation.</p>
+<h4 id="Can-the-agent-generalize-its-experience"><a href="#Can-the-agent-generalize-its-experience" class="headerlink" title="Can the agent generalize its experience?"></a>Can the agent generalize its experience?</h4><p>In actual world, the agent often has infinite states. However, it is impossible for us to include all of them in RL. Can the agent learn whether some actions are good or bad in previously unseen states?</p>
+<h4 id="Delayed-consequences"><a href="#Delayed-consequences" class="headerlink" title="Delayed consequences"></a>Delayed consequences</h4><p>The action executed by the agent may let it recieve high reward at present state. However, this action may have negative effects in the future. Or we can also ask, if the rewards are caused by the action the agent just took or because of the action taken much earlier?</p>
+<h3 id="What’s-next"><a href="#What’s-next" class="headerlink" title="What’s next?"></a>What’s next?</h3><p>Now we have known the basic frame and its components of reinforcement learning. But what is the exact form of the transition dynamics, reward function, policy, value function? And what’s the relationship between these functions? How can I use these functions to make an agent? We will discuss these questions in the next chapter.</p>
+
+                  
+              
+        </div>
+        
+                    <ul class="post-copyright">
+                    <li><strong>Title：</strong><a href="http://astrobear.top/2020/01/17/RLSummary1/">Summary of Reinforcement Learning 1</a></li>
+                    <li><strong>Author：</strong><a href="http://astrobear.top">Astrobear</a></li>
+                    <li><strong>Link：</strong><a href="http://astrobear.top/2020/01/17/RLSummary1/">http://astrobear.top/2020/01/17/RLSummary1/</a></li>
+                    <li><strong>Released Date：</strong>2020-01-17</li>
+                    <li><strong>Copyright：</strong>This work is lincensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a>.
+                    </li>
+                    </ul>
+                
+        
+            <hr style="height:1px;margin:1rem 0"/>
+            <div class="level is-size-7 is-uppercase is-overflow-x-auto">
+                <div class="level-start">
+                    <div class="level-item is-flex-start">
+                        <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                        <a class="has-link-grey -link" href="/tags/Python/" rel="tag">Python</a>,&nbsp;<a class="has-link-grey -link" href="/tags/RL/" rel="tag">RL</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Research/" rel="tag">Research</a>
+                    </div>
+                </div>
+            </div>
+        
+        
+        
+        <div class="social-share" data-disabled="tencent,linkedin,douban,diandian,google,qzone"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>Alipay</span>
+    <div class="qrcode"><img src="/images/alipay.JPG" alt="Alipay"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="/images/wechatpay.JPG" alt="Wechat"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/01/18/RLSummary2/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Summary of Reinforcement Learning 2</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/15/AirSimMultirotorAPIs/">
+                <span class="level-item">APIs of Multirotor in Airsim</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: 'fa589cf3f78c8e8e4357',
+        clientSecret: 'e97fdd7cc6bd46454d3d6216f6099c9caea80829',
+        id: 'cfa8f54d5f48bbccd714165ef2c8b11b',
+        repo: 'astroblog',
+        owner: 'Astrobr',
+        admin: "Astrobr",
+        language: 'en',
+        createIssueManually: false,
+        distractionFreeMode: false
+    })
+    gitalk.render('comment-container')
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="/images/avatar.jpg" alt="Astrobear">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Astrobear
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Student, Aviation, Astronomy, Photography
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>PRC</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level menu-list is-mobile" style="margin-bottom:1rem">
+            <div class="level-item has-text-centered is-marginless">
+                <a href="/archives/">
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <p class="title has-text-weight-normal">
+                            13
+                    </p>
+                </a>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <a href="/categories/">
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                            3
+                    </p>
+                </a>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <a href="/tags/">
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <p class="title has-text-weight-normal">
+                            17
+                    </p>
+                </a>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/Astrobr" target="_blank" rel="noopener">
+                Follow</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Github" href="https://github.com/Astrobr">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Facebook" href="https://www.facebook.com/astrobearforwork">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Instagram" href="https://www.instagram.com/astrobarchen/">
+                
+                <i class="fab fa-instagram"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+
+    <div class="card widget column-left is-sticky" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    Catalogue
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#Preface">
+        <span class="has-mr-6">1</span>
+        <span>Preface</span>
+        </a></li><li>
+        <a class="is-flex" href="#What-is-reinforcement-learning-RL">
+        <span class="has-mr-6">2</span>
+        <span>What is reinforcement learning (RL)?</span>
+        </a></li><li>
+        <a class="is-flex" href="#Some-basic-notions-of-RL">
+        <span class="has-mr-6">3</span>
+        <span>Some basic notions of RL</span>
+        </a></li><li>
+        <a class="is-flex" href="#How-to-model-the-world">
+        <span class="has-mr-6">4</span>
+        <span>How to model the world?</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Markov-Property">
+        <span class="has-mr-6">4.1</span>
+        <span>Markov Property</span>
+        </a></li><li>
+        <a class="is-flex" href="#Transition-dynamics-P-s-t-1-s-t-a-t">
+        <span class="has-mr-6">4.2</span>
+        <span>Transition dynamics $P(s_{t+1}|s_t,a_t)$</span>
+        </a></li><li>
+        <a class="is-flex" href="#Reward-function-R-s-a">
+        <span class="has-mr-6">4.3</span>
+        <span>Reward function $R(s,a)$</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#How-to-make-a-RL-agent">
+        <span class="has-mr-6">5</span>
+        <span>How to make a RL agent?</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Policy-pi-a-t-s-a-t">
+        <span class="has-mr-6">5.1</span>
+        <span>Policy $\pi(a_t|s_a^t)$</span>
+        </a></li><li>
+        <a class="is-flex" href="#Value-function-V-pi">
+        <span class="has-mr-6">5.2</span>
+        <span>Value function $V^\pi$</span>
+        </a></li><li>
+        <a class="is-flex" href="#Model">
+        <span class="has-mr-6">5.3</span>
+        <span>Model</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Three-questions-we-are-facing">
+        <span class="has-mr-6">6</span>
+        <span>Three questions we are facing</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Do-we-need-exploration-or-exploitation">
+        <span class="has-mr-6">6.1</span>
+        <span>Do we need exploration or exploitation?</span>
+        </a></li><li>
+        <a class="is-flex" href="#Can-the-agent-generalize-its-experience">
+        <span class="has-mr-6">6.2</span>
+        <span>Can the agent generalize its experience?</span>
+        </a></li><li>
+        <a class="is-flex" href="#Delayed-consequences">
+        <span class="has-mr-6">6.3</span>
+        <span>Delayed consequences</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#What’s-next">
+        <span class="has-mr-6">7</span>
+        <span>What’s next?</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+        </div>
+    
+</div>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.png" alt="Summary of Reinforcement Learning 1" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2021 Astrobear&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                Visited by <span id="busuanzi_value_site_uv">0</span> users
+                </span>
+                
+                <br>
+                <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备19039261号-1</a>
+                <br>
+                <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802030906" target="_blank" rel="noopener">京公网安备 11010802030906号</a>
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        
+                            <i class="fab fa-creative-commons"></i>&nbsp;<i class="fab fa-creative-commons-by"></i>&nbsp;<i class="fab fa-creative-commons-nc"></i>&nbsp;<i class="fab fa-creative-commons-sa"></i>&nbsp;
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Astrobear" href="https://github.com/Astrobr">
+                        
+                            <i class="fab fa-github"></i>&nbsp;
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'http://astrobear.top',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        showProcessingMessages: false,
+        messageStyle: "none",
+        'HTML-CSS': {
+            matchFontHeight: false,
+            linebreaks: { automatic: true },
+        },
+        SVG: {
+            matchFontHeight: false,
+            linebreaks: { automatic: true },
+        },
+        CommonHTML: {
+            matchFontHeight: false,
+            linebreaks: { automatic: true },
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ],
+            displayMath: [ 
+                ['$$','$$'], 
+                ["\\[","\\]"] 
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

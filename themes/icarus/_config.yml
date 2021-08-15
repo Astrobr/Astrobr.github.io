@@ -84,11 +84,12 @@ comment:
     # Name of the comment plugin
     type: gitalk
     owner: Astrobr         
-    repo: astroblog.github.io          
+    repo: astroblog         
     client_id: fa589cf3f78c8e8e4357     
     client_secret: e97fdd7cc6bd46454d3d6216f6099c9caea80829
     admin: Astrobr
     language: en
+    proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
  
 # Donation entries
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Donation/
