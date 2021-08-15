@@ -4,10 +4,12 @@ branches:
   only:
   - hexo
 before_install:
-- openssl aes-256-cbc -K $encrypted_c896807090dc_key -iv $encrypted_c896807090dc_iv
+- openssl aes-256-cbc -K $encrypted_3733ff373045_key -iv $encrypted_3733ff373045_iv
   -in astrobear_rsa.enc -out ~/.ssh/astrobear_rsa -d
 - chmod 600 ~/.ssh/astrobear_rsa
-- echo -e "Host 119.3.248.174\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- eval $(ssh-agent)
+- ssh-add ~/.ssh/astrobear_rsa
+- cp ./ssh_config ~/.ssh/config
 - git config --global user.name "$GIT_NAME"
 - git config --global user.email "$GIT_EMAIL"
 - npm install -g hexo-cli
@@ -17,14 +19,14 @@ script:
 - hexo clean
 - hexo generate
 after_success:
-- scp -o stricthostkeychecking=no -r ./public/* travis@astrobear.top:/usr/astroblog/public/
+- scp -o stricthostkeychecking=no -r ./public/* root@astrobear.top:/usr/astroblog/public/
 - cd ./public
 - git init
 - git add --all .
 - git commit -m "Travis CI Auto Builder"
-- git push --quiet --force https://$GITHUB_TOKEN@github.com/Astrobr/astroblog.github.io.git
+- git push --quiet --force https://$GIT_TOKEN@github.com/Astrobr/astroblog.git
   master
 addons:
-  ssh_known_hosts: 
-    - 119.3.248.174
-    - astrobear.top
+  ssh_known_hosts:
+  - 119.3.248.174
+  - astrobear.top
