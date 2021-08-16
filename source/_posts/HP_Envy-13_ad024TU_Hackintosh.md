@@ -243,3 +243,7 @@ excerpt: 黑苹果安装的踩坑记录。
 | 网卡 | ~~Intel 7265NGW~~（已更换为DW1560）                |
 | 声卡 | ALC295                                             |
 
+
+
+> 目前，Open Core已经成为黑苹果社区使用的主流引导，博主同样将黑苹果迁移到了OC上面，有需要的话可以下载[这个仓库](https://github.com/Astrobr/OCForEnvy13-ad0xx)中提供的EFI文件。此外，更换电脑之后我不打算再折腾黑苹果了，于Github上存放EFI的仓库将不再更新。
+

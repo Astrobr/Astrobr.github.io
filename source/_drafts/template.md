@@ -16,6 +16,10 @@ tags:
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
 #excerpt: ...
 
+#If you don't want to show the ToC (Table of Content) at sidebar, delete the well number below. 
+
+#toc: false
+
 #You can begin to input your article below now.
 
 ---
