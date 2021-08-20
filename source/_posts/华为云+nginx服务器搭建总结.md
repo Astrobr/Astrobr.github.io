@@ -8,8 +8,7 @@ categories:
 tags: 
 	- Nginx
 	- Internet server
-	- Network Technology
-	- Experience
+	- Blog
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.

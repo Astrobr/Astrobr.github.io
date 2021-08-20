@@ -348,3 +348,12 @@ Host *
 点击Travis CI对应仓库标题右侧的绿色图标可以将其以Markdown格式添加到你的Github仓库的`readme.md`文件中。如果Travis CI操作的分支不是默认分支，那么这个图标将只显示`unknown`的状态。
 
 ![](https://astrobear.top/resource/astroblog/content/build_passing_mark.png)
+
+
+
+参考：
+
+[使用 Travis 打造 SpringBoot 应用持续集成和自动部署 | Travis CI 初体验 (juejin.cn)](https://juejin.cn/post/6946220560938434596#heading-13)
+
+[基于 Hexo 的全自动博客构建部署系统 - KChen's Blog](https://kchen.cc/2016/11/12/hexo-instructions/#总结)
+
