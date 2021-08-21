@@ -17,7 +17,7 @@ cover: https://cn.bing.com/th?id=OIP.o6vbAWXSs3ffmE8NXNaZ4QHaEM&pid=Api&rs=1
 thumbnail: https://cn.bing.com/th?id=OIP.o6vbAWXSs3ffmE8NXNaZ4QHaEM&pid=Api&rs=1
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
-#excerpt: ...
+#excerpt: 
 
 #You can begin to input your article below now.
 
@@ -26,6 +26,8 @@ thumbnail: https://cn.bing.com/th?id=OIP.o6vbAWXSs3ffmE8NXNaZ4QHaEM&pid=Api&rs=1
 ### APIs of Multirotor in Airsim
 
 by Astrobear
+
+<!-- more -->
 
 #### Preface
 
