@@ -11,6 +11,8 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
+cover: https://astrobear.top/resource/astroblog/thumbnail/hpenvy13hackintosh.jpeg
+
 thumbnail: https://astrobear.top/resource/astroblog/thumbnail/hpenvy13hackintosh.jpeg
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
@@ -588,4 +590,6 @@ daliansky整理了一个清单，里面收集了大量不同机型的EFI文件�
 
 
 
+> 📌 **Note**
+>
 > 在这篇文章写成之后不久，Apple推出了M1芯片以及macOS Big Sur。这对黑苹果来说无疑是一个重大打击。虽然macOS肯定还会对使用Intel CPU的电脑继续提供几年的支持，但是如果苹果未来不再推出使用Intel CPU的电脑，那么黑苹果的未来恐怕不容乐观。另外，黑苹果社区也出现了比较大的变化。随着更先进更安全更简单的Open Core逐渐成熟，其使用者也越来越多。虽然Clover仍然保留了对最新的macOS的支持，但是其已然落后。这也就是说，在这篇文章写完之后，其内容已经过时了（悲，但如果是安装Big Sur以下版本的macOS，这篇文章还是有一定的指导意义的）。最后，出于时间和精力的考虑，博主已经不打算再折腾黑苹果了。感谢黑苹果这两年来的陪伴。

@@ -12,6 +12,8 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
+cover: https://astrobear.top/resource/astroblog/content/RLS5F1.jpeg
+
 thumbnail: https://astrobear.top/resource/astroblog/content/RLS5F1.jpeg
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.

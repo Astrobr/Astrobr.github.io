@@ -12,6 +12,8 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
+cover: https://cn.bing.com/th?id=OIP.o6vbAWXSs3ffmE8NXNaZ4QHaEM&pid=Api&rs=1
+
 thumbnail: https://cn.bing.com/th?id=OIP.o6vbAWXSs3ffmE8NXNaZ4QHaEM&pid=Api&rs=1
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.

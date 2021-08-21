@@ -12,6 +12,8 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
+cover: https://astrobear.top/resource/astroblog/thumbnail/hpenvy13hackintosh.jpeg
+
 thumbnail: https://astrobear.top/resource/astroblog/thumbnail/hpenvy13hackintosh.jpeg
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
@@ -245,5 +247,7 @@ excerpt: 黑苹果安装的踩坑记录。
 
 
 
+> 📌 **Note**
+>
 > 目前，Open Core已经成为黑苹果社区使用的主流引导，博主同样将黑苹果迁移到了OC上面，有需要的话可以下载[这个仓库](https://github.com/Astrobr/OCForEnvy13-ad0xx)中提供的EFI文件。此外，更换电脑之后我不打算再折腾黑苹果了，于Github上存放EFI的仓库将不再更新。
 

@@ -12,6 +12,8 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
+cover: https://pic4.zhimg.com/v2-e7dd00d7fda722d5f8f70a9928e95a17_r.jpg
+
 thumbnail: https://pic4.zhimg.com/v2-e7dd00d7fda722d5f8f70a9928e95a17_r.jpg
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.

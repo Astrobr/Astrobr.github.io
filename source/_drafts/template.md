@@ -11,6 +11,9 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
+
+#cover: /thumbnail/xxx.xxx
+
 #thumbnail: /thumbnail/xxx.xxx
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
