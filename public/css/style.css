@@ -11571,6 +11571,7 @@ figure.highlight .section {
 .katex-display {
   overflow-x: auto;
   overflow-y: hidden;
+  linebreaks: {"automatic":"(true)"};
 }
 .katex {
   white-space: nowrap;
