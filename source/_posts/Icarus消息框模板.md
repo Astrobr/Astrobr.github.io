@@ -32,6 +32,14 @@ Hexo主题Icarus的[示例网站](https://ppoffice.github.io/hexo-theme-icarus/)
 这是一个默认白色消息框，点击<a href="https://astrobear.top">此处</a>以浏览更多。
 </div>
 </article>
+```html
+<article class="message message-immersive is-white">
+<div class="message-body">
+<i class="fas fa-info-circle mr-2"></i>
+这是一个默认白色消息框，点击<a href="https://astrobear.top">此处</a>以浏览更多。
+</div>
+</article>
+```
 
 # 黑
 <article class="message message-immersive is-black">
@@ -40,6 +48,14 @@ Hexo主题Icarus的[示例网站](https://ppoffice.github.io/hexo-theme-icarus/)
 这是一个默认黑色消息框，点击<a href="https://astrobear.top">此处</a>以浏览更多。
 </div>
 </article>
+```HTML
+<article class="message message-immersive is-black">
+<div class="message-body">
+<i class="fas fa-info-circle mr-2"></i>
+这是一个默认黑色消息框，点击<a href="https://astrobear.top">此处</a>以浏览更多。
+</div>
+</article>
+```
 
 # 亮
 <article class="message message-immersive is-light">
@@ -48,6 +64,14 @@ Hexo主题Icarus的[示例网站](https://ppoffice.github.io/hexo-theme-icarus/)
 这是一个默认亮消息框，点击<a href="https://astrobear.top">此处</a>以浏览更多。
 </div>
 </article>
+```HTML
+<article class="message message-immersive is-light">
+<div class="message-body">
+<i class="fas fa-info-circle mr-2"></i>
+这是一个默认亮消息框，点击<a href="https://astrobear.top">此处</a>以浏览更多。
+</div>
+</article>
+```
 
 # 暗
 <article class="message message-immersive is-dark">
@@ -56,6 +80,14 @@ Hexo主题Icarus的[示例网站](https://ppoffice.github.io/hexo-theme-icarus/)
 这是一个默认暗消息框，点击<a href="https://astrobear.top">此处</a>以浏览更多。
 </div>
 </article>
+```HTML
+<article class="message message-immersive is-dark">
+<div class="message-body">
+<i class="fas fa-info-circle mr-2"></i>
+这是一个默认暗消息框，点击<a href="https://astrobear.top">此处</a>以浏览更多。
+</div>
+</article>
+```
 
 # 基本
 <article class="message message-immersive is-primary">
@@ -64,6 +96,14 @@ Hexo主题Icarus的[示例网站](https://ppoffice.github.io/hexo-theme-icarus/)
 这是一个基本消息框，点击<a href="https://astrobear.top">此处</a>以浏览更多。
 </div>
 </article>
+```HTML
+<article class="message message-immersive is-primary">
+<div class="message-body">
+<i class="fas fa-info-circle mr-2"></i>
+这是一个基本消息框，点击<a href="https://astrobear.top">此处</a>以浏览更多。
+</div>
+</article>
+```
 
 # 链接
 <article class="message message-immersive is-link">
@@ -72,6 +112,14 @@ Hexo主题Icarus的[示例网站](https://ppoffice.github.io/hexo-theme-icarus/)
 这是一个链接消息框，点击<a href="https://astrobear.top">此处</a>以浏览更多。
 </div>
 </article>
+```HTML
+<article class="message message-immersive is-link">
+<div class="message-body">
+<i class="fas fa-link mr-2"></i>
+这是一个链接消息框，点击<a href="https://astrobear.top">此处</a>以浏览更多。
+</div>
+</article>
+```
 
 # 信息
 <article class="message message-immersive is-info">
@@ -80,6 +128,14 @@ Hexo主题Icarus的[示例网站](https://ppoffice.github.io/hexo-theme-icarus/)
 这是一个信息消息框，点击<a href="https://astrobear.top">此处</a>以浏览更多。
 </div>
 </article>
+```HTML
+<article class="message message-immersive is-info">
+<div class="message-body">
+<i class="fas fa-info-circle mr-2"></i>
+这是一个信息消息框，点击<a href="https://astrobear.top">此处</a>以浏览更多。
+</div>
+</article>
+```
 
 # 成功
 <article class="message message-immersive is-success">
@@ -88,6 +144,14 @@ Hexo主题Icarus的[示例网站](https://ppoffice.github.io/hexo-theme-icarus/)
 这是一个成功消息框，点击<a href="https://astrobear.top">此处</a>以浏览更多。
 </div>
 </article>
+```HTML
+<article class="message message-immersive is-success">
+<div class="message-body">
+<i class="fas fa-check mr-2"></i>
+这是一个成功消息框，点击<a href="https://astrobear.top">此处</a>以浏览更多。
+</div>
+</article>
+```
 
 # 警告
 <article class="message message-immersive is-warning">
@@ -96,6 +160,14 @@ Hexo主题Icarus的[示例网站](https://ppoffice.github.io/hexo-theme-icarus/)
 这是一个警告消息框，点击<a href="https://astrobear.top">此处</a>以浏览更多。
 </div>
 </article>
+```HTML
+<article class="message message-immersive is-warning">
+<div class="message-body">
+<i class="fas fa-exclamation-triangle mr-2"></i>
+这是一个警告消息框，点击<a href="https://astrobear.top">此处</a>以浏览更多。
+</div>
+</article>
+```
 
 # 危险
 <article class="message message-immersive is-danger">
@@ -104,3 +176,12 @@ Hexo主题Icarus的[示例网站](https://ppoffice.github.io/hexo-theme-icarus/)
 这是一个危险消息框，点击<a href="https://astrobear.top">此处</a>以浏览更多。
 </div>
 </article>
+```HTML
+<article class="message message-immersive is-danger">
+<div class="message-body">
+<i class="fas fa-bug mr-2"></i>
+这是一个危险消息框，点击<a href="https://astrobear.top">此处</a>以浏览更多。
+</div>
+</article>
+```
+
