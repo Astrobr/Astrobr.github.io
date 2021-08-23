@@ -11376,11 +11376,11 @@ figure.highlight .section {
   color: $white-invert;
 }
 .widget .tags .tag:first-child {
-  background: #f5f5f5;
-  color: #4a4a4a;
+  background: $light-grey;
+  color: $white-invert;
 }
 .widget .tags .tag:last-child {
-  background: #e7e7e7;
+  background: #e4e4e4;
   color: $white-invert;
 }
 #toc {
@@ -11698,7 +11698,7 @@ body.night {
   color: #cbba7d;
 }
 .night #night-nav #night-icon:before {
-  content: '\f186';
+  content: '\f185';
 }
 .night .navbar-menu {
   background-color: inherit;
@@ -11946,6 +11946,14 @@ body.night {
 .night article.article .title:hover a,
 .night article.media .title:hover a {
   color: #c0c0c0 !important;
+}
+.night .tags .tag:first-child {
+  background: #373d48;
+  color: #c0c0c0;
+}
+.night .tags .tag:last-child {
+  background: #373d48;
+  color: #c0c0c0;
 }
 .night .tag:not(body) {
   color: #c0c0c0;
