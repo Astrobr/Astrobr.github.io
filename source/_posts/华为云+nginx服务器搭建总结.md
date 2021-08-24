@@ -22,6 +22,17 @@ excerpt: 搭建自己的服务器并不难，只是过程较为复杂。
 #You can begin to input your article below now.
 ---
 
+<article class="message message-immersive is-info">
+<div class="message-body">
+<i class="fas fa-info-circle mr-2"></i>
+这是Astrobear“建站搭博客”系列的第一篇文章，你可以点击下方链接查看该系列其他文章。
+</div>
+</article>
+
+
+- “建站搭博客”系列之二：[Hexo博客的安装和自动部署](https://astrobear.top/2021/08/16/Hexo的安装和自动部署/)
+- “建站搭博客”系列之三：[Hexo主题Icarus的自定义](https://astrobear.top/2021/08/23/Hexo主题Icarus的自定义/)
+
 > 由于自己是去年七月配置好的服务器，有一些细节或者遇到的问题已经记不太清，故本文可能会有不完整的地方，遇到问题请善用搜索引擎，而且服务器的配置方法也不只有这一种。本文主要用作对自己操作步骤和方法的一个总结，以便于日后查阅。
 
 ### 购买服务器

@@ -27,6 +27,16 @@ excerpt: 填坑。
 
 ---
 
+<article class="message message-immersive is-info">
+<div class="message-body">
+<i class="fas fa-info-circle mr-2"></i>
+这是Astrobear“建站搭博客”系列的第二篇文章，你可以点击下方链接查看该系列其他文章。
+</div>
+</article>
+
+- “建站搭博客”系列之一：[华为云+nginx服务器搭建总结](https://astrobear.top/2020/01/08/华为云+nginx服务器搭建总结/)
+- “建站搭博客”系列之三：[Hexo主题Icarus的自定义](https://astrobear.top/2021/08/23/Hexo主题Icarus的自定义/)
+
 > 在2020年年初Astroblog搭建完成的时候，我就打算记录下当时整个服务器搭建和博客的部署过程。这个过程我打算分为三篇文章来水，分别是服务器搭建、Hexo安装与自动部署、博客主题Icarus的自定义。后来由于种种原因，只写完了三篇文章中的第一篇，剩下两篇拖更到现在。前段时间刚好换了电脑，由于当时部署博客的很多细节都不记得了，迁移的过程尤其痛苦，踩了各种坑之后才终于搞定。于是趁热打铁，赶紧把这两个坑填了，权当备忘。
 
 # 关于Hexo
@@ -352,6 +362,8 @@ Host *
 ![](https://astrobear.top/resource/astroblog/content/build_passing_mark.png)
 
 
+
+---
 
 参考：
 
