@@ -266,7 +266,7 @@ body.night {
   color: #c0c0c0;
 }
 .night .tags .tag:last-child {
-  background: #373d48;
+  background: #2d333e;
   color: #c0c0c0;
 }
 .night .tag:not(body) {

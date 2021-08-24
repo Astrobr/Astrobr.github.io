@@ -7,7 +7,7 @@ class Profile extends Component {
         if (!links.length) {
             return null;
         }
-        return <div class="level is-mobile">
+        return <div class="level is-mobile is-multiline">
             {links.filter(link => typeof link === 'object').map(link => {
                 return <a class="level-item button is-transparent is-marginless"
                     target="_blank" rel="noopener" title={link.name} href={link.url}>
@@ -31,7 +31,7 @@ class Profile extends Component {
         } = this.props;
         return <div class="card widget" data-type="profile">
             <div class="card-content">
-                <nav class="level" style="margin-bottom:1rem">
+                <nav class="level">
                     <div class="level-item has-text-centered flex-shrink-1">
                         <div>
                             <figure class="image is-128x128 mx-auto mb-2">
@@ -97,7 +97,7 @@ Profile.Cacheable = cacheComponent(Profile, 'widget.profile', props => {
 
     function getAvatar() {
         if (gravatar) {
-            return gravatrHelper(gravatar, 96);
+            return gravatrHelper(gravatar, 128);
         }
         if (avatar) {
             return url_for(avatar);
@@ -134,17 +134,17 @@ Profile.Cacheable = cacheComponent(Profile, 'widget.profile', props => {
             post: {
                 count: postCount,
                 title: _p('common.post', postCount),
-                url: url_for('/archives/')
+                url: url_for('/archives')
             },
             category: {
                 count: categoryCount,
                 title: _p('common.category', categoryCount),
-                url: url_for('/categories/')
+                url: url_for('/categories')
             },
             tag: {
                 count: tagCount,
                 title: _p('common.tag', tagCount),
-                url: url_for('/tags/')
+                url: url_for('/tags')
             }
         },
         followLink: follow_link ? url_for(follow_link) : undefined,

@@ -3,7 +3,7 @@ const { Component, Fragment } = require('inferno');
 const Share = require('./share');
 const Donates = require('./donates');
 const Comment = require('./comment');
-const ArticleLicensing = require('../ext/article_licensing');
+const ArticleLicensing = require('hexo-component-inferno/lib/view/misc/article_licensing');
 
 /**
  * Get the word count of text.
