@@ -28,7 +28,12 @@ Icarus是Hexo的一款简单、精致、现代的主题，也是我的博客目�
 
 # Icarus升级过程
 
-
+<article class="message message-immersive is-warning">
+<div class="message-body">
+<i class="fas fa-exclamation-triangle mr-2"></i>
+在升级前请务必备份你的原文件！
+</div>
+</article>
 
 根据主题作者的教程，如果你打算通过修改源代码的方式自定义主题，你必须从源代码安装主题。所以我直接在[该主题的Release](https://github.com/ppoffice/hexo-theme-icarus/releases)下载了其最新版本（4.4.0）的源代码，将文件夹下`./Themes/Icarus/`中现有的旧文件全部删除后，再将新版本的主题文件复制进去。
 
@@ -46,7 +51,13 @@ https://github.com/highlightjs/highlight.js/issues/2277
 
 经过查询，这是由Hexo的一个依赖：`hexo-util`引起的，其作者已经在最新的版本中修正了这一错误（参考：[BugFix: Correct highlighting of multi-line element (fix #10 and hexojs/hexo#2291) by seaoak · Pull Request #22 · hexojs/hexo-util (github.com)](https://github.com/hexojs/hexo-util/pull/22)）。因此，只需要在终端中输入`npm install hexo-util --save`将其更新即可。
 
-此外，在更新的过程中，Icarus还会在你的博客根目录创建一个新的主题配置文件`_config,icarus.yml`。这一动作会在终端中以警告的形式表现出来。在完成上述操作后，请不要忘记将旧的主题文件
+此外，在更新的过程中，Icarus还会在你的博客根目录创建一个新的主题配置文件`_config,icarus.yml`。这一动作会在终端中以警告的形式表现出来。在完成上述操作后，请不要忘记将旧的主题文件的配置迁移到新的上面。
+
+# 布局
+
+# 样式
+
+
 
 
 
