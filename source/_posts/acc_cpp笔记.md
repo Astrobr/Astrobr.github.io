@@ -1,5 +1,5 @@
 ---
-title: C++学习笔记
+title: Accelerated C++笔记
 date: 2021-09-16 10:30:00
 categories: 
 	- [CS]
@@ -11,11 +11,11 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-#cover: https://astrobear.top/resource/astroblog/thumbnail/cpp.png
-#thumbnail: https://astrobear.top/resource/astroblog/thumbnail/cpp.png
+cover: https://astrobear.top/resource/astroblog/thumbnail/cpp.png
+thumbnail: https://astrobear.top/resource/astroblog/thumbnail/cpp.png
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
-#excerpt: C++基础知识。
+excerpt: C++基础知识。
 
 #If you don't want to show the ToC (Table of Content) at sidebar, delete the well number below. 
 #toc: false
@@ -26,7 +26,7 @@ tags:
 
 > 虽然两年前就已经接触过C++，但是之前短暂的学习根本不足以让我系统掌握这门语言的用法。现在由于有项目开发的需求，我决定重新开始较为系统地学习C++。由于有C语言的基础，在入门阶段我使用Accelerated C++这本书来学习。这本书虽然较为老旧，但是内容不多，读起来也比较轻松。这篇文章是对我在看书和编程时遇到的问题和重点的总结备忘，内容比较零碎，还请大家谅解。
 
-# Accelerated C++笔记
+# 语言特性
 
 ## 基础知识
 
@@ -1017,7 +1017,7 @@ int nrand(int n)
 }
 ```
 
-## 编程习惯
+# 编程习惯
 
 该部分的内容很多，涉及范围也很广，因此在这里我只纪录根据我个人实际情况需要注意的要点。更全面和详细的内容可以参考[C++ 风格指南 - 内容目录 — Google 开源项目风格指南 (zh-google-styleguide.readthedocs.io)](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/contents/)。
 
