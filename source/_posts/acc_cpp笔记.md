@@ -11,11 +11,11 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-#cover: https://astrobear.top/resource/astroblog/thumbnail/xxx
-#thumbnail: https://astrobear.top/resource/astroblog/thumbnail/xxx
+#cover: https://astrobear.top/resource/astroblog/thumbnail/cpp.png
+#thumbnail: https://astrobear.top/resource/astroblog/thumbnail/cpp.png
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
-#excerpt: ...
+#excerpt: C++基础知识。
 
 #If you don't want to show the ToC (Table of Content) at sidebar, delete the well number below. 
 #toc: false
@@ -24,9 +24,9 @@ tags:
 
 ---
 
-> 虽然两年前就已经接触过C++，但是之前短暂的学习根本不足以让我系统掌握这门语言的用法。现在由于有项目开发的需求，我决定重新开始较为系统地学习C++。由于有C语言的基础，在入门阶段我使用Accelerated C++这本书来学习。这本书虽然较为老旧，但是内容不多，读起来也比较轻松。这篇文章是对我在看书和编程时遇到的问题和重点的一个总结，内容比较零碎。
+> 虽然两年前就已经接触过C++，但是之前短暂的学习根本不足以让我系统掌握这门语言的用法。现在由于有项目开发的需求，我决定重新开始较为系统地学习C++。由于有C语言的基础，在入门阶段我使用Accelerated C++这本书来学习。这本书虽然较为老旧，但是内容不多，读起来也比较轻松。这篇文章是对我在看书和编程时遇到的问题和重点的总结备忘，内容比较零碎，还请大家谅解。
 
-# 语言特性
+# Accelerated C++笔记
 
 ## 基础知识
 
@@ -163,6 +163,8 @@ tags:
   - `INF`：表示*Infinite*，无穷大，超出了浮点数的表示范围
   
 - 如果非成员函数的调用位置在定义之前，那么需要先对其进行声明；如果调用位置在定义之后，就不需要声明了
+
+- 前置声明：如果两个类的定义是相互依赖的，那么在定义第一个类前必须先对第二个类进行前置声明，告诉编译器有这个类存在，否则会出现无穷嵌套的问题
 
 ## 新类型
 
@@ -310,11 +312,29 @@ private:
 
 - 构造函数列表：在`public`作用范围内的构造函数的声明
 
+- 构造函数的定义：
+
+  ```c++
+  Student_info::Student_info(double midterm, double final);
+  ```
+
+  上面定义了一个参数为 `midterm`和`final`的构造函数，下面给出声明与初始化例：
+
+  ```c++
+  Student_info::Student_info stu(100, 99);
+  ```
+
+  上面声明并初始化了一个名为`stu`的`Student_info`类型的对象，并设置了其成员数据的值
+
+- 构造函数默认参数：构造函数的参数同样可以给定其默认值，从而可以进行缺省初始化
+
 - 缺省构造函数：不带参数的构造函数，如：
 
   ```c++
   Student_info::Student_info(): midterm(0), final(0) {};
   ```
+
+  使用该方式同样可以进行对象的缺省初始化
 
 - 上面的语句中，`:`与`{`之间的内容为**构造函数初始化程序**，程序会用括号中的值初始化相应的数据成员
 
@@ -327,6 +347,8 @@ private:
 - 不建议在构造函数的函数体中对对象进行初始化，如果这样那就相当于对对象做了两次初始化
 
 - `explicit`关键字：函数名前添加了此关键字的构造函数只能在被显式调用时才能使用
+
+- 
 
 #### 析构函数
 
@@ -675,6 +697,24 @@ T function(vector<T> v)
 - 析构函数：同样要考虑当前的句柄类是不是最后一个指向该对象的句柄，具体操作不再赘述
 - 在修改句柄类指向的对象的值时，亦需要考虑当前的句柄类是不是最后一个指向该对象的句柄，如果是的话，那么直接修改这个指针指向的对象的值即可，否则要先将当前所指向的对象的引用计数减一，然后基于旧对象复制一个新对象并将指针指向它，并将它的引用计数设为一，上述的操作可写为成员函数并在接口类中调用
 
+## 抽象基类
+
+- 概念：抽象基类是一种接口类，它用于提供一类对象的基本特征，然后再通过由其派生初来的派生类来实现可以归入该类对象下的其他特定类型的对象的详细特征
+- 一般来说，抽象基类使用纯虚函数来实现这种特性
+- 抽象基类可以使用句柄类来自动管理内存
+
+### 纯虚函数
+
+- 纯虚函数的函数体为`= 0`，它没有具体的实现，声明例如下：
+
+  ```c++
+  virtual void display() = 0;
+  ```
+
+- *含有纯虚函数的类就是一个抽象基类*，它不能有一个实际的对象
+- 纯虚函数在抽象基类的派生类中得到实现
+- 如果在派生类中继承而来的纯虚函数没有定义，那么它仍然是一个纯虚函数
+
 ## 输入与输出
 
 - 标准输出流：
@@ -977,8 +1017,7 @@ int nrand(int n)
 }
 ```
 
-
-# 编程习惯
+## 编程习惯
 
 该部分的内容很多，涉及范围也很广，因此在这里我只纪录根据我个人实际情况需要注意的要点。更全面和详细的内容可以参考[C++ 风格指南 - 内容目录 — Google 开源项目风格指南 (zh-google-styleguide.readthedocs.io)](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/contents/)。
 
