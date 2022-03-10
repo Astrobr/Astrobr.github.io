@@ -16,7 +16,7 @@ cover: https://astrobear.top/resource/astroblog/thumbnail/dsa.jpg
 thumbnail: https://astrobear.top/resource/astroblog/thumbnail/dsa.jpg
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
-excerpt: 绪论
+excerpt: 新的一年，新的坑。
 
 #If you don't want to show the ToC (Table of Content) at sidebar, delete the well number below. 
 #toc: false
@@ -82,15 +82,15 @@ excerpt: 绪论
 
 #### 渐进复杂度
 
-渐进复杂度用于考察算法在处理大规模问题时的能力好坏，它注重复杂度的总体变化趋势和增长速度。因此，在衡量算法的复杂度时，其问题规模`n`通常很大。
+渐进复杂度用于考察算法在处理大规模问题时的能力好坏，它注重复杂度的总体变化趋势和增长速度。因此，在衡量算法的复杂度时，其问题规模$n$通常很大。
 
-##### 大O记号
+##### 大$\mathcal O$记号
 
 出于保守估计，我们一般关心$T(n)$的渐进上界，以“大$\mathcal{O}$记号”表示：$\mathcal{O}(n)$。该记号在未来分析算法的复杂度时最为常用。
 
-关于其定义，有：$T(n)\le c\cdot f(n) $，即认为在$n$足够大以后，$f(n)$给出了$T(n)$增长速度的一个渐进上界。此时记$T(n) = \mathcal O (f(n))$。**这里可以将`c`理解为执行基本操作所需要的时间，$f(n)$为对规模为$n$的输入，需要的操作次数。**
+关于其定义，有：$T(n)\le c\cdot f(n) $，即认为在$n$足够大以后，$f(n)$给出了$T(n)$增长速度的一个渐进上界。此时记$T(n) = \mathcal O (f(n))$。**这里可以将$c$理解为执行基本操作所需要的时间，$f(n)$为对规模为$n$的输入，需要的操作次数。**
 
-大O记号有以下性质：
+大$\mathcal O$记号有以下性质：
 
 - 对任一常数$c\gt 0$，有$\mathcal O (f(n)) = \mathcal O (c\cdot f(n))$
 - 对任意常数$a\gt b\gt 0$，有$\mathcal O (n^a + n^b) = \mathcal O (n^a)$
