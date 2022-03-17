@@ -297,7 +297,7 @@ if ($toc.length > 0) {
 
 复制下面的代码，然后在`./themes/icarus/source/css/`目录下创建`night.styl`文件并粘贴。
 
-```stylus night.styl
+{% codeblock "night.styl" lang:stylus >folded %}
 dark-primary-color = rgb(55, 61, 72)
 dark-primary-color-hover = rgb(67, 74, 86)
 dark-primary-color-active = rgb(44, 49, 58)
@@ -676,7 +676,7 @@ body.night
   .hljs-link {
     text-decoration: underline
   }
-```
+{% endcodeblock %}
 
 接下来需要修改一下样式文件。
 
