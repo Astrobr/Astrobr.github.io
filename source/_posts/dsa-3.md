@@ -191,11 +191,11 @@ template <typename T> void Vector<T>::expand() { //向量空间不足时扩容
 
 接下来使用分摊分析的方法来分析向量插入操作的复杂度。
 
-假定的`_elem[]`的初始容量和初始规模均为某一常数`N`。假设在此后需要连续进行`n`次操作，并且`n`远大于`N`。因此，在连续插入`n`个元素后，向量的规模`_size`应该变成`n + N`。根据向量扩充的策略，装填因子绝对不会超过100%，同时也不会低于50%。因此，在连续插入`n`个元素后，有下面的关系$\rm{{\_} size}\le\rm{{\_} capacity}<2\cdot\rm{{\_} size}$。
+假定的`_elem[]`的初始容量和初始规模均为某一常数`N`。假设在此后需要连续进行`n`次操作，并且`n`远大于`N`。因此，在连续插入`n`个元素后，向量的规模`_size`应该变成`n + N`。根据向量扩充的策略，装填因子绝对不会超过100%，同时也不会低于50%。因此，在连续插入`n`个元素后，有下面的关系$\rm{\underline{ }size}\le\rm{\underline{ } capacity}<2\cdot\rm{\underline{ } size}$。
 
-于是有：$\rm{{\_} capacity} = \Theta(\rm{{\_} size}) = \Theta(n + N) = \Theta(n)$。
+于是有：$\rm{\underline{ } capacity} = \Theta(\rm{\underline{ } size}) = \Theta(n + N) = \Theta(n)$。
 
-向量的容量以2为比例按指数速度增长，在容量到达`_capacity`前，共做过$\Theta(\log_2n)$次扩容，每次扩容所需要的时间正比于向量当时的规模，并且同样以2为比例按指数速度增长。因此消耗于扩容的时间为：$\rm T(n)=2N + 4N + ... + {\_} capacity < 2\cdot {\_} capacity = \Theta(n)$。分摊到每次操作上，单次操作所需要的运行时间应为$\mathcal O (1)$。
+向量的容量以2为比例按指数速度增长，在容量到达`_capacity`前，共做过$\Theta(\log_2n)$次扩容，每次扩容所需要的时间正比于向量当时的规模，并且同样以2为比例按指数速度增长。因此消耗于扩容的时间为：$\rm T(n)=2N + 4N + ... + \underline{ } capacity < 2\cdot \underline{ } capacity = \Theta(n)$。分摊到每次操作上，单次操作所需要的运行时间应为$\mathcal O (1)$。
 
 ### 向量的缩容
 
