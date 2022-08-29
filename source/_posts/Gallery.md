@@ -26,7 +26,7 @@ widgets: []
 #You can begin to input your article below now.
 ---
 
-> Photos will continue to update...
+> Updating...
 
 <div class="justified-gallery">
 
