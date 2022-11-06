@@ -13,6 +13,7 @@ before_install:
 - git config --global user.name "$GIT_NAME"
 - git config --global user.email "$GIT_EMAIL"
 - npm install -g hexo-cli
+- npm install --save hexo-tag-aplayer
 install:
 - npm install
 script:

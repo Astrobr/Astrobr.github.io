@@ -104,3 +104,7 @@ theme: icarus
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: ''
+
+aplayer:
+  meting: true
+  asset_inject: true
