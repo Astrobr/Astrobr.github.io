@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Hexo博客的安装和自动部署 - Astroblog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Astroblog"><meta name="msapplication-TileImage" content="/img/favicon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Astroblog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="填坑。"><meta property="og:type" content="blog"><meta property="og:title" content="Hexo博客的安装和自动部署"><meta property="og:url" content="http://astrobear.top/2021/08/16/Hexo%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/"><meta property="og:site_name" content="Astroblog"><meta property="og:description" content="填坑。"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://astrobear.top/resource/astroblog/thumbnail/TravisCI.png"><meta property="article:published_time" content="2021-08-16T10:00:00.000Z"><meta property="article:modified_time" content="2022-11-10T08:45:59.637Z"><meta property="article:author" content="Astrobear"><meta property="article:tag" content="Hexo"><meta property="article:tag" content="Blog"><meta property="article:tag" content="Travis CI"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://astrobear.top/resource/astroblog/thumbnail/TravisCI.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://astrobear.top/2021/08/16/Hexo%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/"},"headline":"Hexo博客的安装和自动部署","image":["https://astrobear.top/resource/astroblog/thumbnail/TravisCI.png"],"datePublished":"2021-08-16T10:00:00.000Z","dateModified":"2022-11-10T08:45:59.637Z","author":{"@type":"Person","name":"Astrobear"},"publisher":{"@type":"Organization","name":"Astroblog","logo":{"@type":"ImageObject","url":"http://astrobear.top/img/logo.png"}},"description":"填坑。"}</script><link rel="canonical" href="http://astrobear.top/2021/08/16/Hexo%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/"><link rel="icon" href="/img/favicon.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css"><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.2"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.png" alt="Astroblog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/2020/01/03/Gallery">Gallery</a><a class="navbar-item" href="/2020/01/03/About">About</a></div><div class="navbar-end"><a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="https://astrobear.top/resource/astroblog/thumbnail/TravisCI.png" alt="Hexo博客的安装和自动部署"></span></div><article class="card-content article" role="article"><h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">Hexo博客的安装和自动部署</h1><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><i class="far fa-calendar-alt"> </i><time dateTime="${date_xml(page.date)}" title="${date_xml(page.date)}">2021-08-16</time></span><span class="level-item is-hidden-mobile"><i class="far fa-calendar-check"> </i><time dateTime="${date_xml(page.updated)}" title="${date_xml(page.updated)}">2022-11-10</time></span><span class="level-item"><i class="far fa-folder-open has-text-grey"></i> <a class="link-muted" href="/categories/CS/">CS</a></span><span class="level-item"><i class="far fa-clock"></i> 34 minutes read (About 5172 words)</span><span class="level-item" id="busuanzi_container_page_pv"><i class="far fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><div class="content"><article class="message message-immersive is-info">
+<div class="message-body">
+<i class="fas fa-info-circle mr-2"></i>
+这是Astrobear“建站搭博客”系列的第二篇文章，你可以点击下方链接查看该系列其他文章。
+</div>
+</article>
+
+<ul>
+<li>“建站搭博客”系列之一：<a href="https://astrobear.top/2020/01/08/%E5%8D%8E%E4%B8%BA%E4%BA%91+nginx%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/">华为云+nginx服务器搭建总结</a></li>
+<li>“建站搭博客”系列之三：<a href="https://astrobear.top/2021/08/23/Hexo%E4%B8%BB%E9%A2%98Icarus%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89/">Hexo主题Icarus的自定义</a></li>
+</ul>
+<blockquote>
+<p>在2020年年初Astroblog搭建完成的时候，我就打算记录下当时整个服务器搭建和博客的部署过程。这个过程我打算分为三篇文章来水，分别是服务器搭建、Hexo安装与自动部署、博客主题Icarus的自定义。后来由于种种原因，只写完了三篇文章中的第一篇，剩下两篇拖更到现在。前段时间刚好换了电脑，由于当时部署博客的很多细节都不记得了，迁移的过程尤其痛苦，踩了各种坑之后才终于搞定。于是趁热打铁，赶紧把这两个坑填了，权当备忘。</p>
+</blockquote>
+<h1 id="关于Hexo"><a href="#关于Hexo" class="headerlink" title="关于Hexo"></a>关于Hexo</h1><p>Hexo是一个高效、简洁的博客框架。它基于Node.js，通过几条命令就可以由Markdown文件快速生成静态的HTML网页。静态网站具有轻量、速度快等特点。它的部署非常方便灵活，不但可以部署在服务器上，还可以部署在静态托管网站上，比如Github Pages。本文主要讨论如何将Hexo部署在服务器上。</p>
+<p>首先来认识一下Hexo项目中有什么文件：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">.</span></span><br><span class="line"><span class="string">├──</span> <span class="string">_config.yml</span> <span class="comment">#Hexo的配置文件</span></span><br><span class="line"><span class="string">├──</span> <span class="string">db.json</span> <span class="comment">#Hexo自动生成的文件</span></span><br><span class="line"><span class="string">├──</span> <span class="string">package.json</span> <span class="comment">#插件配置文件，下同</span></span><br><span class="line"><span class="string">├──</span> <span class="string">package-lock.json</span> </span><br><span class="line"><span class="string">├──</span> <span class="string">node_modules</span> <span class="comment">#生成网站需要用到的Node.js模块</span></span><br><span class="line"><span class="string">├──</span> <span class="string">scaffolds</span> <span class="comment">#存放模板的文件夹</span></span><br><span class="line"><span class="string">├──</span> <span class="string">source</span> <span class="comment">#博客Markdown源文件夹</span></span><br><span class="line"><span class="string">├──</span> <span class="string">public</span> <span class="comment">#存放生成的静态HTML文件</span></span><br><span class="line"><span class="string">└──</span> <span class="string">themes</span> <span class="comment">#主题文件夹</span></span><br></pre></td></tr></table></figure>
+
+<p>一般来说，Hexo部署的过程是这样的：</p>
+<ol>
+<li>在本地编辑Markdown文件并通过Hexo生成静态网页，存放于<code>./public</code>文件夹中</li>
+<li>将<code>./public</code>文件夹中的文件复制到远程服务器上</li>
+<li>设置服务器访问的网址为博客首页</li>
+</ol>
+<p>你同样可以在服务器上配置Hexo环境，将Markdown源文件上传到服务器上编译。不过一般还是推荐在本地编译，这样比较方便，并且还可以预览生成的博客。</p>
+<p>下面开始介绍Hexo博客安装和部署的具体操作。</p>
+<h1 id="Windows系统下Hexo的安装与部署"><a href="#Windows系统下Hexo的安装与部署" class="headerlink" title="Windows系统下Hexo的安装与部署"></a>Windows系统下Hexo的安装与部署</h1><h2 id="安装相关依赖"><a href="#安装相关依赖" class="headerlink" title="安装相关依赖"></a>安装相关依赖</h2><p>Hexo是基于Node.js来生成网页的，那么首先就要安装Node.js。Windows用户清前往<a target="_blank" rel="noopener" href="http://nodejs.cn/download/">Node.js官方下载地址</a>下载最新版本的<code>.msi</code>格式的安装包，下载之后打开安装包直接安装即可。安装程序可能会询问你是否自动安装必要的工具，这里没有必要勾选这个选项。</p>
+<p><img src="https://astrobear.top/resource/astroblog/content/install_node.png"></p>
+<p>一般来说安装最新版本的Node.js就可以了。但是作者在迁移博客的过程中发现，由于没有更新Hexo至最新版本，使用最新版本的Node.js会导致编译生成的网页全是空白的，所以作者最后还是使用了<code>v12.22.5</code>版本的Node.js。有需要的朋友可以在<a target="_blank" rel="noopener" href="https://npm.taobao.org/mirrors/node/">这里</a>下载到历史版本。</p>
+<h2 id="安装Hexo并撰写博客"><a href="#安装Hexo并撰写博客" class="headerlink" title="安装Hexo并撰写博客"></a>安装Hexo并撰写博客</h2><p>根据Hexo官方提供的安装方法，安装过程需要使用npm包管理工具。新版本的Node.js已经集成了npm，所以打开Powershell终端直接按顺序输入下面的命令行进行安装即可：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g #安装hexo</span><br><span class="line">cd &lt;dir&gt; #进入选定的博客存放目录</span><br><span class="line">hexo init #在当前目录初始化博客</span><br><span class="line">hexo g #生成博客文件</span><br><span class="line">hexo s #在本地浏览器预览你的博客</span><br></pre></td></tr></table></figure>
+
+<p>如果你看到终端输出了类似下面的信息，恭喜你，你的博客已经构建成功了！你可以在浏览器中访问<code>http://localhost:4000</code>来预览你的博客。</p>
+<p><img src="https://astrobear.top/resource/astroblog/content/hexo_init.png"></p>
+<p>你可以使用<code>./scafflods/post.md</code>作为模板创建你的第一篇博客。使用编辑器打开这个文件，可以模仿下面的内容来编写你的文章。模板中三根横线之间的内容是<code>yaml</code>文件头，并不使用Markdown语法，需要注意。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Hello</span> <span class="string">World!</span> <span class="comment">#标题</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2021-8</span><span class="number">-17</span> <span class="number">18</span><span class="string">:30:00</span> <span class="comment">#按格式填写博文创建的日期</span></span><br><span class="line"><span class="attr">tags:</span> <span class="comment">#按照下面的格式添加博文的标签</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">demo</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">hello</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">#在横线下面开始编辑你的博客正文</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="string">Hello</span> <span class="string">World!</span></span><br><span class="line"><span class="string">你好，世界！</span></span><br></pre></td></tr></table></figure>
+
+<p>写完以后，将这个文件放入<code>./source/_posts</code>文件夹中，该文件夹中的Markdown文件会被编译生成网页。而存放在<code>./source/_drafts</code>文件夹中的文件则只是草稿，并不会在网页中出现。</p>
+<p>最后，在你的博客目录下，再次执行<code>hexo g</code>和<code>hexo s</code>两条命令，你编辑的第一篇博客便可以以网页的形式在浏览器中预览了。另外，你还可以通过<code>hexo clean</code>命令来清除之前生成的HTML网页。</p>
+<h2 id="在服务器上部署Hexo"><a href="#在服务器上部署Hexo" class="headerlink" title="在服务器上部署Hexo"></a>在服务器上部署Hexo</h2><p>在本地生成了博客网页以后还不够，只有我们将<code>./public</code>中的HTML文件上传到服务器之后，其他人才能通过互联网浏览我们的博客。</p>
+<p>你可以使用命令行或者FTP客户端来将你的博客上传到服务器上的指定文件夹。由于作者不擅长使用命令行，所以还是使用了<code>FileZilla</code>这个有图形化界面的FTP软件来完成这个工作。</p>
+<p>最后，你需要将你的服务器的IP地址或者域名定向到你博客的首页。这里以nginx为例简单说说配置方法。</p>
+<p>在nginx的配置文件中的<code>server-location</code>项中，将<code>index</code>的值修改为博客首页的HTML文件，也即<code>&lt;dir&gt;/public/intex.html</code>，其中<code>&lt;dir&gt;</code>为你在服务器上存放博客<code>pubic</code>文件夹的目录。</p>
+<p>保存文件并重启nginx服务后，你应该便可以通过你的服务器的IP地址或者域名来访问你的博客了！</p>
+<h1 id="配置博客自动部署功能"><a href="#配置博客自动部署功能" class="headerlink" title="配置博客自动部署功能"></a>配置博客自动部署功能</h1><p>通过上面的方法，可以完成博客的编辑和部署工作。但是每次编辑完成以后，部署工作显得复杂繁琐。有没有一种办法，能够在完成博客的编辑以后，通过简单的操作就可以将博客部署到服务器上呢？答案是有的。我想实现的效果大概是这样：</p>
+<ol>
+<li>完成Markdown的编辑以后，直接上传<code>./source/_posts</code>文件夹中的源文件</li>
+<li>通过某种方式自动生成HTML文件并将其拷贝到服务器上</li>
+</ol>
+<p>这样我们就不需要每次都进行复杂的部署，并且可以专注于写作本身。</p>
+<p>下面具体来讲一下怎么实现这个目标。</p>
+<h2 id="什么是持续集成？"><a href="#什么是持续集成？" class="headerlink" title="什么是持续集成？"></a>什么是持续集成？</h2><p>想要实现博客的自动化部署，就必须引入持续集成这个概念。</p>
+<blockquote>
+<p>持续集成（Continuous Integration, CI）指的是，频繁地（一天多次）将代码集成到主干。持续集成可以使产品快速迭代，同时保证质量。——<a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2015/09/continuous-integration.html">持续集成是什么？ - 阮一峰的网络日志</a></p>
+</blockquote>
+<p>一般来说，持续集成可以让人们快速发现错误。在持续集成之后，随之而来的是持续交付和持续部署。持续交付指的是频繁地将软件提交给质量团队或者用户进行评审，如果评审通过，那么久将软件自动部署到生产环境中。我们通常说的持续集成，同时包括了上面三个过程。</p>
+<p>对于个人博客而言，持续集成和持续交付通常是一体的，也就是我们编辑博客内容的过程。而现在我们需要实现的就是持续部署的功能，即将自己的博客源文件自动生成网页并部署到服务器上。</p>
+<p>实现持续集成，就必须使用相应的工具。目前市面上的主流持续集成工具有：Jenkins、Travis CI、Gitlab CI等。在这里我们使用Github + Travis CI的组合来实现持续集成的功能。</p>
+<p>Travis CI是一个依赖于Github的持续集成工具，它从Github的代码仓库中拉取代码。它在检测到仓库文件有更改之后，会在远程自动创建一个虚拟机，然后根据你的Travis CI配置文件编译你仓库中的代码并执行其他一些操作。</p>
+<p>需要注意的是，Travis CI的<a target="_blank" rel="noopener" href="https://travis-ci.com/">官方网址</a>现在变为<strong>travis-ci.com</strong>而非travis-ci.org。后者现在是只读模式，请务必注意。</p>
+<h2 id="Github授权并生成Token"><a href="#Github授权并生成Token" class="headerlink" title="Github授权并生成Token"></a>Github授权并生成Token</h2><p>使用Travis CI首先就要对其授权使其可以访问自己的Github仓库。</p>
+<p>进入Travis CI的官网后直接用Github账号登录，根据提示开通Travis CI对仓库的访问授权。你可以选择允许访问所有仓库，也可以指定部分仓库以供访问。</p>
+<p>在自动部署的过程中，Travis CI需要通过命令对Github的仓库进行修改操作，这就需要我们登录Github服务。但是在登录的过程中，将自己的密码直接暴露出去是很危险的。所以，这里使用Token（令牌）来代替密码，以增强安全性。</p>
+<p>关于生成Github Token的方法，请看<a target="_blank" rel="noopener" href="https://docs.github.com/cn/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token">创建个人访问令牌 - GitHub Docs</a>。</p>
+<p>请妥善保存生成的Token。</p>
+<h2 id="使用Travis-CI进行持续集成"><a href="#使用Travis-CI进行持续集成" class="headerlink" title="使用Travis CI进行持续集成"></a>使用Travis CI进行持续集成</h2><h3 id="配置ssh免密登录服务器"><a href="#配置ssh免密登录服务器" class="headerlink" title="配置ssh免密登录服务器"></a>配置ssh免密登录服务器</h3><p>自动部署必然会对服务器端的文件进行操作，因此必须远程登录服务器。但是部署过程是由Travis CI自动完成的，我们也无法在Travis CI的控制台中输入服务器的登录密码。因此我们还要能够免密登录服务器。</p>
+<p>免密登录是基于密钥对来实现的。密钥对分为私钥和公钥，私钥以明文形式存储，由我们自己保存，千万不可泄露。而公钥由私钥加密而来，在进行ssh免密登录时，在网络中由本地传送到服务器的就是公钥。本地电脑和服务器经过一系列操作后比对生成的校验值，如果校验通过便可以登录到服务器。</p>
+<p>ssh免密登录的具体原理可以参考下图（来源：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/33461b619d53">图解SSH原理 - 简书 (jianshu.com)</a>）。</p>
+<p><img src="https://astrobear.top/resource/astroblog/content/ssh.jpeg"></p>
+<p>接下来讲讲实现方法。</p>
+<p>在Powershell中输入：<code>ssh-keygen -t rsa</code>。</p>
+<p>之后会提示你输入秘钥的名字，如果直接按回车跳过则会使用默认的文件名<code>id_rsa</code>。</p>
+<p>接着会让你输入并确定需要加密的密码，这里我们直接跳过。</p>
+<p>然后我们就可以在<code>C:/Users/&lt;你的用户名&gt;/.ssh</code>中看到新创建的两个文件，其中<code>id_rsa</code>为私钥，<code>id_rsa.pub</code>为公钥。</p>
+<p>在刚才的那个文件夹中创建文件<code>config</code>，不需要后缀名。其内容如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 远程主机名称</span><br><span class="line">Host &lt;你的服务器域名或ip地址&gt;</span><br><span class="line"># 远程主机域名或者 ip 地址</span><br><span class="line">HostName &lt;你的服务器域名或ip地址&gt;</span><br><span class="line"># 认证方式</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line"># 私钥位置</span><br><span class="line">IdentityFile C:/Users/&lt;你的用户名&gt;/.ssh/id_rsa</span><br><span class="line"># 用户名</span><br><span class="line">User root</span><br></pre></td></tr></table></figure>
+
+<p>将公钥复制一份，重命名为<code>authorized_keys</code>。然后将<code>id_rsa.pub</code>和<code>authorized_keys</code>上传到服务器的<code>~/.ssh</code>文件夹中。</p>
+<p>在终端里输入：<code>ssh root@&lt;你的服务器域名或ip地址&gt;</code>。如果不需要密码就可以登录的话，那就说明ssh免密登录设置成功了。</p>
+<p>如果在完成了上面的步骤之后在登录服务器时仍然需要输入密码，或者出现了类似下面的报错：</p>
+<p><code>Permission denied (publickey,gssapi-keyex,gssapi-with-mic).</code></p>
+<p>那么请尝试执行下面三条命令，更改服务器上<code>~/.ssh</code>文件夹的权限。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod 700 ~/.ssh/</span><br><span class="line">chmod 700 /home/userName</span><br><span class="line">chmod 600 ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置Travis-Ci"><a href="#配置Travis-Ci" class="headerlink" title="配置Travis Ci"></a>配置Travis Ci</h3><p>在博客的的根目录下面创建Travis CI的配置文件<code>.travis.yml</code>，并且将下面模板的内容添加到文件中。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#设置构建环境为Node.js</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">node_js</span> </span><br><span class="line"><span class="comment">#选择Node.js版本，我这里由于没有更新Hexo，所以使用了较老的版本，该项值一般为&quot;stable&quot;</span></span><br><span class="line"><span class="attr">node_js:</span> <span class="number">12.22</span><span class="number">.5</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">#设置需要编译的代码分支，Travis CI只检测当前分支的变动，请根据自己的实际情况修改</span></span><br><span class="line"><span class="attr">branches:</span></span><br><span class="line">  <span class="attr">only:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">hexo</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#在每次构建之前需要先配好环境</span></span><br><span class="line"><span class="attr">before_install:</span></span><br><span class="line"><span class="comment">#配置Travis CI免密登录服务器</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">openssl</span> <span class="string">aes-256-cbc</span> <span class="string">-K</span> <span class="string">$encrypted_&lt;key&gt;_key</span> <span class="string">-iv</span> <span class="string">$encrypted_&lt;iv&gt;_iv</span></span><br><span class="line">  <span class="string">-in</span> <span class="string">&lt;id_rsa.enc&gt;</span> <span class="string">-out</span> <span class="string">~/.ssh/id_rsa</span> <span class="string">-d</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">chmod</span> <span class="number">600</span> <span class="string">~/.ssh/id_rsa</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">eval</span> <span class="string">$(ssh-agent)</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">ssh-add</span> <span class="string">~/.ssh/id_rsa</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">cp</span> <span class="string">./ssh_config</span> <span class="string">~/.ssh/config</span></span><br><span class="line"><span class="comment">#配置Github信息以使Travis CI可以更改仓库</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">git</span> <span class="string">config</span> <span class="string">--global</span> <span class="string">user.name</span> <span class="string">&quot;$GIT_NAME&quot;</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">git</span> <span class="string">config</span> <span class="string">--global</span> <span class="string">user.email</span> <span class="string">&quot;$GIT_EMAIL&quot;</span></span><br><span class="line"><span class="comment">#安装Hexo</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">npm</span> <span class="string">install</span> <span class="string">-g</span> <span class="string">hexo-cli</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#安装package.json中的插件</span></span><br><span class="line"><span class="attr">install:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">npm</span> <span class="string">install</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#生成网页</span></span><br><span class="line"><span class="attr">script:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">hexo</span> <span class="string">clean</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">hexo</span> <span class="string">generate</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#生成成功之后需要执行的操作（部署）</span></span><br><span class="line"><span class="attr">after_success:</span></span><br><span class="line"><span class="comment">#将./public文件夹中的网页复制到服务器上的指定位置</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">scp</span> <span class="string">-o</span> <span class="string">stricthostkeychecking=no</span> <span class="string">-r</span> <span class="string">./public/*</span> <span class="string">root@&lt;你的域名或IP&gt;:&lt;博客网页存放的路径&gt;</span></span><br><span class="line"><span class="comment">#在Travis CI上切换到你的博客的./public文件夹，在该路径下初始化git，以&quot;Travis CI Auto Builder&quot;的名称提交代码并推送到&quot;master&quot;分支上</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">cd</span> <span class="string">./public</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">git</span> <span class="string">init</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">git</span> <span class="string">add</span> <span class="string">--all</span> <span class="string">.</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">git</span> <span class="string">commit</span> <span class="string">-m</span> <span class="string">&quot;Travis CI Auto Builder&quot;</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">git</span> <span class="string">push</span> <span class="string">--quiet</span> <span class="string">--force</span> <span class="string">https://$GIT_TOKEN@&lt;你博客的Github仓库网址&gt;</span></span><br><span class="line">  <span class="string">master</span></span><br><span class="line">  </span><br><span class="line"><span class="comment">#配置已知的主机，以保证可以成功登陆</span></span><br><span class="line"><span class="attr">addons:</span></span><br><span class="line">  <span class="attr">ssh_known_hosts:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&lt;你的域名或IP&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>观察上面的文件可以发现，其中以<code>$</code>开头的变量一共出现了五次。在Travis CI的配置文件中，这些变量为环境变量，它们的值不以明文的形式出现在配置文件中，需要你自己在Travis CI的网页上设置值。</p>
+<p>在Travis CI的网页中找到你的博客的仓库。点击右上角的<code>More options</code>按钮后再点击<code>Settings</code>进入设置页面。</p>
+<p>在设置页面中，必须要打开<code>General</code>栏中的<code>Build pushed branches</code>。否则即使你推送了代码，Travis CI不会自动构建项目。</p>
+<p>然后在<code>Environment Variables</code>一栏中的空白文本框处，分别填写你的环境变量的名称<code>NAME</code>和值<code>VALUE</code>，然后点击<code>Add</code>按钮以添加。在这一小节，我们需要添加三个环境变量：</p>
+<table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="center">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">GIT_EMAIL</td>
+<td align="center">&lt;填写你Github绑定的邮箱&gt;</td>
+</tr>
+<tr>
+<td align="center">GIT_NAME</td>
+<td align="center">&lt;填写你Github的账户名&gt;</td>
+</tr>
+<tr>
+<td align="center">GIT_TOKEN</td>
+<td align="center">&lt;填写你在上一节中生成的Github Token&gt;</td>
+</tr>
+</tbody></table>
+<h3 id="文件加密"><a href="#文件加密" class="headerlink" title="文件加密"></a>文件加密</h3><p>接下来讲讲Travis CI免密登录服务器的配置以及最后剩下的两个环境变量。</p>
+<p>类比之前设置本地ssh免密登录服务器的方法，要想让Travis CI生成的虚拟机可以免密登录服务器，其必须要有公钥<code>id_rsa.pub</code>、私钥<code>id_rsa</code>、以及配置文件<code>config</code>。但是直接将私钥以明文形式上传太危险了。Travis CI提供了加密服务，可以将私钥加密以后上传到它的服务器，再在其虚拟机上解密生成私钥。这样一来，Travis CI就可以安全地进行ssh免密登录了。</p>
+<p>接下来的加密操作建议在Linux或者macOS下进行，在Windows 10上操作有可能会产生<code>bad decrypt</code>的错误。（参见：<a target="_blank" rel="noopener" href="https://github.com/travis-ci/travis-ci/issues/4746">File decryption fails (wrong final block length) on Windows · Issue #4746 · travis-ci&#x2F;travis-ci (github.com)</a>）</p>
+<p>在加密操作之前，请先确认你的电脑上是否安装有ruby，否则无法使用gem包管理工具。</p>
+<p>执行下面的命令以安装Travis：<code>gem install travis</code>。</p>
+<p>登录Travis：<code>travis login --github-token &lt;token&gt; --pro</code>。注意这里必须加上后缀<code>--pro</code>，否则这个命令默认登录的是<code>https://api.travis-ci.org</code>而非<code>https://api.travis-ci.com</code>。</p>
+<p>在存放有你的私钥<code>id_rsa</code>以及<code>.travis.yml</code>的目录下执行：<code>travis encrypt-file id_rsa --add --pro </code>。如果这个目录不是你存放博客的Github仓库的本地文件夹，那么请按照给出的提示添加后缀。</p>
+<p>执行完毕后，在该文件夹下会新增一个<code>id_rsa.enc</code>文件。这个文件就是经过加密后的私钥了。检查<code>.travis.yml</code>文件，会发现其中多了一行类似于下面的代码：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">openssl</span> <span class="string">aes-256-cbc</span> <span class="string">-K</span> <span class="string">$encrypted_&lt;key&gt;_key</span> <span class="string">-iv</span> <span class="string">$encrypted_&lt;iv&gt;_iv</span>  <span class="string">-in</span> <span class="string">id_rsa.enc</span> <span class="string">-out</span> <span class="string">id_rsa</span> <span class="string">-d</span></span><br></pre></td></tr></table></figure>
+
+<p>上面<code>&lt;key&gt;</code>和<code>&lt;iv&gt;</code>的值是随机生成的数字和字母的组合，该命令的作用在于解密<code>id_rsa.enc</code>以得到私钥<code>id_rsa</code>。<code>-in</code>表示输入文件，<code>-out</code>表示解密后的文件，我们将其路径修改为<code>~/.ssh/id_rsa</code>，可以得到：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">openssl</span> <span class="string">aes-256-cbc</span> <span class="string">-K</span> <span class="string">$encrypted_&lt;key&gt;_key</span> <span class="string">-iv</span> <span class="string">$encrypted_&lt;iv&gt;_iv</span></span><br><span class="line">  <span class="string">-in</span> <span class="string">&lt;id_rsa.enc&gt;</span> <span class="string">-out</span> <span class="string">~/.ssh/id_rsa</span> <span class="string">-d</span></span><br></pre></td></tr></table></figure>
+
+<p>此外，在Travis CI对应仓库的设置中，还会新增两个环境变量<code>encrypted_&lt;key&gt;_key</code>与<code>encrypted_&lt;iv&gt;_iv</code>。</p>
+<p>在得到私钥后，我们还要进行下面的操作以使Travis CI可以免密登录服务器。</p>
+<p>在<code>.travis.yml</code>中按照模板的格式添加以下代码：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">chmod</span> <span class="number">600</span> <span class="string">~/.ssh/id_rsa</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">eval</span> <span class="string">$(ssh-agent)</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">ssh-add</span> <span class="string">~/.ssh/id_rsa</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">cp</span> <span class="string">./ssh_config</span> <span class="string">~/.ssh/config</span></span><br></pre></td></tr></table></figure>
+
+<p>然后，将<code>id_rsa.enc</code>移入你的博客的根目录下，并切记<strong>删除你在博客目录下的私钥！</strong>。</p>
+<p>在博客根目录下新建文件<code>ssh_config</code>，将下面的内容复制进去并保存。我们需要它来配置Travis CI上的ssh登录过程。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host *</span><br><span class="line">  User git</span><br><span class="line">  StrictHostKeyChecking no</span><br><span class="line">  IdentityFile ~/.ssh/id_rsa</span><br><span class="line">  IdentitiesOnly yes</span><br></pre></td></tr></table></figure>
+
+<p>到这里，所有的配置工作就完成了！</p>
+<h2 id="最终实现的效果"><a href="#最终实现的效果" class="headerlink" title="最终实现的效果"></a>最终实现的效果</h2><p>经过上面的一系列复杂操作，我们最终实现了博客的持续集成，其工作流如下：</p>
+<ol>
+<li>在本地编辑Markdown文件</li>
+<li>编辑完成后直接推送到Github的目标分支上</li>
+<li>Travis CI检测到指定分支上文件的更改</li>
+<li>Travis CI创建虚拟机并依据配置文件生成博客网页文件</li>
+<li>Travis CI将生成的网页复制到服务器的指定位置，完成部署</li>
+</ol>
+<p>在部署的过程中，只有第二步是需要我们进行操作的，其他的工作全部由Travis CI自动完成了，非常的方便。</p>
+<p>点击Travis CI对应仓库标题右侧的绿色图标可以将其以Markdown格式添加到你的Github仓库的<code>readme.md</code>文件中。如果Travis CI操作的分支不是默认分支，那么这个图标将只显示<code>unknown</code>的状态。</p>
+<p><img src="https://astrobear.top/resource/astroblog/content/build_passing_mark.png"></p>
+<hr>
+<p>参考：</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6946220560938434596#heading-13">使用 Travis 打造 SpringBoot 应用持续集成和自动部署 | Travis CI 初体验 (juejin.cn)</a></p>
+<p><a target="_blank" rel="noopener" href="https://kchen.cc/2016/11/12/hexo-instructions/#%E6%80%BB%E7%BB%93">基于 Hexo 的全自动博客构建部署系统 - KChen’s Blog</a></p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Hexo博客的安装和自动部署</p><p><a href="http://astrobear.top/2021/08/16/Hexo的安装和自动部署/">http://astrobear.top/2021/08/16/Hexo的安装和自动部署/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Astrobear</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2021-08-16</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-11-10</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="icon fab fa-creative-commons"></i><i class="icon fab fa-creative-commons-by"></i><i class="icon fab fa-creative-commons-nc"></i><i class="icon fab fa-creative-commons-sa"></i></a></p></div></div></div></div></div><hr style="height:1px;margin:1rem 0"><div class="level is-mobile is-flex"><div class="article-tags is-size-7 is-uppercase"><i class="fas fa-tags has-text-grey"></i> <a class="link-muted" rel="tag" href="/tags/Hexo/">Hexo, </a><a class="link-muted" rel="tag" href="/tags/Blog/">Blog, </a><a class="link-muted" rel="tag" href="/tags/Travis-CI/">Travis CI </a></div></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=6120a56e41a28700129debe7&amp;product=inline-share-buttons" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">Like this article? Support the author with</h3><div class="buttons is-centered"><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>Alipay</span><span class="qrcode"><img src="/img/alipay.JPG" alt="Alipay"></span></a><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>Wechat</span><span class="qrcode"><img src="/img/wechatpay.JPG" alt="Wechat"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2021/08/19/%E8%A7%A3%E5%86%B3%E5%B9%BB16%E7%9D%A1%E7%9C%A0%E8%87%AA%E5%8A%A8%E5%94%A4%E9%86%92%E9%97%AE%E9%A2%98%E4%B8%8E%E7%94%B5%E6%BA%90%E7%AE%A1%E7%90%86%E9%85%8D%E7%BD%AE/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">解决幻16睡眠自动唤醒问题与电源管理解锁</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/02/23/RLSummary6/"><span class="level-item">Summary of Reinforcement Learning 6</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="comment-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+            id: "27716e74ce8fec600a6126dcf5a139b1",
+            repo: "astroblog",
+            owner: "Astrobr",
+            clientID: "fa589cf3f78c8e8e4357",
+            clientSecret: "e97fdd7cc6bd46454d3d6216f6099c9caea80829",
+            admin: ["Astrobr"],
+            createIssueManually: false,
+            distractionFreeMode: false,
+            perPage: 10,
+            pagerDirection: "last",
+            proxy: "https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token",
+            
+            enableHotKey: true,
+            language: "en",
+        })
+        gitalk.render('comment-container')</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/avatar.jpeg" alt="Astrobear"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Astrobear</p><p class="is-size-6 is-block">(I cannot) Build my fortress.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>PRC</span></p></div></div></nav><nav class="level menu-list is-mobile" style="margin-bottom:1rem"><a class="level-item has-text-centered is-marginless" href="/archives"><div><p class="heading">Posts</p><div><p class="title">28</p></div></div></a><a class="level-item has-text-centered is-marginless" href="/categories"><div><p class="heading">Categories</p><div><p class="title">3</p></div></div></a><a class="level-item has-text-centered is-marginless" href="/tags"><div><p class="heading">Tags</p><div><p class="title">28</p></div></div></a></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/Astrobr" target="_blank" rel="noopener"><i class="fab fa-github"></i>  Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/Astrobr"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://www.facebook.com/astrobearforwork"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Instagram" href="https://www.instagram.com/astrobarchen/"><i class="fab fa-instagram"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#关于Hexo"><span class="level-left"><span class="level-item">1</span><span class="level-item">关于Hexo</span></span></a></li><li><a class="level is-mobile" href="#Windows系统下Hexo的安装与部署"><span class="level-left"><span class="level-item">2</span><span class="level-item">Windows系统下Hexo的安装与部署</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#安装相关依赖"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">安装相关依赖</span></span></a></li><li><a class="level is-mobile" href="#安装Hexo并撰写博客"><span class="level-left"><span class="level-item">2.2</span><span class="level-item">安装Hexo并撰写博客</span></span></a></li><li><a class="level is-mobile" href="#在服务器上部署Hexo"><span class="level-left"><span class="level-item">2.3</span><span class="level-item">在服务器上部署Hexo</span></span></a></li></ul></li><li><a class="level is-mobile" href="#配置博客自动部署功能"><span class="level-left"><span class="level-item">3</span><span class="level-item">配置博客自动部署功能</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#什么是持续集成？"><span class="level-left"><span class="level-item">3.1</span><span class="level-item">什么是持续集成？</span></span></a></li><li><a class="level is-mobile" href="#Github授权并生成Token"><span class="level-left"><span class="level-item">3.2</span><span class="level-item">Github授权并生成Token</span></span></a></li><li><a class="level is-mobile" href="#使用Travis-CI进行持续集成"><span class="level-left"><span class="level-item">3.3</span><span class="level-item">使用Travis CI进行持续集成</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#配置ssh免密登录服务器"><span class="level-left"><span class="level-item">3.3.1</span><span class="level-item">配置ssh免密登录服务器</span></span></a></li><li><a class="level is-mobile" href="#配置Travis-Ci"><span class="level-left"><span class="level-item">3.3.2</span><span class="level-item">配置Travis Ci</span></span></a></li><li><a class="level is-mobile" href="#文件加密"><span class="level-left"><span class="level-item">3.3.3</span><span class="level-item">文件加密</span></span></a></li></ul></li><li><a class="level is-mobile" href="#最终实现的效果"><span class="level-left"><span class="level-item">3.4</span><span class="level-item">最终实现的效果</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.png" alt="Astroblog" height="28"></a><p class="is-size-7"><span>&copy; 2022 Astrobear</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span><br><a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备19039261号-1</a><br><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802030906" target="_blank" rel="noopener">京公网安备 11010802030906号</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fab fa-creative-commons"></i> <i class="fab fa-creative-commons-by"></i> <i class="fab fa-creative-commons-nc"></i> <i class="fab fa-creative-commons-sa"></i> </a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Astrobear" href="https://github.com/Astrobr"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><div id="outdated"><h6>Your browser is out-of-date!</h6><p>Update your browser to view this website correctly.&amp;npsb;<a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p><p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">×</a></p></div><script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script><script>window.addEventListener("load", function () {
+            outdatedBrowser({
+                bgColor: '#f25648',
+                color: '#ffffff',
+                lowerThan: 'object-fit' // display on IE11 or below
+            });
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><script src="/js/night.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body><script type="text/javascript" src="/js/mathjax-config.js"></script></html>

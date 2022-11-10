@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Summary of Reinforcement Learning 3 - Astroblog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Astroblog"><meta name="msapplication-TileImage" content="/img/favicon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Astroblog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="Introduction to MC and TD."><meta property="og:type" content="blog"><meta property="og:title" content="Summary of Reinforcement Learning 3"><meta property="og:url" content="http://astrobear.top/2020/02/01/RLSummary3/"><meta property="og:site_name" content="Astroblog"><meta property="og:description" content="Introduction to MC and TD."><meta property="og:locale" content="en_US"><meta property="og:image" content="https://astrobear.top/resource/astroblog/content/RLS3F1.jpeg"><meta property="article:published_time" content="2020-02-01T09:12:00.000Z"><meta property="article:modified_time" content="2022-11-10T08:45:59.637Z"><meta property="article:author" content="Astrobear"><meta property="article:tag" content="Research"><meta property="article:tag" content="Python"><meta property="article:tag" content="RL"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://astrobear.top/resource/astroblog/content/RLS3F1.jpeg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://astrobear.top/2020/02/01/RLSummary3/"},"headline":"Summary of Reinforcement Learning 3","image":[],"datePublished":"2020-02-01T09:12:00.000Z","dateModified":"2022-11-10T08:45:59.637Z","author":{"@type":"Person","name":"Astrobear"},"publisher":{"@type":"Organization","name":"Astroblog","logo":{"@type":"ImageObject","url":"http://astrobear.top/img/logo.png"}},"description":"Introduction to MC and TD."}</script><link rel="canonical" href="http://astrobear.top/2020/02/01/RLSummary3/"><link rel="icon" href="/img/favicon.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css"><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.2"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.png" alt="Astroblog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/2020/01/03/Gallery">Gallery</a><a class="navbar-item" href="/2020/01/03/About">About</a></div><div class="navbar-end"><a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="https://astrobear.top/resource/astroblog/content/RLS3F1.jpeg" alt="Summary of Reinforcement Learning 3"></span></div><article class="card-content article" role="article"><h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">Summary of Reinforcement Learning 3</h1><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><i class="far fa-calendar-alt"> </i><time dateTime="${date_xml(page.date)}" title="${date_xml(page.date)}">2020-02-01</time></span><span class="level-item is-hidden-mobile"><i class="far fa-calendar-check"> </i><time dateTime="${date_xml(page.updated)}" title="${date_xml(page.updated)}">2022-11-10</time></span><span class="level-item"><i class="far fa-folder-open has-text-grey"></i> <a class="link-muted" href="/categories/CS/">CS</a></span><span class="level-item"><i class="far fa-clock"></i> 10 minutes read (About 1439 words)</span><span class="level-item" id="busuanzi_container_page_pv"><i class="far fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><div class="content"><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>In the previous article we talked about MP, MRP, MDP and how to find the best policy. All the discussions are based on the fact that we know both the rewards and probabilities for every transition. However, in many cases such information is not readily available to us. Therefore, we are going to discuss <em>model-free algorithms</em> in this article. </p>
+<p>Throughout this article, we will assume an <em>infinite horizon</em> as well as <em>stationary rewards, transition probabilities and policies</em>.</p>
+<p>First comes the definition of <em>history</em>: the history is the ordered tuple of states, actions and rewards that an agent experiences. The $j$ th history is: </p>
+<p>$h_j&#x3D;(s_{j,1},a_{j,1},r_{j,1},s_{j,2},a_{j,2},r_{j,2},…,s_{j,L_j})$, </p>
+<p>where $L_j$ is the length of the interaction (interaction between agent and environment). </p>
+<p>In the article <em>Summary of Reinforcement Learning 2</em> I introduced the <em>iterative solution</em> of value function, which is</p>
+<p>$V_t(s)&#x3D;\Bbb E_\pi[R_{t+1}+\gamma V_\pi (s_{t+1})|s_t&#x3D;s]$</p>
+<p>​          $&#x3D;R(s)+\gamma \sum P(s’|s)V_{t+1}(s’), \forall t&#x3D;0,…,H-1,V_H(s)&#x3D;0$.</p>
+<p>This ia a bootstraping process, and we estimate the value of the next state using our current estimate of next state. </p>
+<h3 id="Monte-Carlo-on-policy-evaluation"><a href="#Monte-Carlo-on-policy-evaluation" class="headerlink" title="Monte Carlo on policy evaluation"></a>Monte Carlo on policy evaluation</h3><p>In general, we got the Monte Carlo estimate of some quantity by iterations of how that quantity is generated either in real life or via simulation and then averaging over the observed quantities. By the law of large numbers, this average converges to the expectation of the quantity. </p>
+<p>In reinforcement learning the quantity we want to estimate is $V^\pi(s)$ and we can get it through three steps: </p>
+<ul>
+<li>Execute a rollout of policy until termination many times</li>
+<li>Record the returns $G_t$ that we observe when starting at state $s$</li>
+<li>Take an average of the values we got for $G_t$ to estimate $V^\pi(s)$.</li>
+</ul>
+<p>Figure 1 shows a backup diagram for the Monte Carlo policy evaluation algorithm. And you can find that, unlike what we have talked about in the second article, Monte Carlo on policy evaluation is not a bootstraping process.</p>
+<p><img src="https://astrobear.top/resource/astroblog/content/RLS3F1.jpeg" alt="Figure 1"></p>
+<h4 id="How-to-Evaluate-the-Good-and-Bad-of-an-Algorithm"><a href="#How-to-Evaluate-the-Good-and-Bad-of-an-Algorithm" class="headerlink" title="How to Evaluate the Good and Bad of an Algorithm?"></a>How to Evaluate the Good and Bad of an Algorithm?</h4><p>We use three quntities to evaluate the good and bad of an algorithm.</p>
+<p>Consider a statistical model that is parameterized by $\theta$ and that determins a probability distribution over oberserved data $P(x|\theta)$. Then consider a statistic $\hat\theta$ that provides an estimate of $\theta$ and it’s a function of observed data $x$. Then we have these quantities of the estimator: </p>
+<p>Bias: $Bias_\theta(\hat\theta)&#x3D;\Bbb E\rm_{x|\theta}[\hat\theta]-\theta$, </p>
+<p>Variance: $Var(\hat\theta)&#x3D;\Bbb E\rm_{x|\theta}[(\hat\theta-\Bbb E\rm[\hat\theta])^2]$, </p>
+<p>Mean squared error (MSE): $MSE(\hat\theta)&#x3D;Var(\hat\theta)+Bias_\theta(\hat\theta)$. </p>
+<h4 id="First-Visit-Monte-Carlo"><a href="#First-Visit-Monte-Carlo" class="headerlink" title="First-Visit Monte Carlo"></a>First-Visit Monte Carlo</h4><p>Here is the algorithm of First-Visit Monte Carlo: </p>
+<p>Initialize $N(s)&#x3D;0,\ G(s)&#x3D;0,\ V(s)&#x3D;0,\ \forall s\in S$</p>
+<p><em>$N(s)$: Increment counter of total first visits</em></p>
+<p><em>$G(s)$: Increment total return</em></p>
+<p><em>$V(s)$: Estimate</em></p>
+<p><code>while</code> each state $s$ visited in episode $i$ <code>do</code></p>
+<p>​     <code>while</code> <strong>first time $t$</strong> that the state $s$ is visited in episode $i$ <code>do</code></p>
+<p>​        $N(s)&#x3D;N(s)+1$</p>
+<p>​        $G(s)&#x3D;G(s)+G_{i,t}$</p>
+<p>​        $V(s)&#x3D;G(s)&#x2F;N(s)$ </p>
+<p><code>return</code> $V(s)$</p>
+<p>First-Visit Monte Carlo estimator is an unbised estimator.</p>
+<h4 id="Every-Visit-Monte-Carlo"><a href="#Every-Visit-Monte-Carlo" class="headerlink" title="Every-Visit Monte Carlo"></a>Every-Visit Monte Carlo</h4><p>Here is the algorithm of Every-Visit Monte Carlo: </p>
+<p>Initialize $N(s)&#x3D;0,\ G(s)&#x3D;0,\ V(s)&#x3D;0,\ \forall s\in S$</p>
+<p><em>$N(s)$: Increment counter of total first visits</em></p>
+<p><em>$G(s)$: Increment total return</em></p>
+<p><em>$V(s)$: Estimate</em></p>
+<p><code>while</code> each state $s$ visited in episode $i$ <code>do</code></p>
+<p>​     <code>while</code> <strong>every time $t$</strong> that the state $s$ is visited in episode $i$ <code>do</code></p>
+<p>​        $N(s)&#x3D;N(s)+1$</p>
+<p>​        $G(s)&#x3D;G(s)+G_{i,t}$</p>
+<p>​        $V(s)&#x3D;G(s)&#x2F;N(s)$ </p>
+<p><code>return</code> $V(s)$.</p>
+<p>Every-Visit Monte Carlo is a bised estimator becaue the varibles are not IID (Independently Identicaly Distribution). But it has a lower variance which is better than First-Visit Monte Carlo. </p>
+<h4 id="Increment-First-Visit-x2F-Every-Visit-Monte-Carlo"><a href="#Increment-First-Visit-x2F-Every-Visit-Monte-Carlo" class="headerlink" title="Increment First-Visit&#x2F;Every-Visit Monte Carlo"></a>Increment First-Visit&#x2F;Every-Visit Monte Carlo</h4><p>We can replace $V(s)&#x3D;G(s)&#x2F;N(s)$ in both two algorithms by </p>
+<p>$V(s)&#x3D;V(s)+{1\over N(s)}(G(s)-V(s))$. </p>
+<p>Because</p>
+<p>${V(s)(N(s)-1)+G(s)\over N(s)}&#x3D;V(s)+{1\over N(s)}(G(s)-V(s))$. </p>
+<p>Replacing $1\over N(s)$ with $\alpha$ in the upper expression gives us the more general <em>Incremental Monte Carlo on policy evaluation</em>. Setting $\alpha &gt; {1\over N(s)}$ gives higher weight to newer data, which can help learning in non-stationary domains. </p>
+<h3 id="Temporal-Difference-TD-Learning"><a href="#Temporal-Difference-TD-Learning" class="headerlink" title="Temporal Difference (TD) Learning"></a>Temporal Difference (TD) Learning</h3><p>TD learning is a new algorithm that combines bootstraping with sampling. It is still model-free, and it will update its value after every observation. </p>
+<p>In dynamic programming, the return is witten as $r_t+\gamma V^\pi(s_{t+1})$, where $r_t$ is a sample of the reward at time step $t$ and $V^\pi(s_{t+1})$ is our current estimate of the value at the next state. We can use the upper expression to replace the $G(s)$ in the incremental Monte Carlo update and then we have </p>
+<p>$V^\pi(s_t)&#x3D;V^\pi(s_t)+\alpha(r_t+\gamma V^\pi(s_{t+1})-V^\pi(s_t))$, </p>
+<p>and this is the TD learning update. </p>
+<p>In TD learning update, there are two concepts which are <em>TD error</em> and <em>TD target</em>. TD error is written as below: </p>
+<p>$\delta_t&#x3D;r_t+\gamma V^\pi(s_{t+1})-V^\pi(s_t)$. </p>
+<p>And here is TD target, which is the sampled reward combined with the bootstrap estimate of the next state value: </p>
+<p>$r_t+\gamma V^\pi(s_{t+1})$. </p>
+<p>The algorithm of TD learning is shown below.</p>
+<p>Initialize $V^\pi(s)&#x3D;0,\ s\in S$</p>
+<p><code>while</code> True <code>do</code></p>
+<p>​    Sample tuple $(s_t,a_t,r_t,s_{t+1})$ </p>
+<p>​    $V^\pi(s_t)&#x3D;V^\pi(s_t)+\alpha(r_t+\gamma V^\pi(s_{t+1})-V^\pi(s_t))$ </p>
+<p>It is improtance to aware that $V^\pi(s_{t+1})$ is the current value (estimate) of the next state $s_{t+1}$ and you can get the exact state at the following next time step. Only at that time can you know what the exact $s_{t+1}$ is and then use the current (you can also regard it as the previous one because it remains the same value at $s_t$) estimate $V^\pi(s_{t+1})$ to calculate the value of $s_t$. Thus that’s why it is called the combination of Monte Carlo and dynamic programming due to the sampling (to approximate the expectation) and bootstraping process.</p>
+<p>In reality, if you set $\alpha$ equals to ${1\over N}$ or a very small value, the algorithm will converge definitely. On the contrary, it will oscilate when $\alpha&#x3D;1$, which means you just ignore the former estimate. </p>
+<p>Figure 2 shows a diagram expressing TD learning. </p>
+<p><img src="https://astrobear.top/resource/astroblog/content/RLS3F2.png" alt="Figure 2"></p>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>Table below gives some fundamental properties of these three algorithms (DP, MC, TD). </p>
+<table>
+<thead>
+<tr>
+<th>Properties</th>
+<th>DP</th>
+<th>MC</th>
+<th>TD</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Useble when no models of current domain</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Handles continuing domains (episodes will never terminate)</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Handles Non-Markovian domains</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Coverges to true value in limit (satisfying some conditions)</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Unbised estimate of value</td>
+<td>N&#x2F;A</td>
+<td>Yes (First-Visit MC)</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Variance</td>
+<td>N&#x2F;A</td>
+<td>High</td>
+<td>Low</td>
+</tr>
+</tbody></table>
+<p>Figure 3 shows some other properties that may help us to choose the algorithm. </p>
+<p><img src="https://astrobear.top/resource/astroblog/content/RLS3F3.png" alt="Figure 3"></p>
+<h3 id="Batch-Monte-Carlo-and-Temporal-Difference"><a href="#Batch-Monte-Carlo-and-Temporal-Difference" class="headerlink" title="Batch Monte Carlo and Temporal Difference"></a>Batch Monte Carlo and Temporal Difference</h3><p>The batch versions of the algorithms is that we have a set of histories that we use to make updates many times and we can use the dataset many times in order to have a better estimate. </p>
+<p>In the Monte Carlo batch setting, the calue at each state converges to the value that minimizes the mean squarred error with the observed returns. While in the TD setting, we converge to the value $V^\pi$ that is the value of policy $\pi$ on the maximum likelihood MDP model, where</p>
+<p><img src="https://astrobear.top/resource/astroblog/content/RLS3F4.png" alt="Figure 4">. </p>
+<p>The value function derived from the maximum likehood MDP model is known as the <em>certainty equivalence estimate</em>. Using this relationship, we can first compute the maximum likelihoood MDP model using the batch. Then we can compute $V^\pi$ using this model and the model-based policy evaluation methods. This method is highly data efficient but is computationally expensive.</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Summary of Reinforcement Learning 3</p><p><a href="http://astrobear.top/2020/02/01/RLSummary3/">http://astrobear.top/2020/02/01/RLSummary3/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Astrobear</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2020-02-01</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-11-10</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="icon fab fa-creative-commons"></i><i class="icon fab fa-creative-commons-by"></i><i class="icon fab fa-creative-commons-nc"></i><i class="icon fab fa-creative-commons-sa"></i></a></p></div></div></div></div></div><hr style="height:1px;margin:1rem 0"><div class="level is-mobile is-flex"><div class="article-tags is-size-7 is-uppercase"><i class="fas fa-tags has-text-grey"></i> <a class="link-muted" rel="tag" href="/tags/Research/">Research, </a><a class="link-muted" rel="tag" href="/tags/Python/">Python, </a><a class="link-muted" rel="tag" href="/tags/RL/">RL </a></div></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=6120a56e41a28700129debe7&amp;product=inline-share-buttons" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">Like this article? Support the author with</h3><div class="buttons is-centered"><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>Alipay</span><span class="qrcode"><img src="/img/alipay.JPG" alt="Alipay"></span></a><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>Wechat</span><span class="qrcode"><img src="/img/wechatpay.JPG" alt="Wechat"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2020/02/14/Introduction_to_hackintosh/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">黑苹果入门完全指南</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/01/18/RLSummary2/"><span class="level-item">Summary of Reinforcement Learning 2</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="comment-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+            id: "f58589b1b57424146a2c2809b31fde02",
+            repo: "astroblog",
+            owner: "Astrobr",
+            clientID: "fa589cf3f78c8e8e4357",
+            clientSecret: "e97fdd7cc6bd46454d3d6216f6099c9caea80829",
+            admin: ["Astrobr"],
+            createIssueManually: false,
+            distractionFreeMode: false,
+            perPage: 10,
+            pagerDirection: "last",
+            proxy: "https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token",
+            
+            enableHotKey: true,
+            language: "en",
+        })
+        gitalk.render('comment-container')</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/avatar.jpeg" alt="Astrobear"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Astrobear</p><p class="is-size-6 is-block">(I cannot) Build my fortress.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>PRC</span></p></div></div></nav><nav class="level menu-list is-mobile" style="margin-bottom:1rem"><a class="level-item has-text-centered is-marginless" href="/archives"><div><p class="heading">Posts</p><div><p class="title">28</p></div></div></a><a class="level-item has-text-centered is-marginless" href="/categories"><div><p class="heading">Categories</p><div><p class="title">3</p></div></div></a><a class="level-item has-text-centered is-marginless" href="/tags"><div><p class="heading">Tags</p><div><p class="title">28</p></div></div></a></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/Astrobr" target="_blank" rel="noopener"><i class="fab fa-github"></i>  Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/Astrobr"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://www.facebook.com/astrobearforwork"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Instagram" href="https://www.instagram.com/astrobarchen/"><i class="fab fa-instagram"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#Introduction"><span class="level-left"><span class="level-item">1</span><span class="level-item">Introduction</span></span></a></li><li><a class="level is-mobile" href="#Monte-Carlo-on-policy-evaluation"><span class="level-left"><span class="level-item">2</span><span class="level-item">Monte Carlo on policy evaluation</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#How-to-Evaluate-the-Good-and-Bad-of-an-Algorithm"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">How to Evaluate the Good and Bad of an Algorithm?</span></span></a></li><li><a class="level is-mobile" href="#First-Visit-Monte-Carlo"><span class="level-left"><span class="level-item">2.2</span><span class="level-item">First-Visit Monte Carlo</span></span></a></li><li><a class="level is-mobile" href="#Every-Visit-Monte-Carlo"><span class="level-left"><span class="level-item">2.3</span><span class="level-item">Every-Visit Monte Carlo</span></span></a></li><li><a class="level is-mobile" href="#Increment-First-Visit-x2F-Every-Visit-Monte-Carlo"><span class="level-left"><span class="level-item">2.4</span><span class="level-item">Increment First-Visit/Every-Visit Monte Carlo</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Temporal-Difference-TD-Learning"><span class="level-left"><span class="level-item">3</span><span class="level-item">Temporal Difference (TD) Learning</span></span></a></li><li><a class="level is-mobile" href="#Summary"><span class="level-left"><span class="level-item">4</span><span class="level-item">Summary</span></span></a></li><li><a class="level is-mobile" href="#Batch-Monte-Carlo-and-Temporal-Difference"><span class="level-left"><span class="level-item">5</span><span class="level-item">Batch Monte Carlo and Temporal Difference</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.png" alt="Astroblog" height="28"></a><p class="is-size-7"><span>&copy; 2022 Astrobear</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span><br><a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备19039261号-1</a><br><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802030906" target="_blank" rel="noopener">京公网安备 11010802030906号</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fab fa-creative-commons"></i> <i class="fab fa-creative-commons-by"></i> <i class="fab fa-creative-commons-nc"></i> <i class="fab fa-creative-commons-sa"></i> </a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Astrobear" href="https://github.com/Astrobr"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><div id="outdated"><h6>Your browser is out-of-date!</h6><p>Update your browser to view this website correctly.&amp;npsb;<a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p><p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">×</a></p></div><script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script><script>window.addEventListener("load", function () {
+            outdatedBrowser({
+                bgColor: '#f25648',
+                color: '#ffffff',
+                lowerThan: 'object-fit' // display on IE11 or below
+            });
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><script src="/js/night.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body><script type="text/javascript" src="/js/mathjax-config.js"></script></html>

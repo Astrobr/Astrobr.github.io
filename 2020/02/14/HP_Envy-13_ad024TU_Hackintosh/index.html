@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>HP Envy-13 ad024TU黑苹果安装总结 - Astroblog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Astroblog"><meta name="msapplication-TileImage" content="/img/favicon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Astroblog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="黑苹果安装的踩坑记录。"><meta property="og:type" content="blog"><meta property="og:title" content="HP Envy-13 ad024TU黑苹果安装总结"><meta property="og:url" content="http://astrobear.top/2020/02/14/HP_Envy-13_ad024TU_Hackintosh/"><meta property="og:site_name" content="Astroblog"><meta property="og:description" content="黑苹果安装的踩坑记录。"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://astrobear.top/resource/astroblog/thumbnail/hpenvy13hackintosh.jpeg"><meta property="article:published_time" content="2020-02-14T14:20:00.000Z"><meta property="article:modified_time" content="2022-11-10T08:45:59.637Z"><meta property="article:author" content="Astrobear"><meta property="article:tag" content="macOS"><meta property="article:tag" content="Hackintosh"><meta property="article:tag" content="HP"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://astrobear.top/resource/astroblog/thumbnail/hpenvy13hackintosh.jpeg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://astrobear.top/2020/02/14/HP_Envy-13_ad024TU_Hackintosh/"},"headline":"HP Envy-13 ad024TU黑苹果安装总结","image":[],"datePublished":"2020-02-14T14:20:00.000Z","dateModified":"2022-11-10T08:45:59.637Z","author":{"@type":"Person","name":"Astrobear"},"publisher":{"@type":"Organization","name":"Astroblog","logo":{"@type":"ImageObject","url":"http://astrobear.top/img/logo.png"}},"description":"黑苹果安装的踩坑记录。"}</script><link rel="canonical" href="http://astrobear.top/2020/02/14/HP_Envy-13_ad024TU_Hackintosh/"><link rel="icon" href="/img/favicon.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css"><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.2"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.png" alt="Astroblog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/2020/01/03/Gallery">Gallery</a><a class="navbar-item" href="/2020/01/03/About">About</a></div><div class="navbar-end"><a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="https://astrobear.top/resource/astroblog/thumbnail/hpenvy13hackintosh.jpeg" alt="HP Envy-13 ad024TU黑苹果安装总结"></span></div><article class="card-content article" role="article"><h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">HP Envy-13 ad024TU黑苹果安装总结</h1><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><i class="far fa-calendar-alt"> </i><time dateTime="${date_xml(page.date)}" title="${date_xml(page.date)}">2020-02-14</time></span><span class="level-item is-hidden-mobile"><i class="far fa-calendar-check"> </i><time dateTime="${date_xml(page.updated)}" title="${date_xml(page.updated)}">2022-11-10</time></span><span class="level-item"><i class="far fa-folder-open has-text-grey"></i> <a class="link-muted" href="/categories/Hackintosh/">Hackintosh</a></span><span class="level-item"><i class="far fa-clock"></i> 36 minutes read (About 5356 words)</span><span class="level-item" id="busuanzi_container_page_pv"><i class="far fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><div class="content"><h3 id="请先了解以下内容"><a href="#请先了解以下内容" class="headerlink" title="请先了解以下内容"></a>请先了解以下内容</h3><p>本文主要介绍在完成黑苹果的基本安装以后的完善过程。对于黑苹果完全没有概念的朋友，请看<a href="">这篇文章</a>。而本文是在很早的时候开始写的，并在原基础上不断增添了内容。那时候作者还未对EFI做足够的优化，因此本文在现在看来有一些过时。假如你遇到了文章中出现的类似情况，希望可以给你提供一些解决思路。但是一般来说，如果你的<strong>机型和硬件</strong>与我的相同且使用了我提供的EFI的话，基本安装完成以后机器就已经是几乎完美的一个状态了，只需要做很少的优化即可。</p>
+<ul>
+<li><p>作者电脑的EFI存放于这个Github仓库中：<a target="_blank" rel="noopener" href="https://github.com/Astrobr/HackintoshForEnvy13-ad0xx">HackintoshForEnvy13-ad0xx</a>。</p>
+</li>
+<li><p>作者电脑型号为<code>HP Envy-13 ad024TU</code>，其中部分文件不建议大家直接用于其他型号的电脑。若使用本仓库中文件导致系统故障或崩溃，作者本人概不负责。</p>
+</li>
+<li><p>作者电脑的网卡和硬盘均作了更换。故即使机型相同，直接套用此EFI依旧可能会产生问题，请知照！</p>
+</li>
+<li><p>此EFI一开始是来自于交流群中来源不明的Envy-13通用EFI，里面的内容杂乱无章而且有很多不必要的驱动和补丁，但还是可以将机器驱动起来。经过大半年的维护，我对其中的内容作了一些精简，但是其中的方法依旧相对落后和杂乱。现在的这个EFI基本上是基于<a target="_blank" rel="noopener" href="https://github.com/SilentSliver">SlientSliver</a>的<a target="_blank" rel="noopener" href="https://github.com/SilentSliver/HP-ENVY-13-ad1XX-Hackintosh">HP-ENVY13-ad1XX-Hackintosh</a>修改而来，保留了其中的hotpatch部分，更改了一些驱动和补丁。特此鸣谢！</p>
+</li>
+<li><p>关于本机的功能：</p>
+<ul>
+<li>CPU：可以正常变频</li>
+<li>电源：节能五项似乎没有完全加载，但是电池电量显示正常，使用上没有障碍</li>
+<li>显卡：仿冒的<code>Intel HD Graphics 520</code>，<code>ig-platform-id</code>为<code>0x19160000</code>，驱动原生显卡<code>Intel HD Graphics 620</code>会产生非常诡异的色阶断层，严重影响观感</li>
+<li>睡眠：正常，以前曾有过睡眠唤醒掉蓝牙的问题，现在已经解决</li>
+<li>声音：使用的<code>LayoutID</code>为<code>03</code>，只能驱动底面的扬声器，对于这款笔记本电脑来说，两个扬声器和四个扬声器听起来并无什么差别，对音质有追求的请直接外接蓝牙音响或者使用耳机，插入耳机后音量可以自动调节为之前的设置值</li>
+<li>网卡和蓝牙：原配网卡无法使用，我更换为<code>DW1560</code>，没有故障出现，Airdrop，HandOff，Sidecar都可以正常使用，可以连接AirPods听音乐并且功能完整</li>
+<li>触控板：加载了白苹果手势，但除了四指手势和力度感应之外其他手势都可以用</li>
+<li>亮度调节：可调，但是档位间隔不大，最低档位的时候屏幕还是较亮</li>
+<li>USB接口：四个接口均可正常使用</li>
+<li>摄像头：可用</li>
+<li>读卡器：无法驱动，有需要的建议使用读卡器</li>
+</ul>
+</li>
+<li><p><strong>声明：仓库中所有文件均可供个人用途和技术交流使用，在转载时请务必标明出处。不得将此仓库中的任何文件用于任何商业活动！</strong></p>
+</li>
+</ul>
+<h3 id="基本安装过程中的一些问题"><a href="#基本安装过程中的一些问题" class="headerlink" title="基本安装过程中的一些问题"></a>基本安装过程中的一些问题</h3><p>这部分不是主要内容，但还是讲两句吧。</p>
+<ul>
+<li><p>进入不了安装界面：</p>
+<p>首先请确认你安装镜像中的EFI是适用于你的电脑型号的。如果还是不行，请在<code>Clover</code>中的<code>Option</code>选项中选择<code>-v</code>以啰嗦模式启动，这样启动的时候会显示出详细的信息。将最后出现的报错信息拍下来或者整个启动过程录制下来以后，找网友求助吧。</p>
+</li>
+<li><p>安装macOS 10.15的过程中，在啰嗦模式中出现如下图所示报错：<img src="https://astrobear.top/resource/astroblog/content/hpenvy13hackintosh_1.JPG" alt="报错内容请注意最后一部分"></p>
+<p>​		请在<code>Clover</code>中打上如图所示的这个补丁。<img src="https://astrobear.top/resource/astroblog/content/hpenvy13hackintosh_2.png" alt="补丁图示"></p>
+</li>
+<li><p>进入安装界面且开始安装一段时间后，无法继续安装：</p>
+<p>请重新下载镜像，在下载完成以后检查镜像的<code>md5</code>值是否正确。如正确，再制作你的镜像U盘。</p>
+</li>
+<li><p>对于10.14.x的镜像进入安装界面后提示应用已经损坏，无法安装：</p>
+<p>请将你的bios时间往前调整至2019年10月25日以前，但是不要调整得太久远。这是因为旧的镜像中的证书会在上述时间以后过期导致无法安装。</p>
+</li>
+</ul>
+<h3 id="后续完善中的一些问题"><a href="#后续完善中的一些问题" class="headerlink" title="后续完善中的一些问题"></a>后续完善中的一些问题</h3><p>在安装完成以后，便可以进入系统了。但是这个时候的系统还是非常不完善的，需要做很多调整。进入系统后，先在 <code>关于本机-系统报告</code>中检查各个硬件项目是否被成功驱动，然后再根据没有成功驱动的项目，安装相对应的驱动或者打必要的补丁。但是前文说过：如果你的<strong>机型和硬件</strong>与我的相同且使用了我提供的EFI的话，基本安装完成以后机器就已经是几乎完美的一个状态了，只需要做很少的优化即可。</p>
+<p>如果使用的是与作者相同型号的电脑（型号完全一致，且未更换过任何硬件），以下项目是有故障的</p>
+<ul>
+<li>网卡未被驱动，无法上网</li>
+<li>蓝牙未驱动，无法使用蓝牙</li>
+<li>Siri, iMessage, FaceTime, HandOff无法使用</li>
+</ul>
+<p>以下项目有可能出现故障：</p>
+<ul>
+<li>声卡未驱动，没有声音，也无法录音</li>
+<li>无法调节显示器亮度，在<code>系统偏好设置</code>中也没有调节亮度的拖动条</li>
+<li>触控板未被驱动，无法使用触控板</li>
+</ul>
+<p>因此，仅仅完成了系统的安装是远远不够的。此时我们的电脑还无法被称为生产力工具。下面就介绍一些解决故障的办法以及系统优化的办法。</p>
+<ul>
+<li><p>首先应当获取软件安装权限，只有在此以后你才可以安装非App Store下载的，或者由非受信任的开发者开发的软件：</p>
+<p>在终端中输入：<code>sudo spctl --master-disable</code></p>
+</li>
+<li><p>建议安装的软件：</p>
+<ul>
+<li><code>Clover Configurator</code>：用于修改<code>Clover</code>的配置文件<code>config.plist</code></li>
+<li><code>Hackintool</code>：功能强大的黑苹果配置工具</li>
+<li><code>Kext Utility</code>：用于重建缓存</li>
+<li><code>CPU-S</code>：用于测试CPU变频档位</li>
+<li><code>MaciASL</code>：用于修改SSDT</li>
+</ul>
+<p>这些软件可以通过这个<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/12Kp9dv8HkVgm1VoVeXmC8w">百度云链接</a>下载。密码：57qf。</p>
+</li>
+<li><p>机型选择：</p>
+<p>使用<code>Clover Configurator</code>打开<code>config.plist</code>，确保在<code>机型设置</code>中选择<code>MacBook Pro 14,1</code>。关于机型的选择，原则上是需要将你的电脑的集成显卡的型号与所选机型的集成显卡型号对应起来的，否则无法驱动你的显卡。具体的选择参见：<a target="_blank" rel="noopener" href="https://blog.daliansky.net/Intel-core-display-platformID-finishing.html">黑苹果必备：Intel核显platform ID整理及smbios速查表</a>。</p>
+</li>
+<li><p>驱动的正确安装方法：</p>
+<p>如果驱动没有正确安装，有极大的可能性会导致重启之后无法进入系统。作者本人就在这个问题上吃了很大的亏。关于驱动的安装，分为两种情况。</p>
+<ul>
+<li><p>操作的是<code>/EFI/CLOVER/kexts/Other</code>中的驱动文件。对于这种情况，不需要重建缓存。</p>
+</li>
+<li><p>操作的是<code>/Library/Extensions</code>或者<code>/System/Library/Extensions</code>中的驱动文件。如果操作的是这个两个文件夹中的驱动文件，则需要重建缓存。可以通过<code>Kext Utility</code>软件或者使用终端命令行来重建缓存。</p>
+</li>
+</ul>
+<p>重建缓存的命令：<code>sudo kextcache -i /</code>。</p>
+</li>
+<li><p>关于网络：</p>
+<p>对于使用安装了Intel（或者其他某些品牌）的网卡的电脑的朋友们，进入黑苹果系统以后网卡是没有驱动的，也就是说这个时候电脑是没有办法上网的。若是电脑安装了某些型号的免驱网卡，在macOS系统下电脑就可以直接连接网络。一般来说，如果不想拆机，可以使用USB网卡。但是使用USB网卡无法使用Siri, iMessage, FaceTime, HandOff等功能。</p>
+<p><strong>对于Intel的网卡，目前在macOS下是没有很好的办法驱动的。</strong>但是情况也在发生着一些改变。最近远景论坛已经有大佬写出了Intel网卡的驱动，但是还是存在一些问题。有兴趣的可以看看他的GitHub项目里面有没有支持你的网卡的型号：<a target="_blank" rel="noopener" href="https://github.com/zxystd/IntelBluetoothFirmware">IntelBluetoothFirmware</a>。</p>
+<p>对于网络的问题，可以使用USB网卡。或者直接将电脑的网卡拆下并更换为可以使用的免驱网卡。关于免驱网卡型号的选择，可以参考这个网站：<a target="_blank" rel="noopener" href="https://www.itpwd.com/330.html#">黑苹果建议的无线网卡 Hackintosh Compatible WiFi(20190505增加无线路由器推荐)</a>。</p>
+<p>当安装了合适的网卡以后，电脑便可以上网了。这个时候，这台电脑才基本可以投入使用。</p>
+</li>
+<li><p>关于<code>BCM94352Z(DW1560)</code>：</p>
+<p>作者使用的就是这种无线网卡。这个网卡是Wi-Fi和蓝牙二合一无线网卡。该网卡的无线局域网功能在macOS和Windows系统下都是免驱的。但是这个网卡在macOS下要驱动蓝牙需要三个驱动文件，分别为：<code>AirportBrcmFixup.kext</code>，<code>BrcmFirmwareData.kext</code>，<code>BrcmPatchRAM3.kext</code>。将这些驱动文件放入<code>/EFI/CLOVER/kexts/Other</code>下。注意，该目录下还应当存在<code>Lilu.kext</code>，否则驱动文件无法正常工作（仓库中提供的EFI文件夹中都已包含这些驱动文件了）。</p>
+<p>作者的电脑一度出现了电脑睡眠唤醒后蓝牙失效的情况，并被这个问题困扰了很久。一开始是参考了<a target="_blank" rel="noopener" href="https://blog.daliansky.net/Broadcom-BCM94352z-DW1560-drive-new-posture.html">Broadcom BCM94352z&#x2F;DW1560驱动新姿势[新方法]</a>中的方法，但是问题并没有得到根本解决。之后在<code>/EFI/CLOVER/kexts/Other</code>中加入了<code>ACPIDebug.kext</code>，将电脑<code>hibernatemode</code>的值调整为<code>0</code>，并在<code>蓝牙偏好设置-高级选项</code>中取消勾选<code>允许蓝牙设备唤醒这台电脑</code>后，也没有解决该问题。然后作者尝试重新订制USB驱动来解决这个问题，但是还是没有能够解决这个问题。</p>
+<p>最后，作者更换了最新的蓝牙驱动，才最终完美解决了这个问题。需要注意的是，有时在睡眠唤醒之后，蓝牙图标会短暂的显示为失效状态，然后回复正常。</p>
+<p>在Windows系统下，可以自行安装<code>驱动人生</code>软件来安装蓝牙的驱动。</p>
+<p>目前市面上<code>DW1560</code>的价格在300元左右。实话说，这个价格完全是因为黑苹果这边的需求炒起来的。而同时社区中也有其他网卡的解决方案，除了上文所提到过的驱动还开发中的部分Intel网卡之外，<code>DW1820</code>是另一个价格相对低廉的选择。但是根据社区中的反馈，<code>DW1820</code>的表现并不是特别稳定，有可能会出现各种奇怪的问题。因此，作者建议还是直接购买<code>DW1560</code>比较好，一步到位，省了各种折腾和闹心。另外，你也可以购买Mac上的拆机网卡或者<code>DW1830</code>，后者的价格在500元左右，速度比<code>DW1560</code>更快。</p>
+</li>
+<li><p>关于睡眠：</p>
+<p>请打开<code>Hackintool</code>软件，并切换到<code>电源</code>一栏。再点击红框中的按钮，使得电源信息中红色的两行变为绿色。此操作可能可以解决一些睡眠问题。</p>
+<p><img src="https://astrobear.top/resource/astroblog/content/hpenvy13hackintosh_3.png" alt="睡眠修复"></p>
+</li>
+<li><p>定制USB驱动：</p>
+<p>定制USB驱动有可能可以帮助解决一些睡眠上的问题，其操作步骤也十分简单，所以博主强烈推荐大家还是定制一下。在此处附上订制USB驱动的教程：<a target="_blank" rel="noopener" href="https://blog.daliansky.net/Intel-FB-Patcher-USB-Custom-Video.html">Hackintool(Intel FB Patcher) USB定制视频</a>。需要注意的是，你有可能发现在使用了<code>USBInjectALL.kext</code>以后仍有端口无法加载&#x2F;检测不到。你可以尝试在<code>Clover</code>的<code>config.plist</code>中添加下列<code>解除USB端口数量限制补丁</code>来解决这个问题。</p>
+<p><img src="https://astrobear.top/resource/astroblog/content/hpenvy13hackintosh_5.png" alt="解除USB端口数量限制补丁"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Comment: USB port limit patch #1 10.15.x modify by DalianSky(credit ydeng)</span><br><span class="line">Name: com.apple.iokit.IOUSBHostFamily</span><br><span class="line">Find: 83FB0F0F</span><br><span class="line">Replace: 83FB3F0F</span><br><span class="line"></span><br><span class="line">Comment: USB Port limit patch #2 10.15.x modify by DalianSky</span><br><span class="line">Name: com.apple.driver.usb.AppleUSBXHCI</span><br><span class="line">Find: 83F90F0F</span><br><span class="line">Replace: 83F93F0F</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开启<code>HiDPI</code>使屏幕看起来清晰：</p>
+<p>在终端中输入：<code>sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/hidpi-zh.sh)&quot;</code>，再按提示操作即可。</p>
+<p>详情请见：<a target="_blank" rel="noopener" href="https://www.sqlsec.com/2018/09/hidpi.html">HiDPI是什么？以及黑苹果如何开启HiDPI</a>。</p>
+</li>
+<li><p>打开<code>SSD Trim</code>：</p>
+<p>在终端中输入：<code>sudo trimforce enable</code>，然后输入<code>y</code>再回车，重复一次，电脑将自动重启。需要注意的是，使用原装SSD的朋友请<strong>不要</strong>打开这个功能，这会导致你的电脑在macOS下非常卡顿，几乎无法操作。</p>
+</li>
+<li><p>电脑卡顿的解决办法：</p>
+<p>在刚安装完黑苹果后，系统大概率会出现极为卡顿的情况。这种卡顿主要表现在：鼠标移动卡顿、动画严重掉帧、开机速度以及应用打开速度很慢、系统资源大量占用、电脑发热严重、无法正常关机。这些问题有的时候不太明显，有的时候则令电脑根本无法使用。上述问题有时在让电脑睡眠一段时间之后重新唤醒即可得到改善，但是无法根本解决。</p>
+<p>出现上述问题的根本原因就在于本型号电脑所使用的SSD——Intel SSDPEKKF360G7H对macOS的兼容并不好。若要正常使用该SSD的话必须在<code>/EFI/CLOVER/kexts/Other</code>中添加<code>HackrNVMeFamily.kext</code>。你可以在GitHub仓库文件主目录下的<code>kext</code>文件夹中找到这个驱动。在添加了这个驱动之后，系统的卡顿现象可以得到非常明显的改善，基本上做到了流畅运行，但是偶尔还是会有些许卡顿。</p>
+<p>解决这个问题最根本的方法还是更换SSD。作者的SSD已经更换为西部数据的SN500，故在EFI文件夹中删除了这个驱动文件。</p>
+</li>
+<li><p>电脑无法调节屏幕亮度的解决办法：</p>
+<p>一般情况下不会出现这样的情况，但是如果发生了，使用<code>Kext Utility</code>重建缓存后重启即可。</p>
+</li>
+<li><p>关于本机的<code>VoodooPS2Controller.kext</code>：</p>
+<p>在更换了EFI的hotpatch方法以后，最新版本的<code>VoodooPS2Controller.kext</code>已经可以正常使用。注意，新版本的<code>VoodooPS2Controller.kext</code>需要配合<code>VoodooInput.kext</code>使用。下面所说的定制<code>VoodooPS2Controller.kext</code>的内容已经过时，但此处仍加以保留，你可以根据自己的喜好按需使用。</p>
+<p>旧版本的<code>VoodooPS2Controller.kext</code>存放于GitHub仓库文件主目录下的<code>kext</code>文件夹中，它双指手势只支持上下左右滑动，三指手势在修改后实现了下表所述功能。它与新版驱动相比，优点在于：十分稳定，三指手势的识别成功率几乎达到100%，并且双指轻触十分灵敏。</p>
+<p>为迎合macOS调度中心默认的键位，我将该驱动的三只滑动手势的键盘映射作了些许调整，其对应关系如下表：</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>手势</th>
+<th>原本对应的快捷键</th>
+<th>修改后的快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>三指上滑</td>
+<td>⌘+ˆ+↑</td>
+<td>ˆ+↑</td>
+<td>调度中心</td>
+</tr>
+<tr>
+<td>三指下滑</td>
+<td>⌘+ˆ+↓</td>
+<td>ˆ+↓</td>
+<td>App Exposé</td>
+</tr>
+<tr>
+<td>三指左滑</td>
+<td>⌘+ˆ+←</td>
+<td>ˆ+→</td>
+<td>向右切换一个全屏页面</td>
+</tr>
+<tr>
+<td>三指右滑</td>
+<td>⌘+ˆ+→</td>
+<td>ˆ+←</td>
+<td>向左切换一个全屏页面</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>触控板没有反应的情况：</p>
+<p>一开始我以为是相关驱动没有成功加载的缘故，但是后来发现这是因为触控板被误锁定了。按下电脑键盘右上角的<code>prt sc</code>键可以锁定&#x2F;解锁触控板。</p>
+</li>
+<li><p>关于<code>CPUFriend.kext</code>：</p>
+<p>该驱动文件用于实现CPU的变频功能。由于该驱动程序只能根据用户个人的电脑定制，所以请不要直接使用仓库EFi文件夹中所提供的驱动文件。具体安装方法参见：<a target="_blank" rel="noopener" href="https://change-y.github.io/2018/04/30/%E5%88%A9%E7%94%A8CPUFriend-kext%E5%AE%9E%E7%8E%B0%E5%8F%98%E9%A2%91/">利用CPUFriend.kext实现变频</a>。</p>
+<p>安装完成后，可以使用CPU-S来检测自己电脑的变频档位。</p>
+</li>
+<li><p>打开原生的NTFS读写功能：</p>
+<p><strong>该操作有一定风险，是否需要开启请自行判断。</strong></p>
+<p>在macOS的默认状态下，NTFS格式的磁盘是只能读不能写的。但是我们可以将隐藏的功能打开，从而可以对该格式的磁盘进行写操作，详情参考这个链接：<a target="_blank" rel="noopener" href="http://bbs.pcbeta.com/viewthread-1742688-1-8.html">macOS打开原生的NTFS读写功能</a>。</p>
+<p>如果你对NTFS格式的磁盘读写功能有刚需，也有很多相关的软件可供选择。此处略去不表。</p>
+</li>
+<li><p>修复Windows和macOS下时钟不同步的问题：</p>
+<p>对于安装了双系统的电脑，在从macOS切换回Windows之后会发现Windows的系统时间与当前时间不符。解决这个问题的办法是：在Windows下，打开CMD输入下面的命令后回车。</p>
+<p><code>Reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1</code>。</p>
+</li>
+<li><p>关于显卡<code>platform-id</code>的选择：</p>
+<p>本机的显卡就是<code>Intel HD Graphics 620</code>，是属于7代Kaby Lake平台的，其<code>platform-id</code>为<code>0x5916000</code>，对应机型为<code>MacbookPro 14,2</code>。但是经过本人实践发现，如果注入的是HD 620的id，系统显示器输出的<code>帧缓冲深度(Framebuffer depth)</code>为诡异的30位，这对应的是10位的显示器。由于电脑显示器本身为8位的，因此10位的颜色输出会导致高斯模糊和半透明的画面出现严重的色阶断层（色带）。一开始我以为是显示器EDID不匹配的问题，但是经过搜索发现，在Kaby Lake平台上，这个问题是因为显卡<code>platform-id</code>选择得不对，应该是需要仿冒6代Sky Lake平台的<code>Intel HD Graphics 520</code>才可以得到正确的24位的帧缓冲深度输出，如下图所示。</p>
+<p>关于这个问题的具体内容和解决方法可以参看这个<a target="_blank" rel="noopener" href="https://www.tonymacx86.com/threads/help-weird-ring-like-blur-and-images-in-mojave.262566/#post-1834064">网页</a>。</p>
+<p><img src="https://astrobear.top/resource/astroblog/content/hpenvy13hackintosh_4.png" alt="正确的帧缓冲深度"></p>
+</li>
+</ul>
+<p>至此，黑苹果的安装和完善就差不多结束了。现在可以登陆iCloud以及其他苹果服务，并安装自己需要的软件了。</p>
+<p>附：博主电脑配置</p>
+<table>
+<thead>
+<tr>
+<th>型号</th>
+<th>HP Envy-13 ad024TU</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CPU</td>
+<td>Intel Core i7-7500U(2.7GHz)</td>
+</tr>
+<tr>
+<td>RAM</td>
+<td>8GB DDR4</td>
+</tr>
+<tr>
+<td>显卡</td>
+<td>Intel HD Graphics 620</td>
+</tr>
+<tr>
+<td>硬盘</td>
+<td><del>Intel SSDPEKKF360G7H 360G</del> （已更换为WD SN500）</td>
+</tr>
+<tr>
+<td>网卡</td>
+<td><del>Intel 7265NGW</del>（已更换为DW1560）</td>
+</tr>
+<tr>
+<td>声卡</td>
+<td>ALC295</td>
+</tr>
+</tbody></table>
+<article class="message message-immersive is-info">
+<div class="message-body">
+<i class="fas fa-info-circle mr-2"></i>
+目前，Open Core已经成为黑苹果社区使用的主流引导，博主同样将黑苹果迁移到了OC上面，有需要的话可以下载<a target="_blank" rel="noopener" href="https://github.com/Astrobr/OCForEnvy13-ad0xx">这个仓库</a>中提供的EFI文件。此外，更换电脑之后我不打算再折腾黑苹果了，于Github上存放EFI的仓库将不再更新。
+</div>
+</article>
+
+
+
+</div><div class="article-licensing box"><div class="licensing-title"><p>HP Envy-13 ad024TU黑苹果安装总结</p><p><a href="http://astrobear.top/2020/02/14/HP_Envy-13_ad024TU_Hackintosh/">http://astrobear.top/2020/02/14/HP_Envy-13_ad024TU_Hackintosh/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Astrobear</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2020-02-14</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-11-10</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="icon fab fa-creative-commons"></i><i class="icon fab fa-creative-commons-by"></i><i class="icon fab fa-creative-commons-nc"></i><i class="icon fab fa-creative-commons-sa"></i></a></p></div></div></div></div></div><hr style="height:1px;margin:1rem 0"><div class="level is-mobile is-flex"><div class="article-tags is-size-7 is-uppercase"><i class="fas fa-tags has-text-grey"></i> <a class="link-muted" rel="tag" href="/tags/macOS/">macOS, </a><a class="link-muted" rel="tag" href="/tags/Hackintosh/">Hackintosh, </a><a class="link-muted" rel="tag" href="/tags/HP/">HP </a></div></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=6120a56e41a28700129debe7&amp;product=inline-share-buttons" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">Like this article? Support the author with</h3><div class="buttons is-centered"><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>Alipay</span><span class="qrcode"><img src="/img/alipay.JPG" alt="Alipay"></span></a><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>Wechat</span><span class="qrcode"><img src="/img/wechatpay.JPG" alt="Wechat"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2020/02/16/RLSummary4/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Summary of Reinforcement Learning 4</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/02/14/Introduction_to_hackintosh/"><span class="level-item">黑苹果入门完全指南</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="comment-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+            id: "b6efe184f23fb9b6ca18435cc6dde0cf",
+            repo: "astroblog",
+            owner: "Astrobr",
+            clientID: "fa589cf3f78c8e8e4357",
+            clientSecret: "e97fdd7cc6bd46454d3d6216f6099c9caea80829",
+            admin: ["Astrobr"],
+            createIssueManually: false,
+            distractionFreeMode: false,
+            perPage: 10,
+            pagerDirection: "last",
+            proxy: "https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token",
+            
+            enableHotKey: true,
+            language: "en",
+        })
+        gitalk.render('comment-container')</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/avatar.jpeg" alt="Astrobear"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Astrobear</p><p class="is-size-6 is-block">(I cannot) Build my fortress.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>PRC</span></p></div></div></nav><nav class="level menu-list is-mobile" style="margin-bottom:1rem"><a class="level-item has-text-centered is-marginless" href="/archives"><div><p class="heading">Posts</p><div><p class="title">28</p></div></div></a><a class="level-item has-text-centered is-marginless" href="/categories"><div><p class="heading">Categories</p><div><p class="title">3</p></div></div></a><a class="level-item has-text-centered is-marginless" href="/tags"><div><p class="heading">Tags</p><div><p class="title">28</p></div></div></a></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/Astrobr" target="_blank" rel="noopener"><i class="fab fa-github"></i>  Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/Astrobr"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://www.facebook.com/astrobearforwork"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Instagram" href="https://www.instagram.com/astrobarchen/"><i class="fab fa-instagram"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#请先了解以下内容"><span class="level-left"><span class="level-item">1</span><span class="level-item">请先了解以下内容</span></span></a></li><li><a class="level is-mobile" href="#基本安装过程中的一些问题"><span class="level-left"><span class="level-item">2</span><span class="level-item">基本安装过程中的一些问题</span></span></a></li><li><a class="level is-mobile" href="#后续完善中的一些问题"><span class="level-left"><span class="level-item">3</span><span class="level-item">后续完善中的一些问题</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.png" alt="Astroblog" height="28"></a><p class="is-size-7"><span>&copy; 2022 Astrobear</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span><br><a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备19039261号-1</a><br><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802030906" target="_blank" rel="noopener">京公网安备 11010802030906号</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fab fa-creative-commons"></i> <i class="fab fa-creative-commons-by"></i> <i class="fab fa-creative-commons-nc"></i> <i class="fab fa-creative-commons-sa"></i> </a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Astrobear" href="https://github.com/Astrobr"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><div id="outdated"><h6>Your browser is out-of-date!</h6><p>Update your browser to view this website correctly.&amp;npsb;<a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p><p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">×</a></p></div><script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script><script>window.addEventListener("load", function () {
+            outdatedBrowser({
+                bgColor: '#f25648',
+                color: '#ffffff',
+                lowerThan: 'object-fit' // display on IE11 or below
+            });
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><script src="/js/night.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body><script type="text/javascript" src="/js/mathjax-config.js"></script></html>

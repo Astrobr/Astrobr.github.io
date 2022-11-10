@@ -1,0 +1,1040 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Accelerated C++笔记 - Astroblog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Astroblog"><meta name="msapplication-TileImage" content="/img/favicon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Astroblog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="C++基础知识。"><meta property="og:type" content="blog"><meta property="og:title" content="Accelerated C++笔记"><meta property="og:url" content="http://astrobear.top/2021/09/16/acc_cpp%E7%AC%94%E8%AE%B0/"><meta property="og:site_name" content="Astroblog"><meta property="og:description" content="C++基础知识。"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://astrobear.top/resource/astroblog/thumbnail/cpp.png"><meta property="article:published_time" content="2021-09-16T02:30:00.000Z"><meta property="article:modified_time" content="2022-11-10T08:45:59.637Z"><meta property="article:author" content="Astrobear"><meta property="article:tag" content="Programming Language"><meta property="article:tag" content="C++"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://astrobear.top/resource/astroblog/thumbnail/cpp.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://astrobear.top/2021/09/16/acc_cpp%E7%AC%94%E8%AE%B0/"},"headline":"Accelerated C++笔记","image":["https://astrobear.top/resource/astroblog/thumbnail/cpp.png"],"datePublished":"2021-09-16T02:30:00.000Z","dateModified":"2022-11-10T08:45:59.637Z","author":{"@type":"Person","name":"Astrobear"},"publisher":{"@type":"Organization","name":"Astroblog","logo":{"@type":"ImageObject","url":"http://astrobear.top/img/logo.png"}},"description":"C++基础知识。"}</script><link rel="canonical" href="http://astrobear.top/2021/09/16/acc_cpp%E7%AC%94%E8%AE%B0/"><link rel="icon" href="/img/favicon.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css"><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.2"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.png" alt="Astroblog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/2020/01/03/Gallery">Gallery</a><a class="navbar-item" href="/2020/01/03/About">About</a></div><div class="navbar-end"><a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="https://astrobear.top/resource/astroblog/thumbnail/cpp.png" alt="Accelerated C++笔记"></span></div><article class="card-content article" role="article"><h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">Accelerated C++笔记</h1><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><i class="far fa-calendar-alt"> </i><time dateTime="${date_xml(page.date)}" title="${date_xml(page.date)}">2021-09-16</time></span><span class="level-item is-hidden-mobile"><i class="far fa-calendar-check"> </i><time dateTime="${date_xml(page.updated)}" title="${date_xml(page.updated)}">2022-11-10</time></span><span class="level-item"><i class="far fa-folder-open has-text-grey"></i> <a class="link-muted" href="/categories/CS/">CS</a></span><span class="level-item"><i class="far fa-clock"></i> 2 hours read (About 18009 words)</span><span class="level-item" id="busuanzi_container_page_pv"><i class="far fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><div class="content"><blockquote>
+<p>虽然两年前就已经接触过C++，但是之前短暂的学习根本不足以让我系统掌握这门语言的用法。现在由于有项目开发的需求，我决定重新开始较为系统地学习C++。由于有C语言的基础，在入门阶段我使用Accelerated C++这本书来学习。这本书虽然较为老旧，但是内容不多，读起来也比较轻松。这篇文章是对我在看书和编程时遇到的问题和重点的总结备忘，内容比较零碎，还请大家谅解。</p>
+</blockquote>
+<h1 id="语言特性"><a href="#语言特性" class="headerlink" title="语言特性"></a>语言特性</h1><h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><ul>
+<li><p>声明：告诉编译器有这个对象存在，不需要建立内存</p>
+</li>
+<li><p>定义：需要建立内存的声明，也即实例化一个对象</p>
+</li>
+<li><p><code>main</code>函数返回一个整数类型的值作为结果，<code>0</code>表示成功</p>
+</li>
+<li><p><code>void</code>类型的函数可以不需要<code>return</code>语句，也可以写<code>return;</code></p>
+</li>
+<li><p>变量是一个具有名称的<strong>对象</strong>，对象是计算机中一段具有类型的内存空间（在C++中，一切皆对象）</p>
+</li>
+<li><p>在花括号中定义的变量，作用域只在它所在的花括号中</p>
+</li>
+<li><p>对象类型还有<strong>接口</strong>，接口就是可以对对象进行的操作的集合</p>
+</li>
+<li><p>重载：</p>
+<ul>
+<li>运算符的重载：一个运算符对于不同类型的操作数有不同的含义，如<code>1 + 1</code>与<code>&#39;A&#39; + &#39;B&#39;</code>中的加号具有不同的含义</li>
+<li>函数重载：两个功能不同的函数在具有相同名称时，当它们的参数不同时，会发生重载</li>
+</ul>
+</li>
+<li><p>关于<code>const</code>：</p>
+<ul>
+<li><p><code>const</code>表示该值为常量（只读），必须在定义它时进行初始化，变量也可以对常量进行初始化</p>
+</li>
+<li><p>如果给一个引用常量对象的函数传输一个非常量对象，那么这个对象会被视为常量</p>
+</li>
+<li><p>不可以对常量对象调用非常量函数</p>
+</li>
+<li><p>关于<code>const</code>的位置：</p>
+<ul>
+<li><p>修饰指针变量：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span>* pt = &amp;n;	<span class="comment">//指针所指的数据是常量，但是指针是变量，可以指向其他地址</span></span><br><span class="line"><span class="type">int</span>* <span class="type">const</span> pt = &amp;n;	<span class="comment">//指针所指的数据是变量，指针是常量，只能指向n的地址</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span>* <span class="type">const</span> pt = &amp;n; <span class="comment">//指针和其所指的数据都不可以改变</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修饰函数参数：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">func</span><span class="params">(<span class="type">const</span> <span class="type">int</span> n)</span> </span>&#123;&#125;; <span class="comment">//函数收到的参数是常量</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修饰成员函数：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">func</span><span class="params">(<span class="type">int</span> n)</span> <span class="type">const</span> </span>&#123;&#125;; <span class="comment">//成员函数不能修改任何除了mutable修饰的的成员变量</span></span><br><span class="line">                          <span class="comment">//且不可调用非const成员函数</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修饰函数返回值：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">const</span> <span class="type">int</span> <span class="title">func</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;&#125;; <span class="comment">//函数的返回值是常量，一般不需要这样用</span></span><br><span class="line">                          <span class="comment">//除了重载运算符外，一般不要将返回值类型定为对某个对象的const引用</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>关于<code>static</code>：</p>
+<ul>
+<li><code>static</code>表示该变量或函数是静态的，只能声明定义一次</li>
+<li>静态全局变量：具有全局寿命，在程序运行的整个过程中存在，它在进入<code>main()</code>函数初始化，在退出<code>main()</code>函数后被销毁，它只在声明它的文件中可见</li>
+<li>静态局部变量：在函数第一次执行到声明它的语句时进行初始化，它具有全局寿命，但是只在声明它的函数中可见，在单线程时多次调用包含静态局部变量的函数不会导致该静态局部变量被多次定义与初始化</li>
+<li>静态函数：它只在声明它的文件中可见，其他文件中可以声明名字相同的函数而且不会发生冲突</li>
+<li>静态数据成员：可以让该类的所有对象访问，只初始化一次，而且可以实现全局变量做不到的信息隐藏，它需要在类外部进行初始化</li>
+<li>静态成员函数：一般声明和定义都在类中，它只能访问其他静态成员函数和静态数据成员，它没有<code>this</code>指针<ul>
+<li>如果静态成员函数的声明在类中，定义在类外部，那么在外部定义时不能够加<code>static</code>关键字，否则就相当于声明了两次</li>
+<li>静态成员函数没有与其关联的对象，它可以通过类名或者对象名直接访问</li>
+</ul>
+</li>
+<li>使用<code>static</code> 修饰的变量是可以修改的</li>
+</ul>
+</li>
+<li><p>成员函数：某种类型的对象有一个或者多个函数成员，调用这些函数可以获得一个值，如<code>str.size()</code>可以获得字符串<code>str</code>的长度</p>
+</li>
+<li><p><code>using</code>声明：作用域为它所在的花括号内</p>
+<ul>
+<li><code>using namespace std;</code>：程序中默认使用<code>std</code>这个命名空间</li>
+<li><code>using namespace-name::name;</code>：使用<code>name</code>指代<code>namespace-name::name;</code></li>
+<li><code>using std::cout;</code>：使用<code>cout</code>指代<code>std::cout</code>，并且我们不会定义自己的<code>cout</code></li>
+</ul>
+</li>
+<li><p>类型转换的原则：较小的类型转换为较大的类型，有符号的类型会转换为无符号类型，算数值会被转换为布尔值，<code>0</code>可以视为<code>false</code>，而其他值都被视为<code>true</code></p>
+</li>
+<li><p>缺省初始化：一般来说，在对象定义时如果没有初始化，那么它的内容就是其内存单元中的随机内容，但是下面几种情况下，编译器会进行缺省初始化</p>
+<ul>
+<li>全局变量</li>
+<li>自定义类型的对象在没有初始化程序的情况下</li>
+</ul>
+</li>
+<li><p>左值与右值</p>
+<ul>
+<li>左值：位置值，也即内存地址</li>
+<li>右值：地址中存的值</li>
+</ul>
+</li>
+<li><p>增量&#x2F;减量运算符（按照优先级排序）：</p>
+<ul>
+<li><code>i++</code>：对<code>i</code>加一，并且返回原始值</li>
+<li><code>i--</code>：对<code>i</code>减一，并且返回原始值</li>
+<li><code>++i</code>：对<code>i</code>加一，并且返回相加后的值</li>
+<li><code>--i</code>：对<code>i</code>减一，并且返回相减后的值</li>
+</ul>
+</li>
+<li><p>关于<code>clear()</code>方法：</p>
+<ul>
+<li>对字符串：将字符串的首地址内容存放<code>\0</code></li>
+<li>对向量：清空向量内容</li>
+<li>对流：清除流内部的错误状态</li>
+</ul>
+</li>
+<li><p>泛型算法：可以用于不同类型的容器和不同的数据类型的算法</p>
+</li>
+<li><p>迭代器适配器：是一个函数，会产生与其参数相关的属性的迭代器以做他用，它会按照它给定的方式来对迭代器进行操作，下面给出了一些例子：</p>
+<ul>
+<li><code>back_inserter(des)</code>：将元素添加到<code>des</code>容器的末尾</li>
+<li><code>front_inserter(des)</code>：将元素添加到<code>des</code>容器的头部（链表支持该种操作，向量和字符串不支持）</li>
+<li><code>inserter(c, it)</code>：在<code>c</code>的迭代器<code>it</code>之前插入元素</li>
+</ul>
+</li>
+<li><p>不要将重载函数作为参数传递给模板函数，否则编译器将不知道需要使用的是重载函数哪个版本</p>
+</li>
+<li><p>将函数作为参数：将函数作为参数时，在声明的时候参数函数的编写形式类似于函数的声明，返回值和参数函数的参数必须与参数函数相一致，但是名称不需要一致</p>
+</li>
+<li><p>函数的缺省参数：在声明一个函数时，如果在参数后写上<code>= x</code>（<code>x</code>为某个值、序列、或者函数），那么这个参数默认值为<code>x</code>，在调用这个函数可以该参数缺省</p>
+</li>
+<li><p>函数的递归调用：在函数内部调用自身</p>
+</li>
+<li><p>内联函数：在函数声明与定义时，于函数名字前添加了<code>inline</code>关键字的函数，在编译时所有调用内联函数的地方都会被替换成函数体的代码以提高运行效率，对一般的函数，只有程序运行到调用函数的那个地方时，函数名才会被替代成相对应的函数代码，内联函数的长度不应超过10行</p>
+</li>
+<li><p><code>main</code>函数：</p>
+<ul>
+<li>完整形式：<code>main(int argc, char** argv)</code></li>
+<li>参数：<ul>
+<li><code>argv</code>：指向一个数组首元素地址的指针，数组中的每一个元素都是都指向一个字符串参数的指针</li>
+<li><code>argc</code>：<code>argv</code>指向的数组中的指针个数</li>
+</ul>
+</li>
+<li><code>argv</code>的第一个元素指向编译出的程序的名字的字符串的首地址</li>
+<li>在程序中可以直接使用这两个对象</li>
+</ul>
+</li>
+<li><p><code>NULL</code>，<code>nullptr</code>，<code>NaN</code>，<code>INF</code></p>
+<ul>
+<li><code>NULL</code>：历史上曾经用来指代空指针，现在已有了替代，值实际上是<code>0</code></li>
+<li><code>nullptr</code>：C++11引入的关键字，指代空指针</li>
+<li><code>NaN</code>：表示<em>Not a Number</em>，无效数字</li>
+<li><code>INF</code>：表示<em>Infinite</em>，无穷大，超出了浮点数的表示范围</li>
+</ul>
+</li>
+<li><p>如果非成员函数的调用位置在定义之前，那么需要先对其进行声明；如果调用位置在定义之后，就不需要声明了</p>
+</li>
+<li><p>前置声明：如果两个类的定义是相互依赖的，那么在定义第一个类前必须先对第二个类进行前置声明，告诉编译器有这个类存在，否则会出现无穷嵌套的问题</p>
+</li>
+</ul>
+<h2 id="新类型"><a href="#新类型" class="headerlink" title="新类型"></a>新类型</h2><h3 id="vector（向量）类型"><a href="#vector（向量）类型" class="headerlink" title="vector（向量）类型"></a>vector（向量）类型</h3><p>向量类型可以理解为大小可以按需要随意增长的数组</p>
+<ul>
+<li>定义：<code>vector&lt;double&gt; grade;</code>，该语句定义了一个类型为<code>double</code>类型的向量<code>grade</code></li>
+<li>一个向量中的所有数值具有相同的类型</li>
+<li>需要使用<code>&lt;vector&gt;</code>头文件</li>
+<li><code>grade.push_back(x)</code>：将<code>x</code>添加到<code>grade</code>向量的末尾</li>
+<li>描述向量长度的数据类型：<code>vector&lt;TYPE&gt;::size_type</code></li>
+<li>访问向量中的指定元素：类似于数组，如<code>grade[i]</code>，若一个向量有<code>grade.size()</code>个元素，那么它的第一个元素为<code>grade[0]</code>或者<code>grade.begin()</code>，最后一个元素为<code>grade[grade.szie() - 1]</code>或者 <code>grade.end()</code></li>
+<li>删除向量中的元素：<ul>
+<li>使用<code>erase()</code>成员函数，如：<code>grade.erase(grade.begin() + i)</code></li>
+<li><code>erase()</code>会在删除掉一个元素的同时，将这个元素后面的元素向前移动一个单位</li>
+<li><code>erase()</code>会返回一个迭代器（见下文），并且指向刚刚被删除的元素后面的那个元素</li>
+</ul>
+</li>
+<li>向量元素的预分配：可以减少重复的内存分配带来的系统开销<ul>
+<li><code>v.reverse(n)</code>：对向量<code>v</code>保留<code>n</code>个元素的内存空间，但不进行初始化，该操作不会改变容器的大小</li>
+<li><code>v.resize(n)</code>：给<code>v</code>一个长为<code>n</code>的新长度<ul>
+<li>新长度小于当前长度：向量位于长度<code>n</code>后的元素会被删除</li>
+<li>新长度大于当前长度：向量当前长度后与长度<code>n</code>前的空余位置会添加上新的元素，并且会进行初始化</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="list（双向链表）类型"><a href="#list（双向链表）类型" class="headerlink" title="list（双向链表）类型"></a>list（双向链表）类型</h3><p>链表中的每一个元素都有一个指针指向后一个元素，<code>list</code>（双向链表）的每一个元素都有两个指针，一个指向前一个元素，一个指向后一个元素。<code>list</code>的特性决定了我们可以快速地在容器的任何一个位置增删元素。在顺序访问的情况下，<code>list</code>的访问速度比<code>vector</code>差；但是对于大规模随机访问或者增删元素的情况，<code>list</code>的性能远远好于<code>vector</code>。</p>
+<ul>
+<li>定义示例：<code>list&lt;double&gt; grade;</code></li>
+<li>需要使用<code>&lt;list&gt;</code>头文件</li>
+<li><code>list</code>不支持索引</li>
+<li>具有<code>sort()</code>成员函数，它有一个可选的参数<code>compare</code>用于提供排序的比较方法，如果不提供该参数则默认使用<code>&lt;</code>来排序</li>
+</ul>
+<h3 id="对string类型的新认识"><a href="#对string类型的新认识" class="headerlink" title="对string类型的新认识"></a>对string类型的新认识</h3><ul>
+<li><code>string</code>类型可以视为一种特殊的容器，它支持索引操作，也有相对应的迭代器（类似<code>vector</code>）</li>
+<li><code>substr(i, j)</code>成员函数：创建一个新的字符串来保存<code>s</code>在区间<code>[i,i+j)</code>中的索引指示的字符的复制</li>
+</ul>
+<h3 id="对容器的一些其他操作"><a href="#对容器的一些其他操作" class="headerlink" title="对容器的一些其他操作"></a>对容器的一些其他操作</h3><ul>
+<li><code>c.rbegin()</code>：对于允许逆序访问的容器，该语句表示指向容器最后一个元素的迭代器，访问的顺序是逆向的</li>
+<li><code>c.rend()</code>：对于允许逆序访问的容器，该语句表示指向容器第一个元素之前的迭代器</li>
+<li><code>container&lt;Type&gt; c(c1);</code>：若<code>c1</code>存在，那么该语句表示定义一个容器<code>c</code>且其为<code>c1</code>的复制</li>
+<li><code>container&lt;Type&gt; c(n);</code>：定义一个有<code>n</code>个元素的容器<code>c</code>并根据<code>Type</code>对其元素进行初始化</li>
+<li><code>container&lt;Type&gt; c(n, t);</code>：定义一个有<code>n</code>个元素的容器<code>c</code>，<code>c</code>的元素是<code>t</code>的复制</li>
+<li><code>container&lt;Type&gt; c(b, e);</code>：定义一个有<code>n</code>个元素的容器<code>c</code>，<code>c</code>的元素是迭代器<code>[b,e)</code>之间的复制</li>
+<li><code>c.size()</code>：返回<code>c</code>中元素的个数，返回值类型为<code>size_type</code></li>
+<li><code>c.empty()</code>：用于指示<code>c</code>中有无元素，如果没有的话返回<code>True</code></li>
+<li><code>c.insert(d, b, e)</code>：复制<code>[b,e)</code>两个迭代器之间的元素，并将它们插入到<code>c</code>容器的<code>d</code>迭代器所指示的位置之前</li>
+<li><code>c.erase(b, e)</code>：从<code>c</code>中删除<code>[b, e)</code>两个迭代器之间的元素，对于不同的迭代器，该操作的速度有所不同</li>
+</ul>
+<h3 id="iterator（迭代器）类型"><a href="#iterator（迭代器）类型" class="headerlink" title="iterator（迭代器）类型"></a>iterator（迭代器）类型</h3><p>迭代器用于代替索引，以库能控制的方式访问元素。</p>
+<ul>
+<li>每一个标准容器都有两种迭代器类型：<ul>
+<li><code>container-type::const_iterator</code>：使用该迭代器只能读容器中的元素</li>
+<li><code>container-type::iterator</code>：使用该迭代器可以读也可以写容器中的元素</li>
+<li><code>iterator</code>类型可以转换为<code>const_iterator</code>类型，反之不行</li>
+</ul>
+</li>
+<li>使用例：<code>vector&lt;double&gt;::const_iterator iter = grade.begin();</code>，声明了一个名为<code>iter</code>的迭代器，且初始值为<code>grade</code>的第一个元素</li>
+<li>迭代器可以使用增量运算符（重载过）</li>
+<li>迭代器相当于是一个指针，可以使用<code>*</code>运算符间接引用迭代器所指向元素的内容（访问的是左值），在使用时应当注意运算符的优先顺序</li>
+<li>如果要获得迭代器引用的内容的一个元素，可以使用<code>*(iter).element</code>或者<code>iter -&gt; element</code>两种方式访问</li>
+<li>注意，对于不支持随机访问索引操作的容器，<strong>对迭代器的值进行手动更改（如给迭代器加或者减偏移量）将无法通过编译</strong></li>
+<li>删除迭代器当前所指示的元素会使得该迭代器失效</li>
+<li>对<code>vector</code>容器，<code>erase</code>和<code>push_back</code>操作会使得被操作以及之后的元素的迭代器失效，而对<code>list</code>容器则不会</li>
+<li>如果一个容器支持索引，那么它的迭代器也支持索引，如：<code>iter[2]</code>等价于<code>*(iter + 2)</code>，<code>iter[-1]</code>等价于<code>*(iter - 1)</code></li>
+</ul>
+<h3 id="map（映射表）类型"><a href="#map（映射表）类型" class="headerlink" title="map（映射表）类型"></a>map（映射表）类型</h3><p>之前提到的向量、链表等容器都是顺序容器，而<code>map</code>则属于关联容器。关联容器的序列不依赖于插入元素时的顺序，它只依赖于元素本身的值。关联容器的特性可以使我们更快地对特定元素定位。</p>
+<ul>
+<li><code>map</code>容器中存储的是一个<code>键-值</code>对<ul>
+<li>键：有点类似于顺序容器中的索引，它指向一个存储空间</li>
+<li>值：键所指向的存储空间中存放的内容</li>
+</ul>
+</li>
+<li>声明例：<code>map&lt;string, int&gt; m;</code>，该语句声明了一个名为<code>m</code>，从字符串到整数的映射表，其键的类型为<code>string</code>，值的类型为<code>int</code></li>
+<li>关联容器不可以对元素进行手动排序，一般不对关联容器的内容进行修改</li>
+<li>只要声明了一个关联容器，如果我们用一个未曾出现过的键作为映射表的索引，这个映射表会自动创建一个具有这个键的元素，且这个元素具有初始化的值，对于内部类型会被初始化为<code>0</code></li>
+<li><code>pair</code>（数对）类型：该类型提供了访问映射表的键和值的能力，映射表中的每个元素都是一个数对<ul>
+<li>数对有两个成员，<code>first</code>成员包含了键，<code>second</code>成员包含了值</li>
+<li>间接引用映射表迭代器时，获得的就是这个映射表关联的一个数对<code>pair&lt;const T1, T2&gt;</code></li>
+<li>注意，映射表的键是常量</li>
+</ul>
+</li>
+<li><code>map</code>的访问方法：<code>m[key]</code>，使用键<code>key</code>来索引访问映射表并返回一个左值，如果对于这个键没有一个合适的项目，那么则会新建一个元素</li>
+<li><code>map</code>的另一种访问方法：若<code>iter</code>是一个映射表的迭代器，那么<code>iter -&gt; first</code>可以得到数对的键，<code>iter -&gt; second</code>可以得到数对的值</li>
+<li>常量映射表无法使用索引访问</li>
+<li><code>find()</code>成员函数：参数为需要查找的键，如果查找到了则返回一个指向这个元素的迭代器，否则返回映射表的末尾</li>
+<li>一般情况下<code>map</code>都是自动排序的，但是在可以通过<code>map&lt;K, V&gt; m(cmp);</code>语句在声明时使用<code>cmp</code>来人工确定元素的顺序</li>
+</ul>
+<h3 id="自定义类型"><a href="#自定义类型" class="headerlink" title="自定义类型"></a>自定义类型</h3><p>作为核心语言的一部分，<code>int</code> 、<code>char</code>、<code>double</code>等类型都是内部类型；而<code>vector</code>、<code>string</code>等类型属于标准库的内容，是自定义类型。用户可以自己定义新的类型，自定义其中的数据、函数、访问接口等，以此对数据结构进行封装。</p>
+<ul>
+<li>自定义类的格式：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Class_name</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//类型提供的接口</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="comment">//类型的实现</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>public</code>：保护标识符，它指示类中的共有成员，类的所有用户都可以访问公有成员</li>
+<li><code>private</code>：保护标识符，它指示类中的私有成员，类的私有成员对用户来说是不可以直接访问的</li>
+<li>同样可以用<code>struct</code>关键字来自定义类，但是它与<code>class</code>有所区别，如：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">struct</span> <span class="title class_">Student_info</span> &#123;</span><br><span class="line">    string name;</span><br><span class="line">    <span class="type">double</span> midterm, <span class="keyword">final</span>;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">int</span> gender;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">int</span> age;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>​		这里<code>Student_info</code>为一个具有5个数据成员的类型</p>
+<ul>
+<li><p>关于<code>class</code>和<code>struct</code>：<code>class</code>关键字声明的类型在第一个<code>&#123;</code>和保护标识符之间的所有成员都是私有的，<code>struct</code>则相反</p>
+</li>
+<li><p>自定义的类型只能出现一次，它只能出现在一个头文件中</p>
+</li>
+<li><p>在类型内部自定义成员函数时，可以直接访问对象内部的元素</p>
+</li>
+<li><p>如果是在头文件（<code>.h</code>）对应的源文件（<code>.cpp</code>）中定义的成员函数，函数的名字前必须加上<code>Class_name::</code>的作用域限定运算符，以明确函数是<code>Class_name</code>的一个成员函数，否则会出现函数未定义的编译错误</p>
+</li>
+<li><p>将成员函数定义在类内部与类外部的区别：在类内部定义的成员函数，实际就是把函数的调用扩展成内联的，这样可以提高程序运行效率</p>
+</li>
+<li><p>成员函数如果不是定义在类内部，<strong>必须在相对应的源文件（<code>.cpp</code>）中定义</strong>，否则会产生重复定义的问题（<strong>模板类除外</strong>）</p>
+</li>
+<li><p>如果在自定义类与全局环境中有同名函数，在函数名字前加上<code>::</code>（该运算符左侧没有内容）代表使用的是全局韩静中的那个函数</p>
+</li>
+<li><p>如果需要访问一个私有的数据成员，可以定义一个存取器函数（如下），但是它会破坏类的封装性：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">std::string <span class="title">name</span><span class="params">()</span> <span class="type">const</span> </span>&#123; <span class="keyword">return</span> name; &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对声明为<code>static</code>的成员函数，它只能在类中定义</p>
+</li>
+</ul>
+<h4 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h4><p>构造函数是类的一个特殊的成员函数，它定义了对象的初始化方式。它的名字是类的名字且没有返回值，它会在创建一个自定义类型的对象时被自动调用。</p>
+<ul>
+<li><p>如果没有自定义构造函数，那么编译器会为我们自己创建一个</p>
+</li>
+<li><p>构造函数列表：在<code>public</code>作用范围内的构造函数的声明</p>
+</li>
+<li><p>构造函数的定义：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Student_info::<span class="built_in">Student_info</span>(<span class="type">double</span> midterm, <span class="type">double</span> <span class="keyword">final</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上面定义了一个参数为 <code>midterm</code>和<code>final</code>的构造函数，下面给出声明与初始化例：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Student_info::Student_info <span class="title">stu</span><span class="params">(<span class="number">100</span>, <span class="number">99</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>上面声明并初始化了一个名为<code>stu</code>的<code>Student_info</code>类型的对象，并设置了其成员数据的值</p>
+</li>
+<li><p>构造函数默认参数：构造函数的参数同样可以给定其默认值，从而可以进行缺省初始化</p>
+</li>
+<li><p>缺省构造函数：不带参数的构造函数，如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Student_info::<span class="built_in">Student_info</span>(): <span class="built_in">midterm</span>(<span class="number">0</span>), <span class="built_in">final</span>(<span class="number">0</span>) &#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>使用该方式同样可以进行对象的缺省初始化</p>
+</li>
+<li><p>上面的语句中，<code>:</code>与<code>&#123;</code>之间的内容为<strong>构造函数初始化程序</strong>，程序会用括号中的值初始化相应的数据成员</p>
+</li>
+<li><p>创建一个对象时的过程：</p>
+<ol>
+<li>分配相对应的内存</li>
+<li>执行构造函数初始化程序</li>
+<li>执行构造函数函数体（在上面的例子中，函数体中没有内容）</li>
+</ol>
+</li>
+<li><p>不建议在构造函数的函数体中对对象进行初始化，如果这样那就相当于对对象做了两次初始化</p>
+</li>
+<li><p><code>explicit</code>关键字：函数名前添加了此关键字的构造函数只能在被显式调用时才能使用</p>
+</li>
+<li></li>
+</ul>
+<h4 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h4><p>析构函数是在一个对象被删除的时候被调用的，它来定义如何删除一个对象的示例。</p>
+<ul>
+<li>析构函数的函数名是在类的名字前面加上<code>~</code></li>
+<li>析构函数不带参数且没有返回值</li>
+<li>定义例：<code>~Student_info() &#123;&#125;</code></li>
+</ul>
+<h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p>指针是一种随机存取的迭代器。</p>
+<ul>
+<li>一个指针是一个存放对象地址的值，一个对象是只包含它本身一个元素的容器，那么指针就是指向这个元素的迭代器</li>
+<li>对于一个指向对象<code>x</code>的指针<code>p</code>，有：<ul>
+<li><code>p</code>：<code>x</code>的地址</li>
+<li><code>*p</code>：<code>x</code>的内容，也即有<code>*p = x</code>，这里 <code>*</code>是一个间接引用运算符</li>
+<li><code>&amp;x</code>：<code>p</code>的内容，也即有<code>p = &amp;x</code>，这里<code>&amp;</code>是一个取地址运算符</li>
+</ul>
+</li>
+<li>一般使用<code>0</code>初始化指针变量，空指针的内容就是<code>0</code></li>
+<li>指针具有类型，对于一种类型<code>T</code>，可以定义一个指向<code>T</code>类型的对象的指针：<code>T* p;</code></li>
+<li>指针可以通过加减法修改它指向的值</li>
+<li>使用<code>ptrdiff_t</code>类型来表示两个指针的间距，它在<code>&lt;cstddef&gt;</code>头文件中</li>
+<li>野指针：指向被释放的内存空间的指针</li>
+<li>函数指针：<ul>
+<li>一个指针在声明时如果带上参数，那么他就变成了一个函数指针</li>
+<li>示例：<code>int (*fp)(int);</code>，调用<code>fp</code>时以一个<code>int</code>类型的变量作为参数，同时返回一个<code>int</code>类型的结果，这意味着<code>fp</code>是一个具有一个<code>int</code>类型参数并且返回一个<code>int</code>类型结果的函数的指针</li>
+<li>如果存在这样的一个函数：<code>int func(int)</code>，那么可以用<code>fp = &amp;func;</code>或者<code>fp = func;</code>来让<code>fp</code>指向<code>func</code></li>
+<li>如果<code>fp</code>指向<code>func</code>，那么可以使用<code>(*fp)(i)</code>或者<code>fp(i)</code>的方式调用<code>func</code>，其中<code>i</code>为整型</li>
+<li>如果将一个函数名作为另一个函数的参数，那么编译器会将这个参数转换成一个指向那个函数的指针</li>
+</ul>
+</li>
+<li>使用指针时可能导致问题出现的原因：<ul>
+<li>复制一个指针时不会复制指针所指的对象</li>
+<li>删除一个指针不会释放对象所占用的内存</li>
+<li>删除一个对象但是没有删除指向该对象的指针会产生一个空悬指针</li>
+<li>定义了一个指针但是不进行初始化</li>
+</ul>
+</li>
+</ul>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>数组是最基础的容器，它是核心语言的一部分。</p>
+<ul>
+<li>数组元素个数必须在编译时确定，它不能动态增减尺寸</li>
+<li>使用<code>size_t</code>类型来表示一个数组的大小，它在<code>&lt;cstddef&gt;</code>头文件中</li>
+<li>对于一个有<code>n</code>个元素的数组，只有指向<code>[0,n)</code>的指针是合法的</li>
+<li>数组支持索引操作</li>
+<li>数组定义的两种方法：<ul>
+<li>只声明，需要显式地确定元素个数：<code>int num[5];</code></li>
+<li>定义的同时进行初始化，无需显式地确定元素个数：<code>int num[] = &#123;1, 2, 3, 4, 5&#125; ;</code></li>
+</ul>
+</li>
+<li>字符串实际就是一个字符类型的数组，它的最后一个字符为空字符<code>\0</code>，使用<code>strlen</code>函数可以确定字符串的大小</li>
+<li><code>sizeof()</code>：返回一个<code>size_t</code>类型的值，其值以<code>bytes</code>为单位，如果需要返回数组的元素个数，那么可以用<code>sizeof()</code>的返回值除数组中每个元素占用空间的大小</li>
+<li>如果数组以指针的方式作为函数的参数，那么它会退化成一个指针，这个时候无法通过<code>sizeof()</code>得到指针所指数组的长度，只能得到指针所占空间的大小</li>
+</ul>
+<h2 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h2><ul>
+<li><p>一般来说有三种分配内存的方法：</p>
+<ul>
+<li>自动分配：在使用局部变量时就使用了自动分配内存的策略，用时分配，用完释放</li>
+<li>静态分配：使用<code>static</code>关键字限定的对象，系统只会对它进行一次内存分配，直到程序结束才释放</li>
+<li>动态分配：使用<code>new</code>与<code>delete</code>关键字分配的对象</li>
+</ul>
+</li>
+<li><p><code>new</code>与<code>delete</code>：使用<code>new</code>创建的对象一直存在直到对其使用<code>delete</code>或者程序结束</p>
+</li>
+<li><p>为对象分配或释放内存：</p>
+<ul>
+<li><code>new T;</code>：为一个没有名字的<code>T</code>类型的对象分配内存</li>
+<li><code>new T(args);</code>：与上面类似，但是内存中存有值<code>args</code></li>
+<li><code>int* p = new int(100);</code>：将一个<code>int</code>类型的指针<code>p</code>指向<code>new</code>开辟的存有<code>100</code>的内存空间</li>
+<li><code>delete p;</code>：删除指针<code>p</code>并且释放其指向的内存空间</li>
+</ul>
+</li>
+<li><p>为数组分配或释放内存：</p>
+<ul>
+<li><code>new T[n];</code>：为一个具有<code>n</code>个<code>T</code>类型的对象数组分配内存，并且返回一个指向数组首元素的指针，数组中的每一个对象都会被默认初始化</li>
+<li>在上面的表达式中如果<code>n</code>为<code>0</code>，那么数组中将没有任何元素，并且<code>new</code>无法返回一个有意义的指针</li>
+<li><code>T* p  = new T[n];</code>：将指针<code>p</code>指向新开辟的数组的首地址</li>
+<li><code>delete[] p;</code>：从后向前释放指针<code>p</code>指向的数组所用的全部内存空间，如果索引运算符内添加了索引，那么只释放索引指定的那个内存空间</li>
+</ul>
+</li>
+<li><p><code>malloc()</code>函数：</p>
+<ul>
+<li>库：<code>&lt;stdlib&gt;</code></li>
+<li>参数：<code>size_t</code>类型，为需要分配的内存空间大小</li>
+<li>返回一个<code>void*</code> 类型（未知类型）的指针，在使用时需要进行强制类型转换，若失败则返回<code>NULL</code></li>
+<li>使用例：<code>char* cp = (char*)malloc(10);</code></li>
+<li><code>malloc</code>不会对分配的空间进行初始化，而<code>new</code>会</li>
+</ul>
+</li>
+<li><p>内存分区：</p>
+<ul>
+<li>堆区：由用户手动申请与释放，若不释放则在程序结束后释放，使用<code>new</code>或 <code>malloc</code>申请的内存在此区域</li>
+<li>栈区：由系统管理，主要存放函数的参数以及局部变量</li>
+<li>静态存储区：在编译时就已经分配好内存空间并且进行初始化，主要存放静态变量、全局变量以及常量</li>
+<li>代码区：存放程序体的二进制代码</li>
+</ul>
+</li>
+<li><p>内存分配器<code>allocator</code>：</p>
+<ul>
+<li><code>allocator&lt;T&gt;</code>是一个类，它定义在<code>&lt;memory&gt;</code>头中，使用时需要加上<code>std::</code></li>
+<li>在使用<code>allocator&lt;T&gt;</code>类时，需要先将其实例化，如：<code>std::allocator&lt;T&gt; alloc;</code></li>
+<li>在程序中通过调用对象的成员函数来实现内存分配，下面是一些常用的成员函数：<ul>
+<li><code>T* allocate(size_t)</code>：用于分配一块长度为<code>size_t</code>，类型为<code>T</code>但并未被初始化的内存块，并返回这块内存的地址</li>
+<li><code>void deallocate(T*, size_t)</code>：用于释放未被初始化的内存，第一个参数为<code>allocate</code>函数返回的指针，第二个参数为指针指向的内存块的大小</li>
+<li><code>void construct(T*, T)</code>：用于对使用<code>allocate</code>函数分配的未初始化的内存进行初始化，第一个参数为<code>allocate</code>函数返回的指针，第二个参数需要复制的初始值</li>
+<li><code>void destroy(T*)</code>：用于删除指针所指的对象，它会调用析构函数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>另外两个内存分配中可能有用的库函数：</p>
+<ul>
+<li><code>T* std::uninitialized_copy(T*, T*, T*)</code>：用于将前两个参数指针所指的区域中内存的值复制到第三个参数指针指向的目标内存块中，并且返回一个指向被初始化的你内存中的末元素后一个元素的地址</li>
+<li><code>void std::uninitialized_fill(T*, T*, const T&amp;)</code>：用于向前两个参数指针所指的区域的内存中复制第三个参数所引用的值</li>
+</ul>
+</li>
+</ul>
+<h2 id="泛型函数"><a href="#泛型函数" class="headerlink" title="泛型函数"></a>泛型函数</h2><ul>
+<li>含义：不知道参数和返回值类型的函数，用于解决一类抽象问题</li>
+<li>函数中使用的变量必须支持函数中所进行的操作</li>
+</ul>
+<h3 id="模板函数"><a href="#模板函数" class="headerlink" title="模板函数"></a>模板函数</h3><p>泛型函数的具体实现。模板函数可以让不同的对象享有共同的行为特性，在定义模板函数的时候我们不知道模板参数对应的特定类型。下面给出了定义模板函数的示例：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="function">T <span class="title">function</span><span class="params">(vector&lt;T&gt; v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//函数内容...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>template &lt;class T&gt;</code>定义了一个模板头，它告诉系统环境定义了一个模板函数，而且这个函数有一个类型参数</li>
+<li>如果要使用嵌套类型（也即由模板参数定义的类型），那么必须要使用<code>typename</code>关键字，如：<code>typedef typename vector&lt;T&gt;::size_type vec_sz;</code>，使系统将这个名称当做一个类型处理</li>
+<li>模板函数的实例化过程在不同系统下有所不同</li>
+<li>模板函数的正确性是由参数之间的正确关系决定的，如果参数之间产生了可能导致歧义和信息丢失的关系，那么这个函数的程序很有可能是有错误的，甚至无法通过编译</li>
+<li>在编写模板函数的时候，为了使函数可以处理存储于各种数据结构中的数值，并且能够作用于容器的一部分而非整容器，一般我们使用迭代器参数而不是容器参数</li>
+</ul>
+<h3 id="迭代器的类型"><a href="#迭代器的类型" class="headerlink" title="迭代器的类型"></a>迭代器的类型</h3><p>下面的迭代器每一种都对应了一个特定的迭代器操作集合，每一个迭代器种类还对应了一个访问容器的策略，同时也对应了特定的算法。在编写模板函数时需要注意不同迭代器的选择。</p>
+<ul>
+<li>输入迭代器<code>In</code>：该种迭代器对一个序列提供了<strong>顺序只读访问</strong>的操作，它支持的操作有：<code>++</code>、<code>==</code>、<code>!=</code>、<code>*(读)</code></li>
+<li>输出迭代器<code>Out</code>：该种迭代器对一个序列提供了<strong>顺序写入</strong>的操作，它要求调用它的程序不可以在对迭代器的两个赋值之间执行超过一次的自增操作，也不能在没有对迭代器递增时对其多次赋值</li>
+<li>正向迭代器<code>For</code>：该种迭代器对一个序列提供了<strong>顺序读-写访问</strong>的操作，它可以在对一个元素赋值后再读取它的值，因此不需要满足输出迭代器的一次赋值要求，它支持的操作有：<code>*(读写)</code>、<code>++</code>、<code>==</code>、<code>-&gt;</code>，所有的标准库容器都满足正向迭代器的要求</li>
+<li>双向迭代器<code>Bi</code>：该迭代器对一个序列提供了<strong>可逆读-写访问</strong>的操作，它不仅有正迭代器的功能，还支持<code>--</code>（也即逆序访问）的操作，所有的标准库容器都支持双向迭代器</li>
+<li>随机迭代器<code>Ran</code>：该迭代器对一个序列提供了<strong>随机访问</strong>的操作，它的行为有点类似索引，不仅有双向迭代器的功能，而且支持算术运算，若<code>p</code>和<code>q</code>是两个迭代器，那么它们支持：<code>p + n</code>、<code>p - n</code>、<code>n + p</code>、<code>p - q</code>（得到的是两个迭代器之间的距离，整型）、<code>p &lt; q</code>、<code>p &gt; q</code>、<code>p &gt;= q</code>，向量和字符串迭代器都是随机访问迭代器，而链表迭代器则是双向迭代器</li>
+</ul>
+<h2 id="模板类"><a href="#模板类" class="headerlink" title="模板类"></a>模板类</h2><p>模板类用于生成一个类，这个类生成的多个对象可以分别存储不同类型的数据。模板类相当于定义了存储自定类型的数据结构的一个容器。</p>
+<ul>
+<li><p>声明例：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt; <span class="keyword">class</span> <span class="title class_">Name</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>上面的语句声明了一个名字为<code>Name</code>，可以存储并处理<code>T</code>类型数据的模板类，这里的<code>T</code>类型会在将这个类实例化的时候确定，如<code>Name&lt;int&gt; N;</code>使用<code>Name</code>模板创建了一个<code>T</code>为<code>int</code>类型的对象</p>
+</li>
+<li><p><strong>模板类的声明和实现必须全部写在头文件中</strong></p>
+</li>
+<li><p>模板类的成员函数如果需要在类外部定义，那么为了将函数的作用域明确为在类的内部，需要做以下更改：</p>
+<ul>
+<li>在函数的定义前面加上<code>template &lt;class T&gt;</code></li>
+<li>在函数名前面添加<code>Name::</code></li>
+<li>在所有的<code>Name</code>后面添加<code>&lt;T&gt;</code></li>
+</ul>
+</li>
+<li><p>自定义模板类的时候一定要全面地考虑其初始化、内存分配、复制的问题，必要时可以自定义这些操作</p>
+</li>
+<li><p>模板类的构造函数例：</p>
+<ul>
+<li><code>Name() &#123;&#125;</code>：最普通的无参构造函数</li>
+<li><code>Name(size_type n, const T&amp; val = T()) &#123;&#125;</code>：该构造函数的参数为一个指定了对象大小的<code>size_type</code>类型的参数<code>n</code>，以及提供了初始化的默认值的<code>const T&amp;</code>的参数，它的缺省值由<code>T</code>的构造函数提供</li>
+</ul>
+</li>
+<li><p>可以使用<code>typedef</code>关键字来自定义类型名，如：<code>typedef T* iterator;</code></p>
+</li>
+<li><p>运算符重载：在自定义类中可以对内置的运算符进行重载以实现需要的功能，如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">T&amp; <span class="keyword">operator</span>[](size_type i) &#123; <span class="keyword">return</span> data[i]; &#125;</span><br><span class="line"><span class="type">const</span> T&amp; <span class="keyword">operator</span>[](size_type i) <span class="type">const</span> &#123; <span class="keyword">return</span> data[i]; &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>运算符重载的声明有点像定义了一个<code>operator&quot;运算符&quot;</code>函数</li>
+<li>如果需要使运算符不改变对象的值，那么就在运算符重载的定义前面以及函数体前面加上<code>const</code>关键字</li>
+<li>如果某个重载运算符函数是类的一个成员函数：<ul>
+<li>它的左操作数（二元运算符）或者唯一的操作数（一元运算符）必须是调用它的对象</li>
+<li>它的左操作数（二元运算符）会以<code>this</code>指针的方式默认地传递给这个成员函数</li>
+</ul>
+</li>
+<li>如果某个重载运算符函数不是类的一个成员函数，那么重载运算符函数的第一个参数是左操作数，第二个参数是右操作数</li>
+</ul>
+</li>
+<li><p><code>this</code>指针：<code>this</code>关键词只在成员函数内部有效，代表指向函数操作对象的指针，指针的类型由函数的操作对象决定</p>
+</li>
+<li><p>复制控制：</p>
+<ul>
+<li>复制构造函数：用于复制一个已经存在的同类型的对象，以此来初始化一个新的对象，它只带一个与类本身类型相同的参数，并且由于复制不应该改变已有对象的值，因此它的类型应该为常量引用类型</li>
+<li>复制构造函数的函数体应该为自定义的复制操作，如果函数体为空，那么将使用系统默认的方式进行复制</li>
+<li>在复制对象时，由于对象的副本的地址与原对象不同，因此不可以将原对象中指向原对象本身的指针同时复制过去，应当重置这些指针使得它们对新对象有意义</li>
+</ul>
+</li>
+<li><p>赋值运算符：</p>
+<ul>
+<li>赋值操作函数：把一个对象中已经存在的值<strong>擦除</strong>，然后装入一个新的值</li>
+<li>类中可以重载赋值运算符，如：<code>Name&amp; operator=(const Name&amp; n) &#123;&#125;</code></li>
+<li>这里的参数为右操作数的一个引用</li>
+<li>在函数体内可以通过该语句判断是否是自我赋值：<code>&amp;n != this</code>，该语句比较了左右操作数的地址，如果两者相等则为自我赋值</li>
+<li>赋值与复制的区别：复制是将一个值插入一个新的对象，不需要删除操作</li>
+<li>构造函数只控制初始化操作，<code>operator=</code>函数只控制赋值操作</li>
+</ul>
+</li>
+<li><p>在使用<code>=</code>为变量赋初始值时调用的是赋值构造函数，在赋值表达式中<code>=</code>调用的是赋值操作函数</p>
+</li>
+<li><p>如果一个类没有显式地定义构造函数或者析构函数，那么编译器将自动生成执行这些操作的默认函数</p>
+</li>
+<li><p>默认的析构函数在删除一个指针变量时不会释放该指针指向的对象占用的内存空间</p>
+</li>
+<li><p>三位一体原则：如果类需要一个析构函数，那么它同时有可能需要一个复制构造函数和一个赋值操作函数</p>
+</li>
+<li><p>友元函数：如果一个函数定义在类的声明外部，但是又需要它具有访问<code>private</code>成员数据的权限，那么可以在类内部声明这个函数时，前面加上<code>friend</code>关键字，将其声明为一个友元函数</p>
+</li>
+<li><p>模板特化：只有当模板类的实际的对象类型<code>T</code>为指定类型时，才调用指定类型对应的模板成员函数，声明与定义如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;&gt;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">function</span><span class="params">(<span class="type">int</span> var)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="对象的初始化"><a href="#对象的初始化" class="headerlink" title="对象的初始化"></a>对象的初始化</h2><ul>
+<li>初始化与赋值：<ul>
+<li>初始化：在创建一个变量时赋予它一个初始值</li>
+<li>赋值：将对象的当前值擦去，并且用一个新值替代</li>
+</ul>
+</li>
+<li>下列情况发生时会进行初始化：<ul>
+<li>声明一个变量</li>
+<li>函数入口处用到函数参数</li>
+<li>函数返回处用到函数返回值</li>
+<li>构造初始化</li>
+</ul>
+</li>
+<li>通过显式地调用构造函数进行初始化称为<strong>显式初始化</strong>，否则称为<strong>隐式初始化</strong></li>
+<li>使用<code>=</code>初始化一个对象称为<strong>拷贝初始化</strong>，不用等号则是<strong>直接初始化</strong></li>
+<li>如果对象没有进行显式初始化，则会进入<strong>隐式初始化</strong>的<strong>状态</strong>，在<strong>隐式初始化</strong>状态下会进行<strong>缺省初始化</strong>的<strong>过程</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </li>
+<li>关于不同种类对象的缺省初始化方式：<ul>
+<li>全局或者静态的对象：空串或者<code>0</code></li>
+<li>对象为局部的内部类型：未定义的值</li>
+<li>内部类型作为类的成员：在某些条件下会被数值初始化为<code>0</code></li>
+<li>自定义类型且有构造函数：使用构造函数初始化</li>
+<li>自定义类型且无构造函数：递归地对对象中的每一个数据成员进行相应的数值初始化或者缺省初始化</li>
+</ul>
+</li>
+</ul>
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><ul>
+<li>自动类型转换：<ul>
+<li>自动转换的例子很常见，如将<code>int</code>类型的右值赋给<code>double</code>类型的左值时，该右值就会被自动转换为<code>double</code>类型</li>
+<li>自动类型转换分为下面两种情况：<ul>
+<li>内置类型向自定义类型转换</li>
+<li>自定义类型向内置类型转换</li>
+</ul>
+</li>
+<li>内置类型转换为用户自定义类型：需要在自定义类内部编写带单参数的构造函数<ul>
+<li>例如：<code>Name(const char* cp) &#123; //将参数提供的内容存入临时的Name类型的对象中 &#125;</code>，对<code>Name</code>类型，该构造函数会在编译器需要一个<code>Name</code>类型的对象却收到了一个<code>const char*</code>类型的对象的时候被调用</li>
+</ul>
+</li>
+<li>用户自定义类型转换为内置类型：需要在自定义类内部编写如下例所示的成员函数<ul>
+<li>例如：<code>operator int() &#123; //将自定义类型转换为int类型 &#125;</code>，该函数会在显式强制转换或者对象传入的值类型不符时被调用，函数的返回值为由其类型名确定</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>如果两个类之间彼此定义了向另一个类的转换操作，会导致转换时出现二义性</li>
+<li>混合类型表达式：混合类型表达式意为在一个语句中使用运算符同时操作不同类型的对象的表达式，它在实现的过程中会进行多次类型转换，同时产生大量的临时变量，比较浪费内存</li>
+</ul>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><ul>
+<li>形如<code>int&amp; i;</code>的变量即为引用变量，左侧的表达式是对其进行声明的过程</li>
+<li>如果存在一个整型变量<code>temp</code>，那么令<code>i = temp;</code>，则<code>i</code>指向的内存位置与<code>temp</code>相同，<code>i</code>相当于是<code>temp</code>的一个别名</li>
+<li>引用作函数参数：<ul>
+<li>非常量引用：<code>int function(vector&lt;string&gt;&amp; count);</code>，形式参数<code>count</code>存放的是实际参数的地址（<code>&amp;</code>的意思有一些像取地址，但是二者是有区别的），可以直接在函数内更改实际参数的值，而且不需要重新复制一个变量，减少资源消耗</li>
+<li>常量引用：<code>int function(const vector&lt;string&gt;&amp; count)</code>，常量引用只能藉由实际参数的地址读取它的内容且无法进行修改，该操作同样不需要重新复制变量</li>
+<li>一般来说，对于<code>int</code>或者<code>double</code>类型的参数可以不需要引用，因为对它们的复制是非常快的</li>
+</ul>
+</li>
+<li>值类型作函数返回值：<ul>
+<li>对于值类型的返回值，编译器会先将这个值复制到一个临时变量内并且返回这个临时变量</li>
+<li>函数调用完成，这个临时变量在被使用一次后（也可能不被使用），它即被销毁</li>
+</ul>
+</li>
+<li>引用作函数返回值：<ul>
+<li>引用作函数返回值的时候，不可以引用局部变量，因为函数调用完成后局部变量就被销毁，这个引用就无效了</li>
+<li>当引用作函数返回值时，不需要将变量重新复制一次保存在临时变量中</li>
+<li>引用作返回值时可以作为左值</li>
+</ul>
+</li>
+</ul>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ul>
+<li><p>定义：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line">	<span class="keyword">public</span>:...</span><br><span class="line">	<span class="keyword">private</span>:...</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span>: <span class="keyword">public</span> A &#123;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>上面定义了一个类<code>B</code>，它是从<code>A</code>中继承而来，称<code>A</code>是基类（或者父类），<code>B</code>是继承类（派生类、子类）</li>
+<li>这里派生类继承了基类的公有部分，也即基类的公有成员才是子类的一部分</li>
+<li>同样可以使用<code>private</code>或者<code>protected</code>关键字来指定继承的方式</li>
+</ul>
+</li>
+<li><p>继承关系是可以嵌套的</p>
+</li>
+<li><p>基类和继承类的关系：基类就是继承类，继承类不是基类，对于他们的引用或者指针同样有这个关系</p>
+</li>
+<li><p>基类不可以强制转换为派生类</p>
+</li>
+<li><p>关于基类或者继承类作为函数参数：</p>
+<ul>
+<li>形式参数与实际参数匹配的情形不讨论</li>
+<li>如果形式参数是基类类型的，传入一个继承类的对象会将其转换为基类</li>
+<li>如果形式参数是继承类型的，那么实际传入的对象只有继承类的部分</li>
+</ul>
+</li>
+<li><p><code>protected</code>：保护标识符，它指示类中的保护成员，类的保护成员可以被其继承类访问</p>
+</li>
+<li><p>如果需要显式地表明某些成员是继承来的或者明确指明调用基类或者继承类的成员函数，可以使用范围（作用域）运算符</p>
+</li>
+<li><p>构造初始化器：也即构造函数，在使用构造初始化器时直接将相应的参数填入构造函数中即可，编译器会根据参数的类型匹配相应的构造函数</p>
+</li>
+<li><p>派生类对象构造的步骤：</p>
+<ul>
+<li>为整个对象分配内存空间</li>
+<li>隐式（或者显式）调用基类的构造函数来初始化对象中的基类部分数据</li>
+<li>用构造初始化器对派生类部分的数据进行初始化</li>
+<li>如果有的话，执行派生类构造函数的函数体</li>
+</ul>
+</li>
+<li><p>继承关系中成员函数的覆盖：如果基类与继承类中有两个同名同参同返回值类型的非<code>const</code>函数，那么派生类的这个函数会覆盖基类的函数，当基类与继承类的函数都返回指向他们本身类型的指针时除外</p>
+</li>
+</ul>
+<h3 id="虚函数"><a href="#虚函数" class="headerlink" title="虚函数"></a>虚函数</h3><ul>
+<li>定义：在基类中定义成员函数时前面加上<code>virtual</code>关键字，在继承类中同名同参函数的<code>virtual</code>的特性也会被继承，因此不需要重复加</li>
+<li>虚函数必须要有定义，不能只有声明</li>
+<li>功能：由于继承类也是基类，因此当以引用或者指针的形式调用成员函数时，程序根据实际的对象类型来在基类与继承类中选择正确的同名成员函数，也即<strong>动态绑定</strong></li>
+<li>静态绑定：在编译时就确定调用的对象的成员函数的种类</li>
+<li><strong>多态</strong>：用一个类型表示多种类型的能力，这里动态绑定实现了多态</li>
+<li>只有在<em>以引用或者指针的形式</em>调用虚拟函数的时候在运行时选择类型才有意义</li>
+<li>虚拟析构函数：当使用指针来控制对象时，调用<code>delete</code>函数会调用这个虚拟析构函数，一般虚拟析构函数都是空的</li>
+<li>如果基类与继承类中有同名不同参的函数，那么他们之间毫无关系，不需要用到需函数的技术</li>
+<li>如果在构造函数内部调用虚函数，那么它会静态绑定成正在构造的对象所属于的类中的那个虚函数</li>
+</ul>
+<h3 id="代理类"><a href="#代理类" class="headerlink" title="代理类"></a>代理类</h3><ul>
+<li>代理类实际上就是一个普通的用户自定义类，它的成员数据是指向基类的指针</li>
+<li>功能：存储和管理基类指针，这个基类指针既可以指向基类对象又可以指向派生类对象，使用代理类可以实现动态绑定，它将基类和派生类中的细节封装起来，提供了一个统一的接口</li>
+<li>代理类中一般包含这些实现细节：<ul>
+<li>各种构造（析构）函数与复制控制函数：用于提供分配或者销毁内存空间的操作</li>
+<li>基类和继承类中共有的操作：提供操作接口，实现动态绑定的功能</li>
+<li>其他操作</li>
+</ul>
+</li>
+<li>关于代理类的复制操作：需要在它管理的基类和继承类中定义虚拟的复制控制函数，并且在代理类的复制操作中调用它，在复制时有必要判断指向被复制对象的指针是否时空指针</li>
+<li>友元类：将一个类声明为另一个类的友元可以使另一个类中的所有成员都成为那个类的友元</li>
+</ul>
+<h2 id="句柄类"><a href="#句柄类" class="headerlink" title="句柄类"></a>句柄类</h2><ul>
+<li>功能：上面提到的代理类可以视为一种简单的句柄类，但是它是通过复制对象来实现动态绑定的，句柄类的最主要功能就是实现在不用复制对象的情况下就实现动态绑定并且自动管理内存</li>
+<li>一般来说，句柄类是一个模板类，因为它与它操作的模板之间是相互独立的，句柄类具有通用性</li>
+<li>与代理类相似，句柄类要将被控制的类的全部接口封装起来</li>
+<li>复制操作：在复制时需要将该句柄类的指针当前所指向的对象删除后再重新将指针指向被复制的对象的地址</li>
+<li>使用方法：在实际的程序中，通常使用一个接口类来管理基类与继承类，接口类的成员数据是一个句柄类，接口类通过操作句柄类来控制基类与继承类</li>
+<li>接口类的构造函数必须对句柄类做初始化</li>
+</ul>
+<h3 id="计数句柄类"><a href="#计数句柄类" class="headerlink" title="计数句柄类"></a>计数句柄类</h3><ul>
+<li>相比于一般的句柄类，计数句柄类在复制对象时会有选择的对底层的对象进行复制，这意味着计数句柄在复制时并不总是将底层对象的内容重新拷贝一份，而是让多个复制出来的句柄的指针同时指向同一个底层对象</li>
+<li>为了实现上面的功能，需要在句柄类添加一个<strong>引用计数</strong>指针，它用来记录有多少个对象指向底层对象</li>
+<li>复制构造函数：计数句柄类的复制构造函数不需要复制底层的对象，它的基本操作如下：<ul>
+<li>对右操作数所指向的对象的引用计数指针加一，表示有一个新的计数句柄类指向同一个底层对象</li>
+<li>如果当前左操作数的引用计数指针值为<code>1</code>，那么意味着没有其他句柄指向这个底层对象了，复制操作会将左操作数的指针覆盖掉，所以这里将左操作数指向的对象和其计数指针所占的内存空间释放掉</li>
+<li>将右操作数的对象指针和引用技术指针的复制到左操作数中</li>
+</ul>
+</li>
+<li>析构函数：同样要考虑当前的句柄类是不是最后一个指向该对象的句柄，具体操作不再赘述</li>
+<li>在修改句柄类指向的对象的值时，亦需要考虑当前的句柄类是不是最后一个指向该对象的句柄，如果是的话，那么直接修改这个指针指向的对象的值即可，否则要先将当前所指向的对象的引用计数减一，然后基于旧对象复制一个新对象并将指针指向它，并将它的引用计数设为一，上述的操作可写为成员函数并在接口类中调用</li>
+</ul>
+<h2 id="抽象基类"><a href="#抽象基类" class="headerlink" title="抽象基类"></a>抽象基类</h2><ul>
+<li>概念：抽象基类是一种接口类，它用于提供一类对象的基本特征，然后再通过由其派生初来的派生类来实现可以归入该类对象下的其他特定类型的对象的详细特征</li>
+<li>一般来说，抽象基类使用纯虚函数来实现这种特性</li>
+<li>抽象基类可以使用句柄类来自动管理内存</li>
+</ul>
+<h3 id="纯虚函数"><a href="#纯虚函数" class="headerlink" title="纯虚函数"></a>纯虚函数</h3><ul>
+<li><p>纯虚函数的函数体为<code>= 0</code>，它没有具体的实现，声明例如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">display</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><em>含有纯虚函数的类就是一个抽象基类</em>，它不能有一个实际的对象</p>
+</li>
+<li><p>纯虚函数在抽象基类的派生类中得到实现</p>
+</li>
+<li><p>如果在派生类中继承而来的纯虚函数没有定义，那么它仍然是一个纯虚函数</p>
+</li>
+</ul>
+<h2 id="输入与输出"><a href="#输入与输出" class="headerlink" title="输入与输出"></a>输入与输出</h2><ul>
+<li><p>标准输出流：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">std::cout &lt;&lt; <span class="string">&quot;output&quot;</span> &lt;&lt; std::endl;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>上面的语句中，<code>std</code>为命名空间，命名空间是为了区分在不同的库中，两个名字相同但是功能不同的函数</p>
+</li>
+<li><p><code>::</code>为作用域运算符</p>
+</li>
+<li><p><code>&lt;&lt;</code>为标准库的输出运算符</p>
+</li>
+<li><p><code>std::cout</code>为标准输出流</p>
+</li>
+<li><p><code>std::endl</code>为输出的结束，该<strong>控制器</strong>会刷新输出缓冲区，并且进行换行，如果没有使用此控制器或者人为添加换行符，那么输出内容不会换行</p>
+</li>
+<li><p>控制器：在流中的控制器用于控制这个流</p>
+</li>
+<li><p>两个以上的字符串如果只是由空格分开，在输出流中它们会自动连接起来</p>
+</li>
+<li><p>控制器<code>setprecision(x)</code>：用于为后续输出设定<code>x</code>位有效位数，一般可以这样使用（使用完后注意重置为默认值）：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//先保存初始的输出精度</span></span><br><span class="line">streamsize prec = cout.<span class="built_in">precision</span>();</span><br><span class="line"><span class="comment">//在输出流中调整输出精度为x后再调整回默认值</span></span><br><span class="line">cout &lt;&lt; <span class="built_in">setprecision</span>(x) &lt;&lt; grade &lt;&lt; <span class="built_in">precision</span>(prec);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意，在输出流中如果存在多个步骤，如输出流中调用了函数，即使程序仍然会按照流的顺序输出内容，但是程序的执行顺序有可能不是按照流的输出顺序执行的，这样有可能造成程序逻辑上的混乱</p>
+</li>
+<li><p><code>setw(length)</code>函数的使用：</p>
+<ul>
+<li>使用例：<code>cout &lt;&lt; setw(10) &lt;&lt; name &lt;&lt; endl;</code></li>
+<li>属于控制器，用于控制输出字段的长度</li>
+<li>当后面紧跟着的输出字段长度小于<code>length</code>的时候，在该字段前面用空格补齐，当输出字段长度大于<code>length</code>时，全部整体输出</li>
+<li>默认是右对齐，如果需要左对齐，可以在其前面添加<code>left</code>控制器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>标准输入流：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">std::cin &gt;&gt; name;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>cin</code>为标准输入流，<code>&gt;&gt;</code>运算符将输入的东西保存到<code>name</code>中，直到遇到<strong>空白字符</strong>或者<strong>EOF</strong>标记</li>
+<li>空白字符：空格，制表键，换行符，回退键</li>
+<li>EOF：在Windows系统下，EOF为<code>CTRL+Z</code>，在Linux或者Unix系统下则为<code>CTRL+D</code></li>
+<li>输入时<code>cin</code>会略去首先输入的空白字符</li>
+<li><code>cin &gt;&gt; a &gt;&gt; b;</code>等价于<code>cin &gt;&gt; a; cin &gt;&gt; b;</code></li>
+</ul>
+</li>
+<li><p>循环输入：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (cin &gt;&gt; x) &#123;</span><br><span class="line">	<span class="comment">//循环内容</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>原理：输入首先会保存在缓冲区，然后直到按下回车，输入会以空白字符为界，按顺序将一串数据一个一个存储到变量<code>x</code>中，并且每存储一次就执行循环中的内容，直到遇到非法输入（类型与<code>x</code>不同）或者EOF退出循环</li>
+</ul>
+</li>
+<li><p>缓冲区：输出&#x2F;输入库会将输出保存在缓冲区中，只有在必要的时候，缓冲区的内容才会被送到输出装置中，从而将多个输出操作合为一个</p>
+</li>
+<li><p>缓冲区刷新的几种情形：</p>
+<ul>
+<li>缓冲区满</li>
+<li>程序请求库从标准输入流中读取数据</li>
+<li>手动刷新缓冲区</li>
+</ul>
+</li>
+<li><p>流迭代器：</p>
+<ul>
+<li>在<code>&lt;iterator&gt;</code>中定义，使用时必须指明类型</li>
+<li>输入流迭代器<code>istream_iterator&lt;Type&gt;(cin)</code>：迭代器的参数是可选的，通常情况下将其与<code>cin</code>连接，从这里读值，该迭代器缺省值的性质是，一旦到达了文件末尾或者处于错误状态，那么这个迭代器会与缺省值相等</li>
+<li>输出流迭代器<code>ostream_iterator&lt;Type&gt;(cout, string)</code>：迭代器的第一个参数为<code>cout</code>，说明迭代器会往<code>cout</code>中写内容，第二个参数指定了一个值（一般是字符串），这个值会写在每个元素之后，这个参数也可以缺省</li>
+<li>流迭代器的本质是模板</li>
+</ul>
+</li>
+<li><p>头文件<code>&lt;cctype&gt;</code>中的几个有用的函数：它们在字符<code>c</code>满足后面的条件时返回<code>True</code></p>
+<ul>
+<li><code>isspace(c)</code>：空白</li>
+<li><code>isalpha(c)</code>：字母</li>
+<li><code>isdigit(c)</code>：数字</li>
+<li><code>isalnum(c)</code>：数字或者字母</li>
+<li><code>ispunct(c)</code>：标点符号</li>
+<li><code>isupper(c)</code>：大写字母</li>
+<li><code>islower(c)</code>：小写字母</li>
+</ul>
+</li>
+<li><p>标准错误流：</p>
+<ul>
+<li><code>cerr</code>：即时输出错误信息，保证一旦发生异常就立刻输出信息</li>
+<li><code>clog</code>：倾向于生成日志，它具有着与<code>cout</code>一样的缓冲特性，平时存储错误信息，在适当的时候输出</li>
+</ul>
+</li>
+<li><p>文件的输入与输出：</p>
+<ul>
+<li><p><code>ifstream</code>：是一个用于读取文件内容的对象的类型</p>
+</li>
+<li><p><code>ofstream</code>：是一个用于向一个文件输出内容的对象的类型</p>
+</li>
+<li><p>上面两个类型定义在<code>&lt;fstream&gt;</code>中，使用时需要先将这两个类型的对象实例化，并且将字符串形式的文件名作为参数</p>
+</li>
+<li><p>在使用这两个类型的对象时有点类似于<code>istream</code>和<code>ostream</code></p>
+</li>
+<li><p>使用例：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ifstream <span class="title">infile</span><span class="params">(<span class="string">&quot;in&quot;</span>)</span></span>;	<span class="comment">//定义了一个与in文件相关联的文件输入流</span></span><br><span class="line"><span class="function">ofstream <span class="title">outfile</span><span class="params">(<span class="string">&quot;out&quot;</span>)</span></span>;	<span class="comment">//定义了一个与out文件相关联的文件输出流</span></span><br><span class="line">string s;</span><br><span class="line"><span class="keyword">while</span> (<span class="built_in">getline</span>(infile, s)) &#123;</span><br><span class="line">	outfile &lt;&lt; s &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意：文件的路径如果使用的是相对路径，那么在调试时是工作区的目录的相对路径，在直接运行程序时则是相对于可执行文件所在位置的相对路径</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="流程与异常控制"><a href="#流程与异常控制" class="headerlink" title="流程与异常控制"></a>流程与异常控制</h2><h3 id="不变式"><a href="#不变式" class="headerlink" title="不变式"></a>不变式</h3><p>不变式可以理解为，一个类或者对象在设计的时候，对它的假设条件，在它的整个生命周期内，这些必须恒为真。例如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这里假设loop已经输出的行数</span></span><br><span class="line"><span class="type">int</span> loop = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (loop != rows) &#123;</span><br><span class="line">	<span class="comment">//输出一行...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里<code>int loop = 0;</code>就是一个不变式，它在生命周期中，必须时刻等于输出的行数，否则会导致逻辑和程序流程控制的混乱，由于在这里不变式作为循环的一个判断依据，因此也被称为循环不变式</p>
+<h3 id="异常控制"><a href="#异常控制" class="headerlink" title="异常控制"></a>异常控制</h3><p>异常控制用于给程序的使用者给出错误提示，提高程序的鲁棒性。程序抛出异常后，会在抛出异常的地方终止执行并且跳转到程序的另一部分（有点类似于中断），并向该部分提供一个异常对象，异常对象中含有程序可以处理异常信息。例如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="comment">//该部分中任何一个语句发生了domain_error异常，都会停止执行下面的其他语句，转到执行catch下的语句</span></span><br><span class="line">  <span class="comment">//如果没有发生异常，那么将不会执行catch中的语句</span></span><br><span class="line">&#125; <span class="built_in">catch</span> (domain_error e) &#123;</span><br><span class="line">  <span class="comment">//发生异常后执行的语句</span></span><br><span class="line">  <span class="comment">//创建了一个异常对象e，名为what的成员函数用到了被复制下来的异常参数</span></span><br><span class="line">  cout &lt;&lt; e.<span class="built_in">what</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>应当在编程时加入判断，是否满足产生异常的条件，如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (something == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="built_in">domain_error</span>(“Invalid Value!”);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的语句意为，当满足条件时，程序会抛出一个<code>domian_error</code>，这种错误类型为域错误，即输入在定义域外的情况。C++中还有许多其他的错误类型可供使用，如<code>logic_error</code>，<code>runtime_error</code>等。</p>
+<h2 id="多文件编程"><a href="#多文件编程" class="headerlink" title="多文件编程"></a>多文件编程</h2><ul>
+<li><p>文件种类：</p>
+<ul>
+<li><code>main.cpp</code>：主函数所在的文件</li>
+<li><code>file_x.h</code>：头文件</li>
+<li><code>file_x.cpp</code>：其他源代码文件<br>……</li>
+</ul>
+</li>
+<li><p>头文件的写法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> FILE_X_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> FILE_X_H</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//#ifndef必须位于文件的第一行</span></span><br><span class="line"><span class="comment">//不要在头文件中使用using声明，为用户保留最大的灵活性</span></span><br><span class="line"><span class="comment">//在头文件中包含其对应的源文件中所有需要用到的库</span></span><br><span class="line"><span class="comment">//在头文件中声明对应源文件中定义的函数</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>#include &lt;系统环境提供的头文件&gt;</code>，<code>#include “自己写的头文件.h”</code></p>
+</li>
+</ul>
+<h2 id="部分库函数"><a href="#部分库函数" class="headerlink" title="部分库函数"></a>部分库函数</h2><h3 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h3><ul>
+<li><p>库：<code>&lt;algorithm&gt;</code></p>
+</li>
+<li><p>参数：</p>
+<ol>
+<li>迭代器，序列的起始</li>
+<li>迭代器，序列的末尾</li>
+<li>谓词，可选参数，是自定义的比较方法</li>
+</ol>
+</li>
+<li><p>功能：用于比较向量中的内容并按顺序存放，在未注明的情况下，对任何待排序的向量元素类型，它都会使用<code>&lt;</code>来操作</p>
+</li>
+<li><p>关于谓词：是一个函数，返回需值是布尔值</p>
+</li>
+</ul>
+<h3 id="getline"><a href="#getline" class="headerlink" title="getline()"></a>getline()</h3><ul>
+<li>库：<code>&lt;string&gt;</code></li>
+<li>参数：<ol>
+<li>输入流，一般为<code>cin</code></li>
+<li>字符串引用，直接填目标字符串的名字</li>
+</ol>
+</li>
+<li>功能：用于读一行的内容并将这些内容存储到目标字符串中</li>
+<li>如果遇到文件结尾或者无效输入，<code>getline()</code>的返回值会指示失败</li>
+</ul>
+<h3 id="copy"><a href="#copy" class="headerlink" title="copy()"></a>copy()</h3><ul>
+<li>库：<code>&lt;algorithm&gt;</code></li>
+<li>参数：<ol>
+<li>迭代器，指示需要复制的元素的开头</li>
+<li>迭代器，指示需要复制的元素的末尾后一个元素</li>
+<li>迭代器适配器</li>
+</ol>
+</li>
+<li>功能：将<code>[b,e)</code>之间的元素按迭代器适配器指定的方式添加到目标容器的末尾</li>
+</ul>
+<h3 id="equal"><a href="#equal" class="headerlink" title="equal()"></a>equal()</h3><ul>
+<li>库：<code>&lt;algorithm&gt;</code></li>
+<li>参数：<ol>
+<li>迭代器，指示一个序列的开头</li>
+<li>迭代器，指示一个序列的末尾</li>
+<li>迭代器，指示第二个序列的开头（或者末尾）</li>
+</ol>
+</li>
+<li>功能：从第二个序列的开头（或者末尾）开始，按顺序一个元素对应一个元素地比较两个序列中的内容，如果相等的话则返回<code>True</code></li>
+</ul>
+<h3 id="find"><a href="#find" class="headerlink" title="find()"></a>find()</h3><ul>
+<li>库：<code>&lt;algorithm&gt;</code></li>
+<li>参数：<ol>
+<li>迭代器，指示一个序列的开头</li>
+<li>迭代器，指示一个序列的末尾</li>
+<li>被查找的值</li>
+</ol>
+</li>
+<li>功能：在指定的序列中查找是否存在第三个参数的值，如果找到了，则返回序列中第一次出现这个值的位置，否则返回这个序列的末尾</li>
+</ul>
+<h3 id="find-if"><a href="#find-if" class="headerlink" title="find_if()"></a>find_if()</h3><ul>
+<li>库：<code>&lt;algorithm&gt;</code></li>
+<li>参数：<ol>
+<li>迭代器，指示被查找的序列的开头</li>
+<li>迭代器，指示被查找的序列的末尾</li>
+<li>谓词，检测自己出参数并且返回一个布尔值</li>
+</ol>
+</li>
+<li>功能：对序列中的每个元素都调用谓词，直到谓词产生一个<code>True</code>的结果，它会返回一个指示被找到的元素的迭代器，如果没有找到，则返回指示被查找序列末尾的迭代器</li>
+</ul>
+<h3 id="search"><a href="#search" class="headerlink" title="search()"></a>search()</h3><ul>
+<li>库：<code>&lt;algorithm&gt;</code></li>
+<li>参数：<ol>
+<li>迭代器，指示被查找的序列的开头</li>
+<li>迭代器，指示被查找的序列的末尾</li>
+<li>迭代器，指示查找的目标序列的开头</li>
+<li>迭代器，指示查找的目标序列的末尾</li>
+</ol>
+</li>
+<li>功能：查找第一第二个参数所指示的序列中有没有第三第四个参数所指示的序列，它会返回一个指示被找到的元素的迭代器，如果没有找到，则返回指示被查找序列末尾的迭代器</li>
+</ul>
+<h3 id="transform"><a href="#transform" class="headerlink" title="transform()"></a>transform()</h3><ul>
+<li>库：<code>&lt;algorithm&gt;</code></li>
+<li>参数：<ol>
+<li>迭代器，指示待转换序列的开头</li>
+<li>迭代器，指示待转换序列的末尾</li>
+<li>迭代器，存放处理后的元素的容器的开头</li>
+<li>函数，<code>transform()</code>将这个函数作用于待转换序列以获得期望得到的元素</li>
+</ol>
+</li>
+<li>功能：对待转换序列中的元素执行指定函数，并将转换后的结果存储于第三个参数指定的序列中</li>
+</ul>
+<h3 id="accumulate"><a href="#accumulate" class="headerlink" title="accumulate()"></a>accumulate()</h3><ul>
+<li>库：<code>&lt;numeric&gt;</code></li>
+<li>参数：<ol>
+<li>迭代器，指示一个序列的开头</li>
+<li>迭代器，指示一个序列的末尾</li>
+<li>单一变量</li>
+</ol>
+</li>
+<li>功能：将序列中的元素之和加上变量中的值后再存储到这个变量中</li>
+<li>注意，第三个变量中的值类型会影响最终的结果的类型</li>
+</ul>
+<h3 id="remove-if-，remove"><a href="#remove-if-，remove" class="headerlink" title="remove_if()，remove()"></a>remove_if()，remove()</h3><ul>
+<li>库：<code>&lt;algorithm&gt;</code></li>
+<li>参数：<ol>
+<li>迭代器，指示一个序列的开头</li>
+<li>迭代器，指示一个序列的末尾</li>
+<li>谓词，返回一个布尔值</li>
+</ol>
+</li>
+<li>功能：排列序列中的内容，它将视那些使得谓词为<code>True</code>的元素所在的位置为空闲位置，并将后面那些使谓词为<code>False</code>的元素依次放置在空闲位置中，它的返回值是一个迭代器，它指示了那些所有使谓词为<code>False</code>的元素的末尾的位置</li>
+<li><code>remove()</code>的前两个参数含义与<code>remove_if()</code>相同，但是第三个参数是一个值，该函数的作用与<code>remove_if()</code>相同，不同之处在于是移动了那些等于第三个参数的元素</li>
+</ul>
+<h3 id="partition-，stable-partition"><a href="#partition-，stable-partition" class="headerlink" title="partition()，stable_partition()"></a>partition()，stable_partition()</h3><ul>
+<li>库：<code>&lt;algorithm&gt;</code></li>
+<li>参数：<ol>
+<li>迭代器，指示一个序列的开头</li>
+<li>迭代器，指示一个序列的末尾</li>
+<li>谓词，返回一个布尔值</li>
+</ol>
+</li>
+<li>功能：两个函数的功能都是将谓词作用于序列中的元素，然后将那些使得谓词为<code>True</code>的元素位于序列的头部，返回一个指向第一个使得谓词为<code>False</code>的元素的迭代器，它们的区别在于<code>stable_partition()</code>会保持元素的顺序不变，而<code>partiotion()</code>则有可能导致元素的顺序混乱</li>
+</ul>
+<h3 id="rand"><a href="#rand" class="headerlink" title="rand()"></a>rand()</h3><ul>
+<li>库：<code>&lt;cstdlib&gt;</code></li>
+<li>参数：无</li>
+<li>功能：在<code>[0,RAND_MAX)</code>之间返回一个伪随机数，<code>RAND_MAX</code>是一个大整数，它也是在<code>&lt;cstdlib&gt;</code>中定义的</li>
+<li>如何返回在某个指定范围内的随机整数：基本思想是将可以利用的随机数分为长度相等的存储桶，存储桶的个数就是我们需要的随机数的最大值，然后再计算一个随机数并且返回它所在的桶的编号，程序如下：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">nrand</span><span class="params">(<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (n &lt;= <span class="number">0</span> || n &gt; RAND_MAX) &#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="built_in">domain_error</span>(<span class="string">&quot;Argument to nrand is out of range. &quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="type">const</span> <span class="type">int</span> bucket_size = RAND_MAX / n;</span><br><span class="line">	<span class="type">int</span> r;</span><br><span class="line">	<span class="keyword">do</span> r = <span class="built_in">rand</span>() / bucket_size;</span><br><span class="line">	<span class="keyword">while</span> (r &gt;= n);</span><br><span class="line">	<span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="编程习惯"><a href="#编程习惯" class="headerlink" title="编程习惯"></a>编程习惯</h1><p>该部分的内容很多，涉及范围也很广，因此在这里我只纪录根据我个人实际情况需要注意的要点。更全面和详细的内容可以参考<a target="_blank" rel="noopener" href="https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/contents/">C++ 风格指南 - 内容目录 — Google 开源项目风格指南 (zh-google-styleguide.readthedocs.io)</a>。</p>
+<ul>
+<li>在编写运行时间较长的程序时，应当在合适的时刻刷新缓冲区</li>
+<li>循环的计数习惯：一般循环中的计数变量（假设为<code>i</code>）都从<code>0</code>开始，这样它的含义就比较明确，也即，<code>到目前为止，我们已经操作了i次</code>，此外这样做还有一个好处，那就是我们可以把循环条件设为<code>i != expected_loop_times</code>，这个不等式明确地表明了，当循环退出时，我们已经循环了<code>expectation_loop_times</code>次</li>
+<li>在定义一个变量来保存特定的数据结构时，应该使用库中为特殊用途而定义的类型，如现在想要顶一个存储字符串长度的变量<code>length</code>，那么可以有：<code>std::string::size_type length;</code>，另外还可以对库中提供的特殊类型重命名，如：<code>typedef std::string::size_type str_size;</code>就是将<code>std::string::size_type</code>这一类型在作用域内使用<code>str_size</code>来指代</li>
+<li>在操作容器中的多个元素时，推荐使用左闭右开的表示方法，这个区间中的元素个数就是上下限之间的差，这个区间的右界被称为越界值，这样做的理由有三个：<ul>
+<li>如果区间没有元素，那么找不到一个最后的元素标记终点</li>
+<li>按照上面的方法定义，只要两个迭代器相等，那么立即可以判断区间为空</li>
+<li>该方法提供了一种自然的方式表达“区间之外”</li>
+</ul>
+</li>
+<li>在使用标准库提供的容器的时候，尽量使用对应的迭代器</li>
+<li>一般都使用<code>double</code>类型来进行浮点数计算</li>
+<li>在编写程序时，需要预见一些异常或者无意义的情况，在这种情况下程序最好暂时终止或者退出</li>
+<li>函数形式参数的名称最好不要太具体，因为某个函数可以用于多种含义不同的数据（这个思想对编写模板函数很重要）</li>
+<li>在输出时如果需要在输出的内容之间插入分隔符（如空格、逗号等），应当对第一个元素做特殊处理，具体思想是：当第一个元素生成（或者确保它已经存在）之后，输出第一个元素，然后再判断之后的元素是否存在，如果存在的话，就将它们与分隔符一起输出</li>
+<li>对于不希望改变对象内容的函数，应当将它们声明为<code>const</code>类型</li>
+<li>如果一个函数会改变一个对象的状态，那么这个函数应该作为对象的成员函数</li>
+<li>在设计二元运算符的时候，为了能够让左右操作数都可以进行类型转换以保持操作数的对称性，尽量将二元运算符定义在类的声明之外</li>
+<li>对于在创建对象时调用的构造函一般不用声明为<code>explicit</code>，而对于用于构造新的对象的构造函数需要声明为<code>explicit</code></li>
+<li>不可以让用户用指针直接访问类中的私有成员</li>
+<li>使用句柄类时，当成员函数会改变底层对象的值时需要酌情进行复制操作，以保证指针的有效性</li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Accelerated C++笔记</p><p><a href="http://astrobear.top/2021/09/16/acc_cpp笔记/">http://astrobear.top/2021/09/16/acc_cpp笔记/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Astrobear</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2021-09-16</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-11-10</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="icon fab fa-creative-commons"></i><i class="icon fab fa-creative-commons-by"></i><i class="icon fab fa-creative-commons-nc"></i><i class="icon fab fa-creative-commons-sa"></i></a></p></div></div></div></div></div><hr style="height:1px;margin:1rem 0"><div class="level is-mobile is-flex"><div class="article-tags is-size-7 is-uppercase"><i class="fas fa-tags has-text-grey"></i> <a class="link-muted" rel="tag" href="/tags/Programming-Language/">Programming Language, </a><a class="link-muted" rel="tag" href="/tags/C/">C++ </a></div></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=6120a56e41a28700129debe7&amp;product=inline-share-buttons" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">Like this article? Support the author with</h3><div class="buttons is-centered"><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>Alipay</span><span class="qrcode"><img src="/img/alipay.JPG" alt="Alipay"></span></a><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>Wechat</span><span class="qrcode"><img src="/img/wechatpay.JPG" alt="Wechat"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2022/03/10/dsa-1/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">DSA-1：算法的基本概念与复杂度分析</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/08/27/%E7%98%A6%E5%AD%90%E5%A2%9E%E9%87%8D%E6%95%99%E7%A8%8B/"><span class="level-item">瘦子增重教程</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="comment-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+            id: "c28e28dfb4c51c8af348288b599276e7",
+            repo: "astroblog",
+            owner: "Astrobr",
+            clientID: "fa589cf3f78c8e8e4357",
+            clientSecret: "e97fdd7cc6bd46454d3d6216f6099c9caea80829",
+            admin: ["Astrobr"],
+            createIssueManually: false,
+            distractionFreeMode: false,
+            perPage: 10,
+            pagerDirection: "last",
+            proxy: "https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token",
+            
+            enableHotKey: true,
+            language: "en",
+        })
+        gitalk.render('comment-container')</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/avatar.jpeg" alt="Astrobear"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Astrobear</p><p class="is-size-6 is-block">(I cannot) Build my fortress.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>PRC</span></p></div></div></nav><nav class="level menu-list is-mobile" style="margin-bottom:1rem"><a class="level-item has-text-centered is-marginless" href="/archives"><div><p class="heading">Posts</p><div><p class="title">28</p></div></div></a><a class="level-item has-text-centered is-marginless" href="/categories"><div><p class="heading">Categories</p><div><p class="title">3</p></div></div></a><a class="level-item has-text-centered is-marginless" href="/tags"><div><p class="heading">Tags</p><div><p class="title">28</p></div></div></a></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/Astrobr" target="_blank" rel="noopener"><i class="fab fa-github"></i>  Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/Astrobr"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://www.facebook.com/astrobearforwork"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Instagram" href="https://www.instagram.com/astrobarchen/"><i class="fab fa-instagram"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#语言特性"><span class="level-left"><span class="level-item">1</span><span class="level-item">语言特性</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#基础知识"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">基础知识</span></span></a></li><li><a class="level is-mobile" href="#新类型"><span class="level-left"><span class="level-item">1.2</span><span class="level-item">新类型</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#vector（向量）类型"><span class="level-left"><span class="level-item">1.2.1</span><span class="level-item">vector（向量）类型</span></span></a></li><li><a class="level is-mobile" href="#list（双向链表）类型"><span class="level-left"><span class="level-item">1.2.2</span><span class="level-item">list（双向链表）类型</span></span></a></li><li><a class="level is-mobile" href="#对string类型的新认识"><span class="level-left"><span class="level-item">1.2.3</span><span class="level-item">对string类型的新认识</span></span></a></li><li><a class="level is-mobile" href="#对容器的一些其他操作"><span class="level-left"><span class="level-item">1.2.4</span><span class="level-item">对容器的一些其他操作</span></span></a></li><li><a class="level is-mobile" href="#iterator（迭代器）类型"><span class="level-left"><span class="level-item">1.2.5</span><span class="level-item">iterator（迭代器）类型</span></span></a></li><li><a class="level is-mobile" href="#map（映射表）类型"><span class="level-left"><span class="level-item">1.2.6</span><span class="level-item">map（映射表）类型</span></span></a></li><li><a class="level is-mobile" href="#自定义类型"><span class="level-left"><span class="level-item">1.2.7</span><span class="level-item">自定义类型</span></span></a></li></ul></li><li><a class="level is-mobile" href="#指针"><span class="level-left"><span class="level-item">1.3</span><span class="level-item">指针</span></span></a></li><li><a class="level is-mobile" href="#数组"><span class="level-left"><span class="level-item">1.4</span><span class="level-item">数组</span></span></a></li><li><a class="level is-mobile" href="#内存分配"><span class="level-left"><span class="level-item">1.5</span><span class="level-item">内存分配</span></span></a></li><li><a class="level is-mobile" href="#泛型函数"><span class="level-left"><span class="level-item">1.6</span><span class="level-item">泛型函数</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#模板函数"><span class="level-left"><span class="level-item">1.6.1</span><span class="level-item">模板函数</span></span></a></li><li><a class="level is-mobile" href="#迭代器的类型"><span class="level-left"><span class="level-item">1.6.2</span><span class="level-item">迭代器的类型</span></span></a></li></ul></li><li><a class="level is-mobile" href="#模板类"><span class="level-left"><span class="level-item">1.7</span><span class="level-item">模板类</span></span></a></li><li><a class="level is-mobile" href="#对象的初始化"><span class="level-left"><span class="level-item">1.8</span><span class="level-item">对象的初始化</span></span></a></li><li><a class="level is-mobile" href="#类型转换"><span class="level-left"><span class="level-item">1.9</span><span class="level-item">类型转换</span></span></a></li><li><a class="level is-mobile" href="#引用"><span class="level-left"><span class="level-item">1.10</span><span class="level-item">引用</span></span></a></li><li><a class="level is-mobile" href="#继承"><span class="level-left"><span class="level-item">1.11</span><span class="level-item">继承</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#基本概念"><span class="level-left"><span class="level-item">1.11.1</span><span class="level-item">基本概念</span></span></a></li><li><a class="level is-mobile" href="#虚函数"><span class="level-left"><span class="level-item">1.11.2</span><span class="level-item">虚函数</span></span></a></li><li><a class="level is-mobile" href="#代理类"><span class="level-left"><span class="level-item">1.11.3</span><span class="level-item">代理类</span></span></a></li></ul></li><li><a class="level is-mobile" href="#句柄类"><span class="level-left"><span class="level-item">1.12</span><span class="level-item">句柄类</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#计数句柄类"><span class="level-left"><span class="level-item">1.12.1</span><span class="level-item">计数句柄类</span></span></a></li></ul></li><li><a class="level is-mobile" href="#抽象基类"><span class="level-left"><span class="level-item">1.13</span><span class="level-item">抽象基类</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#纯虚函数"><span class="level-left"><span class="level-item">1.13.1</span><span class="level-item">纯虚函数</span></span></a></li></ul></li><li><a class="level is-mobile" href="#输入与输出"><span class="level-left"><span class="level-item">1.14</span><span class="level-item">输入与输出</span></span></a></li><li><a class="level is-mobile" href="#流程与异常控制"><span class="level-left"><span class="level-item">1.15</span><span class="level-item">流程与异常控制</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#不变式"><span class="level-left"><span class="level-item">1.15.1</span><span class="level-item">不变式</span></span></a></li><li><a class="level is-mobile" href="#异常控制"><span class="level-left"><span class="level-item">1.15.2</span><span class="level-item">异常控制</span></span></a></li></ul></li><li><a class="level is-mobile" href="#多文件编程"><span class="level-left"><span class="level-item">1.16</span><span class="level-item">多文件编程</span></span></a></li><li><a class="level is-mobile" href="#部分库函数"><span class="level-left"><span class="level-item">1.17</span><span class="level-item">部分库函数</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#sort"><span class="level-left"><span class="level-item">1.17.1</span><span class="level-item">sort()</span></span></a></li><li><a class="level is-mobile" href="#getline"><span class="level-left"><span class="level-item">1.17.2</span><span class="level-item">getline()</span></span></a></li><li><a class="level is-mobile" href="#copy"><span class="level-left"><span class="level-item">1.17.3</span><span class="level-item">copy()</span></span></a></li><li><a class="level is-mobile" href="#equal"><span class="level-left"><span class="level-item">1.17.4</span><span class="level-item">equal()</span></span></a></li><li><a class="level is-mobile" href="#find"><span class="level-left"><span class="level-item">1.17.5</span><span class="level-item">find()</span></span></a></li><li><a class="level is-mobile" href="#find-if"><span class="level-left"><span class="level-item">1.17.6</span><span class="level-item">find_if()</span></span></a></li><li><a class="level is-mobile" href="#search"><span class="level-left"><span class="level-item">1.17.7</span><span class="level-item">search()</span></span></a></li><li><a class="level is-mobile" href="#transform"><span class="level-left"><span class="level-item">1.17.8</span><span class="level-item">transform()</span></span></a></li><li><a class="level is-mobile" href="#accumulate"><span class="level-left"><span class="level-item">1.17.9</span><span class="level-item">accumulate()</span></span></a></li><li><a class="level is-mobile" href="#remove-if-，remove"><span class="level-left"><span class="level-item">1.17.10</span><span class="level-item">remove_if()，remove()</span></span></a></li><li><a class="level is-mobile" href="#partition-，stable-partition"><span class="level-left"><span class="level-item">1.17.11</span><span class="level-item">partition()，stable_partition()</span></span></a></li><li><a class="level is-mobile" href="#rand"><span class="level-left"><span class="level-item">1.17.12</span><span class="level-item">rand()</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#编程习惯"><span class="level-left"><span class="level-item">2</span><span class="level-item">编程习惯</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.png" alt="Astroblog" height="28"></a><p class="is-size-7"><span>&copy; 2022 Astrobear</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span><br><a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备19039261号-1</a><br><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802030906" target="_blank" rel="noopener">京公网安备 11010802030906号</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fab fa-creative-commons"></i> <i class="fab fa-creative-commons-by"></i> <i class="fab fa-creative-commons-nc"></i> <i class="fab fa-creative-commons-sa"></i> </a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Astrobear" href="https://github.com/Astrobr"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><div id="outdated"><h6>Your browser is out-of-date!</h6><p>Update your browser to view this website correctly.&amp;npsb;<a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p><p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">×</a></p></div><script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script><script>window.addEventListener("load", function () {
+            outdatedBrowser({
+                bgColor: '#f25648',
+                color: '#ffffff',
+                lowerThan: 'object-fit' // display on IE11 or below
+            });
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><script src="/js/night.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body><script type="text/javascript" src="/js/mathjax-config.js"></script></html>
