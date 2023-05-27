@@ -1,2 +1,2 @@
-# Astroblog  [![Build Status](https://travis-ci.com/Astrobr/astroblog.svg?branch=main)](https://travis-ci.com/Astrobr/astroblog)
+# Astroblog  ![](https://github.com/Astrobr/Astrobr.github.io/actions/workflows/pages.yml/badge.svg)
 Astrobear's blog. 
