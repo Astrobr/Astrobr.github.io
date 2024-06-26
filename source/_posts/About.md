@@ -12,9 +12,9 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-cover: https://astrobear.top/resource/astroblog/thumbnail/t2.jpg
+cover: https://i.postimg.cc/5yw3tfdQ/t2.jpg
 
-thumbnail: https://astrobear.top/resource/astroblog/thumbnail/t2.jpg
+thumbnail: https://i.postimg.cc/5yw3tfdQ/t2.jpg
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
 excerpt: Astroblog是Astrobear的基地！这里有知识，方法，还有更多！
@@ -98,10 +98,6 @@ widgets:
 
 ---
 
-## 渊源
-
-本人2019年4月在华为云购买了一台云服务器。本来打算是为了给自己“未来要做的“微信小程序提供后端服务的，但是后来没有再继续做小程序。为了将服务器继续利用起来，便有了这个博客。
-
 ## 简介
 
 Astroblog是我个人的技术总结与备忘，其中可能包括以下内容：
@@ -112,10 +108,4 @@ Astroblog是我个人的技术总结与备忘，其中可能包括以下内容�
 - 模拟飞行与民航知识，音乐知识，天文摄影后期技术总结
 - 个人摄影作品以及其他优秀摄影作品的展览
 - 其他内容
-
-## 关于Astrobear
-
-站长现在是一名大学生，专业方向是控制工程。自小喜欢航空、音乐、摄影、天文，对计算机技术也有一定兴趣。
-
-由于本人才疏学浅，博客中大部分文章的主题也并非我专业所学，所以有错漏之处在所难免，还请大家批评指正！
 
