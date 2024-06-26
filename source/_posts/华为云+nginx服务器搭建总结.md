@@ -12,9 +12,9 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-cover: https://kinsta.com/wp-content/uploads/2018/03/what-is-nginx.png
+cover: https://i.postimg.cc/zvckfqwT/nginx.png
 
-thumbnail: https://kinsta.com/wp-content/uploads/2018/03/what-is-nginx.png
+thumbnail: https://i.postimg.cc/zvckfqwT/nginx.png
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
 excerpt: 搭建自己的服务器并不难，只是过程较为复杂。
@@ -39,11 +39,11 @@ excerpt: 搭建自己的服务器并不难，只是过程较为复杂。
 
 首先去[华为云官网](https://www.huaweicloud.com/?locale=zh-cn)注册一个账号。如果是学生，可以搜索“学生”，并进行学生认证。学生认证的步骤参见[学生认证流程](https://support.huaweicloud.com/usermanual-account/zh-cn_topic_0069253575.html)。进行身份验证后可以购买学生优惠套餐，云服务器价格只要99元/年，比阿里云和腾讯云的都要便宜一些。
 
-![华为云学生优惠](https://astrobear.top/resource/astroblog/content/hwcloud_discount.png)
+![华为云学生优惠](https://i.postimg.cc/tJ33bb8S/hwcloud_discount.png)
 
 购买完成后，你可以在控制台看到自己现有的资源以及运行情况。
 
-![控制台](https://astrobear.top/resource/astroblog/content/console.png)
+![控制台](https://i.postimg.cc/6pGmsxTR/console.png)
 
 ### 配置安全组
 
@@ -55,7 +55,7 @@ excerpt: 搭建自己的服务器并不难，只是过程较为复杂。
 
 在控制台点击“弹性云服务器ECS”，在这里你可看到你的服务器的公网IP，请记下这个IP地址。然后点击在列表中点击你的服务器的名称。
 
-![选择服务器](https://astrobear.top/resource/astroblog/content/security_groups.png)
+![选择服务器](https://i.postimg.cc/7LNr5J0w/security_groups.png)
 
 进入云服务器管理页面后，点击“安全组”。再点击“Sys-default”可以看到默认安全组。然后下面给出的图片是我目前的安全组设置，仅供参考。选择“入/出方向方向规则”，再点击“添加规则“即可手动添加规则。一般来说，配置的都是入方向的安全组，并且源地址（访问服务器的设备的IP地址）都为“0.0.0.0/0”（所有IP地址）。
 
@@ -69,9 +69,9 @@ excerpt: 搭建自己的服务器并不难，只是过程较为复杂。
 
 详细配置请参考[安全组配置示例](https://support.huaweicloud.com/usermanual-ecs/zh-cn_topic_0140323152.html)。
 
-![安全组设置](https://astrobear.top/resource/astroblog/content/sg_settings.png)
+![安全组设置](https://i.postimg.cc/sX6FcFTL/sg_settings.png)
 
-![安全组设置](https://astrobear.top/resource/astroblog/content/sg_settings1.png)
+![安全组设置](https://i.postimg.cc/h4YWQBzz/sg_settings1.png)
 
 配置完成后，可以打开电脑上的终端，用下面的语句测试一下：
 
@@ -79,7 +79,7 @@ excerpt: 搭建自己的服务器并不难，只是过程较为复杂。
 
 出现类似下面的内容就代表成功了：
 
-![ping测试](https://astrobear.top/resource/astroblog/content/ping_test.png)
+![ping测试](https://i.postimg.cc/5N9Yy8zN/ping_test.png)
 
 你可以按下`Ctrl+C`来结束`ping`这个进程。
 
@@ -89,7 +89,7 @@ excerpt: 搭建自己的服务器并不难，只是过程较为复杂。
 
 如果你的安全组配置正确的话，会让你输入服务器的登录密码。输入密码（注意：密码是不会显示的）后回车，应该可以看到这样的输出：
 
-![ssh登录](https://astrobear.top/resource/astroblog/content/ssh_login.png)
+![ssh登录](https://i.postimg.cc/JzxWnBbm/ssh_login.png)
 
 这个时候，你的终端就已经连接上了服务器的系统了，你在终端里的一切操作都是作用在服务器上的。
 
@@ -112,7 +112,7 @@ cd /usr/local/nginx/sbin #进入Nginx安装目录
 
 此时，安装应该已经完成了。打开浏览器，在地址栏中输入你的公网ip。如果看到下图所示内容，就代表安装成功了。
 
-![nginx安装成功](https://astrobear.top/resource/astroblog/content/nginx_install.png)
+![nginx安装成功](https://i.postimg.cc/HL87HHyw/nginx_install.png)
 
 ### 创建属于你自己的域名
 
@@ -126,7 +126,7 @@ cd /usr/local/nginx/sbin #进入Nginx安装目录
 
 点击你想要的域名后，会跳转到一个新的页面。接下来再次选择你要的域名，并且在“查域名”的搜索框内输入你想要的域名，看看是否已经被占用，如果被占用了就换一个。若显示“域名可注册”，就点击“立即购买”。
 
-![域名购买](https://astrobear.top/resource/astroblog/content/buy_domain.png)
+![域名购买](https://i.postimg.cc/TwT7Wy0q/buy-domain.png)
 
 购买完成后，你就拥有了自己域名了！
 
@@ -146,15 +146,13 @@ cd /usr/local/nginx/sbin #进入Nginx安装目录
 
 首先打开管理控制台，在控制台中选择“域名注册”。然后在下面的页面中点击“解析”。
 
-![域名注册](https://astrobear.top/resource/astroblog/content/domain.png)
+![域名注册](https://i.postimg.cc/2yK2J0D2/domain.png)
 
 点击你的域名，显示如下页面。这里显示的是你域名的记录集，前两个记录集应该是预置设置，不可暂停服务。<span id="1">你可以在这基础上添加自己的记录集。</span>
 
-![记录集](https://astrobear.top/resource/astroblog/content/record.png)
+![记录集](https://i.postimg.cc/9QrDtV16/record.png)
 
 点击页面右上角红色按钮以添加记录集。添加记录集的配置如下图所示。下图中给出的例子是添加的“A”型记录集，也即通过`example.com`访问网站。若需要通过`www.example.com`访问网站，则需要为`example.com`的子域名添加“A”型记录集。具体配置参见：[配置网站解析_华为云](https://support.huaweicloud.com/qs-dns/dns_qs_0002.html#section1)。点击“确定”，完成添加。你可以通过`ping 你的域名`来测试你添加的记录集是否生效了。
-
-![添加记录集](https://support.huaweicloud.com/qs-dns/zh-cn_image_0200891923.png)
 
 ### 配置nginx
 
@@ -193,29 +191,29 @@ SSL证书可以在数据传输的过程中对其进行加密和隐藏，可以�
 
 首先在华为云页面的导航栏的搜索框内搜索“免费证书“，然后点击[亚洲诚信域名型DV单域名SSL证书--免费证书](https://marketplace.huaweicloud.com/product/00301-315148-0--0)，可以看到证书的价格是0.00元。点击“立即购买”。
 
-![购买SSL证书](https://astrobear.top/resource/astroblog/content/buy_ssl.png)
+![购买SSL证书](https://i.postimg.cc/mrYpD3Yg/buy-ssl.png)
 
 完成购买后请不要立即关闭页面，页面中的订单号在之后还需要用到。尔后，系统会发送”HuaweiCloud账户申请”邮件至用户邮箱，即你在华为云的注册邮箱。
 
-![HuaweiCloud账户申请](https://astrobear.top/resource/astroblog/content/request_account.png)
+![HuaweiCloud账户申请](https://i.postimg.cc/PqDN94gK/request_account.png)
 
 点击邮件中的登录地址进入系统，并使用邮件提供的账号和初始密码进行登录。登入系统后请修改你的初始密码，然后请根据华为云中给你提供的订单号在该系统中查询你的订单。查询到你的订单以后，需要你补充一些信息，请如实填写。系统会要你填写公司信息，如果只是个人网站，那么公司名称直接填写你的名字即可，公司地址就填写你的住址。
 
 填写完成后会进入审核阶段，系统会给你发送一封邮件。
 
-![证书审核](https://astrobear.top/resource/astroblog/content/check.png)
+![证书审核](https://i.postimg.cc/CKT6Srf2/check.png)
 
 根据邮件的提示，需要在记录集中添加新的内容。请根据[前文](#1)所述方法，将邮件中的内容添加至新的记录集。填写方法如下图所示。
 
-![填写记录集](https://astrobear.top/resource/astroblog/content/modify_record.png)
+![填写记录集](https://i.postimg.cc/D06S5w9T/modify_record.png)
 
 填写完成后，可以在本地电脑的终端里输入`nslookup -querytype=txt 你的域名`来测试记录集是否生效。
 
-![测试记录集](https://astrobear.top/resource/astroblog/content/test_record.png)
+![测试记录集](https://i.postimg.cc/PxBgcbkb/test_record.png)
 
 一般来说，记录集生效后10分钟以内证书就会颁发了。
 
-![证书颁发](https://astrobear.top/resource/astroblog/content/issue.png)
+![证书颁发](https://i.postimg.cc/90C4G7Nb/issue.png)
 
 ### SSL证书部署
 
@@ -223,15 +221,15 @@ SSL证书可以在数据传输的过程中对其进行加密和隐藏，可以�
 
 在收到的“证书颁发”的邮件的底部有一条链接，点击这条链接，进入证书管理系统。登录系统，在左侧导航栏中点击“SSL证书”，再点击“预览”，再在右侧的“信息预览”中点击“下载最新证书“。
 
-![下载证书](https://astrobear.top/resource/astroblog/content/download_cert.png)
+![下载证书](https://i.postimg.cc/PJxS2BBC/download-cert.png)
 
 在弹出的对话框内，选择证书格式为“PEM(适用于Nginx,SLB)”，输入你的订单密码。证书密码可以留空。
 
-![下载证书](https://astrobear.top/resource/astroblog/content/download_cert1.png)
+![下载证书](https://i.postimg.cc/wT1WJYXP/download-cert1.png)
 
 下载完成后，解压下载的压缩包，需要输入你的订单密码（如果你没有设置证书密码）。解压以后可以得到下图两个文件。
 
-![解压缩](https://astrobear.top/resource/astroblog/content/unzip_cert.png)
+![解压缩](https://i.postimg.cc/T25G91Xq/unzip_cert.png)
 
 接下来，打开你的终端，按顺序输入下列命令：
 

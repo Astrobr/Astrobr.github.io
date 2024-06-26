@@ -12,9 +12,9 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-cover: https://astrobear.top/resource/astroblog/thumbnail/hpenvy13hackintosh.jpeg
+cover: https://i.postimg.cc/nhT37Vsv/hpenvy13hackintosh.jpg
 
-thumbnail: https://astrobear.top/resource/astroblog/thumbnail/hpenvy13hackintosh.jpeg
+thumbnail: https://i.postimg.cc/nhT37Vsv/hpenvy13hackintosh.jpg
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
 excerpt: 黑苹果安装的踩坑记录。
@@ -55,9 +55,9 @@ excerpt: 黑苹果安装的踩坑记录。
 
   首先请确认你安装镜像中的EFI是适用于你的电脑型号的。如果还是不行，请在`Clover`中的`Option`选项中选择`-v`以啰嗦模式启动，这样启动的时候会显示出详细的信息。将最后出现的报错信息拍下来或者整个启动过程录制下来以后，找网友求助吧。
 
-- 安装macOS 10.15的过程中，在啰嗦模式中出现如下图所示报错：![报错内容请注意最后一部分](https://astrobear.top/resource/astroblog/content/hpenvy13hackintosh_1.JPG)
+- 安装macOS 10.15的过程中，在啰嗦模式中出现如下图所示报错：![报错内容请注意最后一部分](https://i.postimg.cc/yNpnpVz0/hpenvy13hackintosh-1.jpg)
 
-  ​		请在`Clover`中打上如图所示的这个补丁。![补丁图示](https://astrobear.top/resource/astroblog/content/hpenvy13hackintosh_2.png)
+  ​		请在`Clover`中打上如图所示的这个补丁。![补丁图示](https://i.postimg.cc/Zq5VLWXT/hpenvy13hackintosh_2.png)
 
 - 进入安装界面且开始安装一段时间后，无法继续安装：
 
@@ -139,13 +139,13 @@ excerpt: 黑苹果安装的踩坑记录。
 
   请打开`Hackintool`软件，并切换到`电源`一栏。再点击红框中的按钮，使得电源信息中红色的两行变为绿色。此操作可能可以解决一些睡眠问题。
 
-  ![睡眠修复](https://astrobear.top/resource/astroblog/content/hpenvy13hackintosh_3.png)
+  ![睡眠修复](https://i.postimg.cc/fL6CZByL/hpenvy13hackintosh_3.png)
 
 - 定制USB驱动：
 
   定制USB驱动有可能可以帮助解决一些睡眠上的问题，其操作步骤也十分简单，所以博主强烈推荐大家还是定制一下。在此处附上订制USB驱动的教程：[Hackintool(Intel FB Patcher) USB定制视频](https://blog.daliansky.net/Intel-FB-Patcher-USB-Custom-Video.html)。需要注意的是，你有可能发现在使用了`USBInjectALL.kext`以后仍有端口无法加载/检测不到。你可以尝试在`Clover`的`config.plist`中添加下列`解除USB端口数量限制补丁`来解决这个问题。
 
-  ![解除USB端口数量限制补丁](https://astrobear.top/resource/astroblog/content/hpenvy13hackintosh_5.png)
+  ![解除USB端口数量限制补丁](https://i.postimg.cc/0N4ddcpf/hpenvy13hackintosh_5.png)
 
   ```
   Comment: USB port limit patch #1 10.15.x modify by DalianSky(credit ydeng)
@@ -226,7 +226,7 @@ excerpt: 黑苹果安装的踩坑记录。
 
   关于这个问题的具体内容和解决方法可以参看这个[网页](https://www.tonymacx86.com/threads/help-weird-ring-like-blur-and-images-in-mojave.262566/#post-1834064)。
 
-  ![正确的帧缓冲深度](https://astrobear.top/resource/astroblog/content/hpenvy13hackintosh_4.png)
+  ![正确的帧缓冲深度](https://i.postimg.cc/zfvFg9Rv/hpenvy13hackintosh_4.png)
 
 
 
@@ -253,6 +253,5 @@ excerpt: 黑苹果安装的踩坑记录。
 目前，Open Core已经成为黑苹果社区使用的主流引导，博主同样将黑苹果迁移到了OC上面，有需要的话可以下载<a href="https://github.com/Astrobr/OCForEnvy13-ad0xx">这个仓库</a>中提供的EFI文件。此外，更换电脑之后我不打算再折腾黑苹果了，于Github上存放EFI的仓库将不再更新。
 </div>
 </article>
-
 
 

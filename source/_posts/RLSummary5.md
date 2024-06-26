@@ -12,9 +12,9 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-cover: https://astrobear.top/resource/astroblog/content/RLS5F1.jpeg
+cover: https://i.postimg.cc/cCLxxMbp/RLS5F1.jpg
 
-thumbnail: https://astrobear.top/resource/astroblog/content/RLS5F1.jpeg
+thumbnail: https://i.postimg.cc/cCLxxMbp/RLS5F1.jpg
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
 excerpt: Value function approximation, a new way to get the value function. 
@@ -47,7 +47,7 @@ By using this way for many times we can reach the point that our objective funct
 
 Figure 1 is the visualization of gradient descent. 
 
-![Figure 1](https://astrobear.top/resource/astroblog/content/RLS5F1.jpeg)
+![Figure 1](https://i.postimg.cc/cCLxxMbp/RLS5F1.jpg)
 
 ####Stochastic Gradient Descent (SGD)
 
@@ -81,7 +81,7 @@ $\vec w'=\vec w+\alpha[G-\hat v(s,\vec w)]\nabla_\vec w\hat v(s,\vec w)$
 
 Tha algorithm of Monte Carlo linear value function approximation is shown below: 
 
-![](https://astrobear.top/resource/astroblog/content/RLS5F2.jpeg). 
+![](https://i.postimg.cc/DfxfCHWn/RLS5F2.jpg). 
 
 This algorithm can also be modified into a every-visit type. Once we have $\vec w'$ we can calculate the approximation of the value function $\hat v(s,\vec w)$ by $\vec x(s)^T\vec w'$. 
 
@@ -95,7 +95,7 @@ $\vec w'=\vec w+\alpha[r+\gamma \hat v^\pi(s',\vec w)-\hat v(s,\vec w)]\nabla_\v
 
 The algorithm of TD(0) with linear VFA is shown below: 
 
-![](https://astrobear.top/resource/astroblog/content/RLS5F3.png).
+![](https://i.postimg.cc/c46xPhYY/RLS5F3.png).
 
 The two algorithm we introduced above can both converge to the weights $\vec w$ with different minimum mean squared error (MSE). Among them the MSE of TD method is slightly greater than the MC one, but it is good engouh. 
 

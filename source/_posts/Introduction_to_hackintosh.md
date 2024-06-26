@@ -11,9 +11,9 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-cover: https://astrobear.top/resource/astroblog/thumbnail/hpenvy13hackintosh.jpeg
+cover: https://i.postimg.cc/nhT37Vsv/hpenvy13hackintosh.jpg
 
-thumbnail: https://astrobear.top/resource/astroblog/thumbnail/hpenvy13hackintosh.jpeg
+thumbnail: https://i.postimg.cc/nhT37Vsv/hpenvy13hackintosh.jpg
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
 excerpt: 震惊！黑苹果的背后居然有着这些不为人知的秘密！
@@ -94,7 +94,7 @@ Clover是一个操作系统引导程序，可以通过新老两种方式进行�
 
 所有的引导都是放在电脑硬盘开头部分的引导区（ESP分区）的EFI文件夹中，Clover也不例外。当然，EFI文件中还存放着Windows，Linux，或者其他操作系统的引导。下面就来看看Clover的文件结构吧。
 
-![重要的文件夹和其功能在图中注明](https://astrobear.top/resource/astroblog/content/hack1.png)
+![重要的文件夹和其功能在图中注明](https://i.postimg.cc/qBSsPhKb/hack1.png)
 
 在Clover下使用UEFI方式启动的流程是这样的：`UEFI->CLOVERX64.efi->OS`。
 
@@ -104,13 +104,9 @@ Clover是一个操作系统引导程序，可以通过新老两种方式进行�
 
   这一步非常简单，开机之后用方向键选择你需要进入的操作系统的卷标，按下回车即可。
 
-  ![图中出现了三种不同系统的卷标(Credit: daliansky)](http://7.daliansky.net/1-main.png)
-
 - 显示帮助
 
   按下`F1`键会出现帮助信息。
-
-  ![帮助信息(Credit: daliansky)](http://7.daliansky.net/Help_F11.png)
 
 - 更新Clover
 
@@ -122,9 +118,7 @@ Clover是一个操作系统引导程序，可以通过新老两种方式进行�
 
   开启啰嗦模式的方法很简单。首先选择你想要进入的系统的图标，按空格即可进入下图所示的页面，然后勾选图示选项，再选择`Boot macOS with selected options`启动。
 
-  ![开启啰嗦模式(Credit: daliansky)](http://7.daliansky.net/space-selected.png)
-
-  <img src="https://astrobear.top/resource/astroblog/content/hack2.jpg" alt="开启啰嗦模式的效果" />
+  <img src="https://i.postimg.cc/wMCDLZH8/hack2.jpg" alt="开启啰嗦模式的效果" />
 
 - 显示隐藏的卷标
 
@@ -144,8 +138,6 @@ Clover是一个操作系统引导程序，可以通过新老两种方式进行�
 
   首先你要选择macOS的图标，按下空格键。然后在新的页面中将光标移动到`Block injected kexts`，按下回车后进入该选项。再在新的页面中选择`Other`选项，这个时候你就可以看到你的驱动程序了。勾选你想要禁用的驱动程序以后，按`Esc`回到主页面，再直接回车进入macOS。
 
-  ![选择你想要禁用的驱动程序(Credit: daliansky)](http://7.daliansky.net/BIKChoose.png)
-
   请注意，你的这一设置只对这一次启动有效，在之后的启动中将不会保留。
 
 - 设置Clover（修改`config.plist`）
@@ -154,21 +146,19 @@ Clover是一个操作系统引导程序，可以通过新老两种方式进行�
 
   - 你可以在开机以后的Clover主界面下按下按键`O`进入设置页面，然后你就可以选择不同的选项开始修改你的配置文件了，不过一般情况下我们不会使用这种`抽象`的方式来修改
 
-    ![Clover的设置页面(Credit: daliansky)](http://7.daliansky.net/options.png)
-
   - 使用Clover Configurator来修改
 
     Clover Configurator是一款运行在macOS下的应用程序，专门用来修改Clover的配置文件。它具有友好的图形化界面，每个选项都有比较详细的功能说明，操作起来比在启动时修改要轻松得多。Clover Configurator的下载链接放在文末。
 
     在设置以前，你需要在Clover Configurator的`挂载分区`选项卡中挂载你ESP分区（通常情况下这个分区都是隐藏的）。然后在你的Clover文件夹下使用Clover Configurator打开`config.plist`文件，进行修改。修改完成以后，请点击左下角的保存图标（图中以红框标明）。
 
-    ![Clover Configurator的设置界面](https://astrobear.top/resource/astroblog/content/hack3.png)
+    ![Clover Configurator的设置界面](https://i.postimg.cc/qMKs4JXk/hack3.png)
 
-    ![Clover Configurator的设置界面](https://astrobear.top/resource/astroblog/content/hack4.png)
+    ![Clover Configurator的设置界面](https://i.postimg.cc/nhtvLy0q/hack4.png)
 
   - 你还可以使用普通的文本文档编辑器（如Xcode或者Visual Studio Code）打开`config.plist`对其进行编辑，但是这个方法依旧比较`抽象`，不推荐新手或者代码小白这样操作
 
-    ![在Visual Studio Code中打开的Clover配置文件](https://astrobear.top/resource/astroblog/content/hack5.png)
+    ![在Visual Studio Code中打开的Clover配置文件](https://i.postimg.cc/rpVx1S6m/hack5.png)
 
 - 增加/删除/修改/查找驱动程序
 
@@ -180,17 +170,17 @@ Clover是一个操作系统引导程序，可以通过新老两种方式进行�
 
   Clover提供了很多自定义功能，你可以选择自己喜欢的Clover开机主题。Clover的主题存放在`EFI/CLOVER/themes/`文件夹中，你可以下载你喜欢的主题文件夹并将其保存到上述路径中。然后，你需要在Clover Configurator中的`引导界面`选项卡中填写你想要设置的主题文件夹的名字（如下图）并保存。
 
-  ![修改Clover主题](https://astrobear.top/resource/astroblog/content/hack6.png)
+  ![修改Clover主题](https://i.postimg.cc/Nj7R2dzS/hack6.png)
 
   作者目前用的是一款名为`Simple`的主题，可以点击[此处](https://github.com/burpsuite/clover_theme)下载。在GitHub上还有很多不同的Clover主题可供选择。
 
-  ![作者正在使用的Simple主题](https://astrobear.top/resource/astroblog/content/hack7.png)
+  ![作者正在使用的Simple主题](https://i.postimg.cc/vBDnjbZw/hack7.png)
 
 - 隐藏你不需要的卷标
 
   如果你的Clover启动界面有很多引导同一系统的卷标，你可以将他们隐藏起来。具体方法是，Clover Configurator中的`引导界面`选项卡中的`隐藏卷`一栏中填写你想要隐藏的卷标的名称，然后保存文件。
 
-  ![隐藏你不需要的卷标](https://astrobear.top/resource/astroblog/content/hack8.png)
+  ![隐藏你不需要的卷标](https://i.postimg.cc/sX8WCqMQ/hack8.png)
 
 Clover的主要功能就介绍到这里了。由于本文是纯粹的新手向，在这里就不介绍如何配置`config.plist`了。一般来说，只要你能够找到完全对应你机型的EFI文件，基本上就不需要再重新配置Clover了。下面，我们再简单介绍一下新时代的引导工具：OpenCore。
 
@@ -219,23 +209,23 @@ OpenCore是一个着眼于未来的先进的开源引导工具，他支持多种
 
 - 打开`WinMD5`软件，将下载完成的`iso`镜像文件拖入软件窗口，与网站上提供的`md5`值比对，校验`md5`值是否正确，如不正确，请重新下载（`md5`值相当于一个文件的身份证号码，它的值是唯一的，如果你下载下来的文件的`md5`值与官方提供的不一样，说明你下载的文件可能被修改过或者出错了）
 
-  <img src="https://astrobear.top/resource/astroblog/content/image-20200322163623208.png" alt="校验MD5值" style="zoom:50%;" />
+  <img src="https://i.postimg.cc/26BdHhGf/image-20200322163623208.png" alt="校验MD5值" style="zoom:50%;" />
 
 - 找到一个容量为16GB或以上的**空U盘**，插入电脑
 
 - 以管理员身份打开`TransMac`软件，在窗口中左侧列表鼠标右击你的U盘，点击`Restore With Disk Image`
 
-  <img src="https://astrobear.top/resource/astroblog/content/image-20200322164230903.png" alt="Restore with Disk Image" style="zoom:50%;" />
+  <img src="https://i.postimg.cc/x8DvB8pN/image-20200322164230903.png" alt="Restore with Disk Image" style="zoom:50%;" />
 
 - 点击后有可能会弹出下图所示的警告，是提示你的U盘可能含有已经挂载的卷，请确保你选择的U盘是正确的，然后点击`Yes`
 
-  <img src="https://astrobear.top/resource/astroblog/content/image-20200322164627959.png" alt="请确保你选择的U盘正确！" style="zoom:50%;" />
+  <img src="https://i.postimg.cc/jd6c06bx/image-20200322164627959.png" alt="请确保你选择的U盘正确！" style="zoom:50%;" />
 
 - 在弹出的窗口中选择你刚才下载好的`iso`文件，点击`OK`，这个时候会**格式化**你的U盘并把系统镜像烧录到你的U盘中，耐心等待安装盘制作完成吧，这一过程大约要持续20~30分钟
 
-  <img src="https://astrobear.top/resource/astroblog/content/image-20200322164435201.png" alt="选择镜像文件" style="zoom:50%;" />
+  <img src="https://i.postimg.cc/8ztbs1cx/image-20200322164435201.png" alt="选择镜像文件" style="zoom:50%;" />
 
-  <img src="https://astrobear.top/resource/astroblog/content/image-20200322165214199.png" alt="等待时间，来杯卡布奇诺" style="zoom:50%;" />
+  <img src="https://i.postimg.cc/P5t4tLXm/image-20200322165214199.png" alt="等待时间，来杯卡布奇诺" style="zoom:50%;" />
 
 - 制作完成以后会弹出对话框，直接点击`OK`
 
@@ -261,11 +251,11 @@ daliansky整理了一个清单，里面收集了大量不同机型的EFI文件�
 
 - 打开`DiskGenius`软件，在左侧列表中找到你已经制作好的安装盘，并单击选中
 
-  <img src="https://astrobear.top/resource/astroblog/content/image-20200322172930142.png" alt="选择你已经制作好的安装盘" style="zoom:50%;" />
+  <img src="https://i.postimg.cc/jSdzpGcc/image-20200322172930142.png" alt="选择你已经制作好的安装盘" style="zoom:50%;" />
 
 - 依次双击右侧列表中的`ESP(0)`卷标，`EFI`文件夹，进入如下页面
 
-  <img src="https://astrobear.top/resource/astroblog/content/image-20200322173254704.png" style="zoom:50%;" />
+  <img src="https://i.postimg.cc/FHWjNDn4/image-20200322173254704.png" style="zoom:50%;" />
 
 - 单击`CLOVER`文件夹，然后按`delete`键，弹出对话框后点击`删除`，将这个文件夹删除掉
 
@@ -281,25 +271,25 @@ daliansky整理了一个清单，里面收集了大量不同机型的EFI文件�
 
 - 打开`DiskGenius`软件，在右侧列表中选中你的硬盘，然后在顶部查看你的硬盘空间分配情况，在顶部最左侧找到你的EFI分区，确保你的EFI分区的空间大于200MB，否则macOS将无法安装
 
-  ![](https://astrobear.top/resource/astroblog/content/image-20200322174413977.png)
+  ![](https://i.postimg.cc/mZCNC3hY/image-20200322174413977.png)
 
 - 右键单击你的硬盘，选择`转换分区表类型为GUID`模式，否则macOS将无法安装，如果这个选项是灰色的而下一个选项可选，则无须转换
 
-  <img src="https://astrobear.top/resource/astroblog/content/image-20200322174834408.png" alt="转换为GUID格式" style="zoom:50%;" />
+  <img src="https://i.postimg.cc/zfyTBK9R/image-20200322174834408.png" alt="转换为GUID格式" style="zoom:50%;" />
 
 - 右键单击上方的蓝色容量条，点击`建立新分区`
 
-  <img src="https://astrobear.top/resource/astroblog/content/image-20200322175353564.png" alt="建立新分区" style="zoom:50%;" />
+  <img src="https://i.postimg.cc/prJF7Zn3/image-20200322175353564.png" alt="建立新分区" style="zoom:50%;" />
 
 - 在弹出的窗口中调整你要分给macOS的容量大小，然后点击`开始`，接下来会有弹窗出现，请**严格遵守弹窗中给出的要求**操作，以免发生意外，然后点击`是`，开始分区
 
-  <img src="https://astrobear.top/resource/astroblog/content/image-20200322175546512.png" style="zoom:50%;" />
+  <img src="https://i.postimg.cc/m2SY6bYh/image-20200322175546512.png" style="zoom:50%;" />
 
-  <img src="https://astrobear.top/resource/astroblog/content/image-20200322181027988.png" alt="别怪我没提醒你!" style="zoom:50%;" />
+  <img src="https://i.postimg.cc/dtFRB7Tz/image-20200322181027988.png" alt="别怪我没提醒你!" style="zoom:50%;" />
 
 - 分区完成以后，右键单击顶部蓝色容量条，点击`删除当前分区`（因为macOS的磁盘格式为APFS，因此现在对其进行格式化没有意义）
 
-  <img src="https://astrobear.top/resource/astroblog/content/image-20200322181359400.png" style="zoom:50%;" />
+  <img src="https://i.postimg.cc/3wzmDWTf/image-20200322181359400.png" style="zoom:50%;" />
 
 ---
 
@@ -313,7 +303,7 @@ daliansky整理了一个清单，里面收集了大量不同机型的EFI文件�
 
 - 按方向键进入`系统设置`菜单中的`启动选项`，请开启`传统模式`，禁用`安全启动模式`，启用`USB启动`
 
-  <img src="https://astrobear.top/resource/astroblog/content/hack11.JPG" style="zoom:50%;" />
+  <img src="https://i.postimg.cc/bJdVqZR6/hack11.jpg" style="zoom:50%;" />
 
 - 按`F10`保存设置，电脑将自动重启
 
@@ -327,13 +317,13 @@ daliansky整理了一个清单，里面收集了大量不同机型的EFI文件�
 
 - 重启电脑，看到左下角的提示以后，按`esc`暂停启动
 
-  <img src="https://astrobear.top/resource/astroblog/content/hack10.JPG" alt="这是惠普的BIOS操作方法" style="zoom:50%;" />
+  <img src="https://i.postimg.cc/3WQDdGC3/hack10.jpg" alt="这是惠普的BIOS操作方法" style="zoom:50%;" />
 
 - 进入`启动菜单`，按`F9`进入`启动设备选项`
 
 - 在列出的一串引导中，选择`USB硬盘（UEFI）`的选项以启动安装盘中的引导，如果你使用的是daliansky提供的较新的系统镜像，安装盘中会出现两个引导，一个是微PE（后面会提到），另一个是Clover，我们需要启动的是Clover
 
-  <img src="https://astrobear.top/resource/astroblog/content/hack12.JPG" style="zoom:50%;" />
+  <img src="https://i.postimg.cc/FRqWzhWh/hack12.jpg" style="zoom:50%;" />
 
 - 进入Clover界面以后，按照前文所说过的方法，开启啰嗦模式
 
@@ -341,51 +331,31 @@ daliansky整理了一个清单，里面收集了大量不同机型的EFI文件�
 
   - 在Clover主界面按`O`进入选项，光标移动到`Configs`后按回车进入进入该选项，这个选项是用来选择需要生效的Clover配置文件的
 
-    ![选择Configs(Credit: daliansky)](http://7.daliansky.net/10.15.3/2_Clover_Configs.png)
-
   - 选择`config_Install`这个配置文件
-
-    ![选择config_Install(Credit: daliansky)](http://7.daliansky.net/10.15.3/3_Clover_Select_Installer.png)
 
   - 按两次`esc`返回到Clover主界面
 
 - 在Clover主界面选择卷标`Boot macOS Install from Install macOS Catalina`，然后按下回车，开始引导安装程序
 
-  ![开始引导(Credit: daliansky)](http://7.daliansky.net/10.15.3/1_Clover_Installer.png)
-
 - 这个时候会出现如下图所示的安装日志，如果你很不幸地卡住了，那么你可以参考[macOS Catalina 10.15安装中常见的问题及解决方法](https://blog.daliansky.net/Common-problems-and-solutions-in-macOS-Catalina-10.15-installation.html)，或者附上你卡住的地方的照片和你的电脑配置，在各种交 流 群中询问大佬
 
-  ![这是一个群友的求助图片，出现的问题是卡ec了](https://astrobear.top/resource/astroblog/content/hack2.jpg)
+  ![这是一个群友的求助图片，出现的问题是卡ec了](https://i.postimg.cc/wMCDLZH8/hack2.jpg)
 
 - 如果没有卡住，你的日志会消失，然后出现苹果的logo和进度条
 
-  ![白苹果(Credit: daliansky)](http://7.daliansky.net/Air13/1.png)
-
-- 等待一段时间以后，会出现语言选择界面，请选择中文并点击`继续`，如果有装逼需求或者想练习外语，你也可以选择其他语言
-
-  ![还是选择中文吧(Credit: daliansky)](http://7.daliansky.net/Air13/4.png)
+- 等待一段时间以后，会出现语言选择界面，请选择中文并点击`继续`
 
 - 选择`磁盘工具`并点击`继续`
 
-  ![实用工具(Credit: daliansky)](http://7.daliansky.net/10.15.3/3.png)
-
 - 进入磁盘工具以后，在左上角右键点击你的磁盘，并选择`显示所有设备`，并找到你之前已经准备好安装macOS的分区
-
-  ![选择显示所有设备](http://7.daliansky.net/10.15.3/4.png)
 
 - 选中你之前已经准备好安装macOS的分区，然后点击`抹掉`，在弹出的窗口中，你需要给你的分区起一个名字，并将格式设置成`APFS`，然后将方案设置为`GUID分区图`，再点击`抹掉`，这一步会将你电脑上的硬盘分区格式化
 
-  ![抹掉磁盘(Credit: daliansky)](http://7.daliansky.net/10.15.3/6.png)
-
 - 操作完成以后，点击左上方`磁盘工具`，在弹出的选项中选择`退出磁盘工具`并返回到安装界面
-
-  ![退出磁盘工具(Credit: daliansky)](http://7.daliansky.net/10.15.3/8.png)
 
 - 在主界面选择`安装macOS`并点击`继续`，再闭着眼睛同意条款
 
-- 在下图所示的界面中选择你要安装的磁盘分区，然后点击`安装`，接下来安装程序会将安装文件复制到你的分区中，这个过程会持续几分钟，待复制完成以后，电脑会重新启动
-
-  ![选择你准备好的那个磁盘分区(Credit: daliansky)](http://7.daliansky.net/10.15.3/12.png)
+- 选择你要安装的磁盘分区，然后点击`安装`，接下来安装程序会将安装文件复制到你的分区中，这个过程会持续几分钟，待复制完成以后，电脑会重新启动
 
 - 重启之后，按照本节一开始所述方法进入Clover，这时候你会发现，Clover主界面会多出来几个卷标，从现在开始直到安装完成，请都选择`Boot macOS Install form xxx（你给你的macOS分区起的名字）`卷标启动，在安装过程中请耐心等待，无论你做了什么奇怪的事情让你增加了什么奇怪的知识，都不要在出现白苹果logo的时候乱动鼠标或者键盘
 
@@ -393,35 +363,21 @@ daliansky整理了一个清单，里面收集了大量不同机型的EFI文件�
 
 - 进度条走完，出现设置向导，接下来会让你设置你的国家和地区，语言和输入法，按照你的需要设置即可，然后会进入`数据和隐私`界面，点击`继续`
 
-  ![选择国家和地区(Credit: daliansky)](http://7.daliansky.net/Air13/22.png)
-
 - 接下来会问你是否需要将macOS从你的备份中恢复，黑苹果玩家一无所有，选择`现在不传输任何信息`并点击`继续`
-
-  ![没有备份，无需恢复(Credit: daliansky)](http://7.daliansky.net/Air13/25.png)
 
 - 接下来要你使用Apple ID登陆，这里先跳过
 
-  ![不要登陆！登陆了也没用(Credit: daliansky)](http://7.daliansky.net/10.15.3/15.png)
-
 - 还是闭着眼接受条款
-
-  ![接受就完事了(Credit: daliansky)](http://7.daliansky.net/10.15.3/16.png)
 
 - 接下来你需要创建一个电脑用户，这是一个管理员帐户，请注意，在这里设置了用户名以后，如果未来要更改的话会极为麻烦，建议想清楚了再继续下一步
 
-  ![不要起什么奇奇怪怪的名字(Credit: daliansky)](http://7.daliansky.net/Air13/30.png)
-
 - 进入`快捷设置`页面，点击`继续`，然后会进入`分析`页面，取消勾选`与App开发共享崩溃与使用数据`，黑苹果这种东西自己偷摸着用就行
-
-  ![不要共享(Credit: daliansky)](http://7.daliansky.net/10.15.3/17.png)
 
 - 接下来还会要你设置屏幕使用时间，Siri，以及外观，这些选项按照你的需要设置就行，一路`继续`下去，直到出现`正在设置你的Mac`页面，请稍等片刻
 
-  ![即将完成！(Credit: daliansky)](http://7.daliansky.net/Air13/34.png)
-
 - 终于进入了桌面，这时macOS的基本安装已经完成了！先庆祝一下，折腾的事情还在后头呢（虽然这篇文章不会写吧......）
 
-  ![老二次元了doge](https://astrobear.top/resource/astroblog/content/hack9.png)
+  ![老二次元了doge](https://i.postimg.cc/PfpVc8JJ/hack9.png)
 
 ---
 
@@ -433,21 +389,21 @@ daliansky整理了一个清单，里面收集了大量不同机型的EFI文件�
 
 - 打开`EasyUEFI`软件，你可以看到所有的引导项之中没有Clover，点击红框中按钮创建新的引导项
 
-  <img src="https://astrobear.top/resource/astroblog/content/image-20200405233601042.png" alt="创建引导项" style="zoom:50%;" />
+  <img src="https://i.postimg.cc/05YDb8HZ/image-20200405233601042.png" alt="创建引导项" style="zoom:50%;" />
 
 - 在弹出的窗口中，`类型`选择`Linux或者其它操作系统`，`描述`可以随便填写，这里使用的是`CLOVER`，目标分区选择`磁盘0`的ESP分区（唯一可选的那一个）
 
-  <img src="https://astrobear.top/resource/astroblog/content/image-20200405234307270.png" style="zoom:50%;" />
+  <img src="https://i.postimg.cc/nhzDRqVw/image-20200405234307270.png" style="zoom:50%;" />
 
 - 在`文件路径`一行中，点击`浏览`，在弹出的窗口中显示了一个硬盘的图标，这个就是你电脑上硬盘的ESP分区了，点击它左侧的加号将其展开，在EFI文件夹中找到`CLOVERX64.efi`，这个就是Clover的引导文件，选中后点击`确定`
 
-  <img src="https://astrobear.top/resource/astroblog/content/image-20200405234725001.png" style="zoom:50%;" />
+  <img src="https://i.postimg.cc/hPKxmHkn/image-20200405234725001.png" style="zoom:50%;" />
 
 - 回到原先的界面之后，点击`确定`，可以发现Clover已经添加到启动序列中了
 
 - 到这里还没结束，因为Clover被上面众多引导项压着，启动的时候怎么也轮不到它，因此我们点击红框中的按钮，将Clover移到启动序列的第一位，使电脑开机的时候默认使用Clover引导操作系统
 
-  <img src="https://astrobear.top/resource/astroblog/content/image-20200405235126649.png" style="zoom:50%;" />
+  <img src="https://i.postimg.cc/vBWggzXD/image-20200405235126649.png" style="zoom:50%;" />
 
 现在再重启电脑，不要按`esc`暂停启动，电脑会默认使用Clover进行引导。选择macOS分卷，按回车进入。如果成功启动了，那么你便可以重新设置你的BIOS，将`传统模式`关闭了（但不要开启`安全启动模式`）。
 
@@ -478,7 +434,7 @@ daliansky整理了一个清单，里面收集了大量不同机型的EFI文件�
 
 完成macOS的安装并不代表你的电脑就已经是可堪重用的生产力/娱乐工具了。绝大多数情况下，刚刚完成安装的黑苹果还会存在着各种各样的问题。即使你使用的是完全对应你的电脑型号的EFI文件，依然有大概率会出现这些问题。**黑苹果的折腾之处不是安装macOS的过程，而是完全解决这些问题的过程。**所以这就是为什么我建议大家不要在安装的最后几步（包括完成安装以后）登陆你的苹果服务，因为你的电脑存在的一些问题会导致苹果服务登不上去，而且折腾的过程也有可能把你的Apple ID中的信息搞乱，就像下图一样。
 
-<img src="https://astrobear.top/resource/astroblog/content/hack13.JPG" alt="瞬间富有" style="zoom:50%;" />
+<img src="https://i.postimg.cc/vZLNhFBv/hack13.jpg" alt="瞬间富有" style="zoom:50%;" />
 
 安装完成以后，大家可以检查一下自己的电脑有没有出现下面列出的这些问题。下面的检查大部分都在macOS的设置中完成，还有一些直接观察即可。在每个问题的末尾都会给大家提供一些解决问题的思考方向，但并不会提供具体的解决办法。另外还附上了无故障发生的效果图供大家参考。
 
@@ -489,9 +445,9 @@ daliansky整理了一个清单，里面收集了大量不同机型的EFI文件�
   - 无法使用随航
   - 无法使用Siri，FaceTime，iMessage
 
-  ![](https://astrobear.top/resource/astroblog/content/hack14.png)
+  ![](https://i.postimg.cc/DzvYYj43/hack14.png)
 
-  ![](https://astrobear.top/resource/astroblog/content/hack15.png)
+  ![](https://i.postimg.cc/pds1NfKh/hack15.png)
 
 - 声音的问题：这个问题的表现形式很多，出现这些问题是因为**声卡没有驱动**
 
@@ -500,25 +456,25 @@ daliansky整理了一个清单，里面收集了大量不同机型的EFI文件�
   - 麦克风没有输入电平的变化
   - 使用快捷键调节音量，喇叭图标下出现禁行标志
 
-  ![](https://astrobear.top/resource/astroblog/content/hack16.png)
+  ![](https://i.postimg.cc/FHmP7WZk/hack16.png)
 
 - 触控板的问题：触控板根本没有反应，或者在`系统偏好设置-触控板`选项中某些手势无法使用，或者某些功能不显示，这个问题与你的**触控板驱动**有关
 
-  ![](https://astrobear.top/resource/astroblog/content/hack17.png)
+  ![](https://i.postimg.cc/d3yWTgpr/hack17.png)
 
 - 显示的问题：这个问题也涉及到很多方面，注意**下面给出的图片是错误示例，不是正确的打开方式**
 
   - 色偏严重：这个问题与你的**显示器描述文件和EDID**有关
 
-    ![严重的色偏](https://astrobear.top/resource/astroblog/content/hack18.JPG)
+    ![严重的色偏](https://i.postimg.cc/h4kZqPQr/hack18.jpg)
 
   - 文字显示过小，图标与文字比例失调：这个问题与你的**EDID以及是否开启了HiDPI**有关
 
-    ![失调的比例](https://astrobear.top/resource/astroblog/content/hack19.png)
+    ![失调的比例](https://i.postimg.cc/fRK8Xc22/hack19.png)
 
   - 出现颜色断层：这个问题与你的**EDID和显卡缓冲帧**有关
 
-    <img src="https://astrobear.top/resource/astroblog/content/hack20.jpg" alt="断层的色彩" style="zoom:50%;" />
+    <img src="https://i.postimg.cc/fL3C66wp/hack20.jpg" alt="断层的色彩" style="zoom:50%;" />
     
   - 无法调节亮度：在`系统偏好设置-显示器`选项中没有亮度调节条，键盘上的亮度调节快捷键也没有反应，这个问题可能与你的**亮度调节驱动或者系统补丁**有关
 
@@ -526,7 +482,7 @@ daliansky整理了一个清单，里面收集了大量不同机型的EFI文件�
 
   - 节能管理未加载：在`系统偏好设置-节能`选项中没有将4个（台式机为5个）选项全部加载，出现这个问题是因为你**没有加载macOS原生的电源管理**
 
-    ![](https://astrobear.top/resource/astroblog/content/hack21.png)
+    ![](https://i.postimg.cc/dtGHQP8K/hack21.png)
 
   - 睡眠失灵：睡眠秒醒或者睡眠自动关机/死机/重启，这个问题与你的**电源管理或者USB驱动**有关
 

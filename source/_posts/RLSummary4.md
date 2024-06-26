@@ -12,9 +12,9 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-cover: https://astrobear.top/resource/astroblog/content/RLS4F4.jpeg
+cover: https://i.postimg.cc/5NtybbcX/RLS3F4.png
 
-thumbnail: https://astrobear.top/resource/astroblog/content/RLS4F4.jpeg
+thumbnail: https://i.postimg.cc/5NtybbcX/RLS3F4.png
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
 excerpt: Something about model-free control. 
@@ -90,7 +90,7 @@ Please notice the first caveat we just mentioned above, this means, in other wor
 
 This strategy is to take random action with small probability and take the greedy action the rest of the time. Mathematically, an $\epsilon$-greedy policy with respect to the state-action value $Q^\pi(s,a)$ takes the following form: 
 
-![](https://astrobear.top/resource/astroblog/content/RLS4F6.png).
+![](https://i.postimg.cc/5039Wkn5/RLS4F6.png).
 
 It can be summarized as: $\epsilon$-greedy policy selects a random action with probability $\epsilon$ or otherwise follows the greedy policy. 
 
@@ -98,7 +98,7 @@ It can be summarized as: $\epsilon$-greedy policy selects a random action with p
 
 We have already provided a strategy to deal with the first caveat and now we are going to focus on the second one: to prove the monotonic $\epsilon$-greedy policy improvement. And here is the proof. 
 
-![Monotonic e-greedy Policy Improvement](https://astrobear.top/resource/astroblog/content/RLS4F1.jpeg)
+![Monotonic e-greedy Policy Improvement](https://i.postimg.cc/MpMGf5px/RLS4F1.jpg)
 
 Now we have that $Q^{\pi_i}(s,\pi_{i+1}(s))\ge V^{\pi_i}(s)$ implies $V^{\pi_{i+1}}(s)\ge V^{\pi_i}$ for all states, as desired. Thus, the monotonic $\epsilon $-greedy policy improvement shows us that our policy does in fact improve if we act $\epsilon$-greedy on the current $\epsilon$-greedy policy. 
 
@@ -117,7 +117,7 @@ A simple GLIE strategy is $\epsilon$-greedy policy where $\epsilon$ is decayed t
 
 Here is the algorithm of online Monte Carlo control: 
 
-![Online Monte Carlo Control](https://astrobear.top/resource/astroblog/content/RLS4F2.png). 
+![Online Monte Carlo Control](https://i.postimg.cc/cJf4XJ3b/RLS4F2.png). 
 
 The algorithm is first-visit online Monte Carlo control precisely and you can modify it to every-visit online Monte control easily. 
 
@@ -131,7 +131,7 @@ There are two methods of TD-style model-free control: on-policy and off-policy. 
 
 Here is the algorithm: 
 
-![SARSA](https://astrobear.top/resource/astroblog/content/RLS4F3.jpeg). 
+![SARSA](https://i.postimg.cc/rFYmp3cQ/RLS4F3.jpg). 
 
 SARSA stands for **S**tate, **A**ction, **R**eward, next **S**tate, **A**ction taken in next state. Because this algorithm updates the Q-value after it gets the tuple $(s,a,r,s',a')$, it is called SARSA. SARSA is an on-policy method because the actions $a$ and $a'$ used in the update equation are both from the policy that is being followed at the time of the update. 
 
@@ -144,7 +144,7 @@ SARSA for finite-state and finite-action MDP's converges to the optimal action-v
 
 Here is the algorithm: 
 
-![Q-Learning](https://astrobear.top/resource/astroblog/content/RLS4F4.jpeg).
+![Q-Learning](https://i.postimg.cc/T3z3VbKb/RLS4F4.jpg).
 
 The biggest different between Q-learning and SARSA is that, Q-learning takes a maximum over the actions at the next state, this action is not necessarily the same same as the one we would derive from the current policy. On the contrary, the agent will choose the action that brings the biggest reward directly and this behavior actually updates the policy because, when we adopt $\epsilon$-greedy we definately introduce Q-value. Q-learning updates the Q-value (policy) after it gets the tuple $(s,a,r,s')$. And this is why it is called *off-policy*. 
 
@@ -154,7 +154,7 @@ However, in SARSA, as we stated before, the action $a'$ derives from the current
 
 In Q-learning, the state values $V^\pi(s)=\sum_{a\in A}\pi(a|s)Q_\pi(s,a)$ can suffer from maximization bias (bias introduced by the maximization operation) when we have finitely many samples. Our state value estimate is at least as large as the true value of state $s$, so we are systematically overestimating the value of the state. In Q-learning, we can maintain two independent unbiased estimates, $Q_1$ and $Q_2$ and when we use one to select the maximum, we can use the other to get an estimate of the value of this maximum. This is called *double Q-learning* which is shown below: 
 
-![Double Q-Learning](https://astrobear.top/resource/astroblog/content/RLS4F5.jpeg). 
+![Double Q-Learning](https://i.postimg.cc/5019GMqN/RLS4F5.jpg). 
 
 Double Q-learning can significantly speed up training time by eliminating suboptimal actions more quickly then normal Q-learning. 
 

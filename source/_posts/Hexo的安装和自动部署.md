@@ -12,9 +12,9 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-cover:  https://astrobear.top/resource/astroblog/thumbnail/TravisCI.png
+cover:  https://i.postimg.cc/WznkKzc8/TravisCI.png
 
-thumbnail:  https://astrobear.top/resource/astroblog/thumbnail/TravisCI.png
+thumbnail:  https://i.postimg.cc/WznkKzc8/TravisCI.png
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
 excerpt: 填坑。
@@ -74,7 +74,7 @@ Hexo是一个高效、简洁的博客框架。它基于Node.js，通过几条命
 
 Hexo是基于Node.js来生成网页的，那么首先就要安装Node.js。Windows用户清前往[Node.js官方下载地址](http://nodejs.cn/download/)下载最新版本的`.msi`格式的安装包，下载之后打开安装包直接安装即可。安装程序可能会询问你是否自动安装必要的工具，这里没有必要勾选这个选项。
 
-![](https://astrobear.top/resource/astroblog/content/install_node.png)
+![](https://i.postimg.cc/ZKjNxwmd/install_node.png)
 
 一般来说安装最新版本的Node.js就可以了。但是作者在迁移博客的过程中发现，由于没有更新Hexo至最新版本，使用最新版本的Node.js会导致编译生成的网页全是空白的，所以作者最后还是使用了`v12.22.5`版本的Node.js。有需要的朋友可以在[这里](https://npm.taobao.org/mirrors/node/)下载到历史版本。
 
@@ -92,7 +92,7 @@ hexo s #在本地浏览器预览你的博客
 
 如果你看到终端输出了类似下面的信息，恭喜你，你的博客已经构建成功了！你可以在浏览器中访问`http://localhost:4000`来预览你的博客。
 
-![](https://astrobear.top/resource/astroblog/content/hexo_init.png)
+![](https://i.postimg.cc/ZnpcqpvL/hexo-init.png)
 
 你可以使用`./scafflods/post.md`作为模板创建你的第一篇博客。使用编辑器打开这个文件，可以模仿下面的内容来编写你的文章。模板中三根横线之间的内容是`yaml`文件头，并不使用Markdown语法，需要注意。
 
@@ -175,7 +175,7 @@ Travis CI是一个依赖于Github的持续集成工具，它从Github的代码�
 
 ssh免密登录的具体原理可以参考下图（来源：[图解SSH原理 - 简书 (jianshu.com)](https://www.jianshu.com/p/33461b619d53)）。
 
-![](https://astrobear.top/resource/astroblog/content/ssh.jpeg)
+![](https://i.postimg.cc/Ss20DTHN/ssh.webp)
 
 接下来讲讲实现方法。
 
@@ -359,7 +359,7 @@ Host *
 
 点击Travis CI对应仓库标题右侧的绿色图标可以将其以Markdown格式添加到你的Github仓库的`readme.md`文件中。如果Travis CI操作的分支不是默认分支，那么这个图标将只显示`unknown`的状态。
 
-![](https://astrobear.top/resource/astroblog/content/build_passing_mark.png)
+![](https://i.postimg.cc/MKLFrpZq/build-passing-mark.png)
 
 
 

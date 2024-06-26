@@ -11,9 +11,9 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-cover: https://astrobear.top/resource/astroblog/thumbnail/t4.png
+cover: https://i.postimg.cc/Qtc5QS6R/t4.png
 
-thumbnail: https://astrobear.top/resource/astroblog/thumbnail/t4.png
+thumbnail: https://i.postimg.cc/Qtc5QS6R/t4.png
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
 excerpt: 记录本人在学习Python时遇到的坑以及这门语言的特性。

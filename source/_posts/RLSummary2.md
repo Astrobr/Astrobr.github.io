@@ -12,9 +12,9 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-cover: https://pic1.zhimg.com/80/v2-e1e894383536e4ff019f63e5507c2a18_hd.png
+cover: https://i.postimg.cc/RZLL6rB6/rl2.png
 
-thumbnail: https://pic1.zhimg.com/80/v2-e1e894383536e4ff019f63e5507c2a18_hd.png
+thumbnail: https://i.postimg.cc/RZLL6rB6/rl2.png
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
 excerpt: Introduction to MP, MRP, and MDP.
@@ -44,7 +44,7 @@ By calculating $S\bf P$ we can get the distribution of the new state.
 
 Figure 1 shows a student MP example.
 
-![Figure 1](https://pic1.zhimg.com/80/v2-23b6d59cfe253c4a678a1d9e8df43110_hd.png)
+![Figure 1](https://i.postimg.cc/yxbBVpfk/rl201.png)
 
 ### Markov reward process (MRP)
 
@@ -89,9 +89,9 @@ We design the discount factor for many reasons. The best reason among them I thi
 
 Figure 2 and 3 shows an example of how to calculate the return.
 
-![Figure 2](https://astrobear.top/resource/astroblog/content/RLS2F2.png)
+![Figure 2](https://i.postimg.cc/V6BvLNLC/RLS2F2.png)
 
-![Figure 3](https://pic2.zhimg.com/v2-91921a745909435f7b984d1dae5ef271_r.jpg)
+![Figure 3](https://i.postimg.cc/7hn4zYYJ/rl202.png)
 
 It is significant to find out a value function while many problems of RL is how to get a value function essentially.
 
@@ -125,7 +125,7 @@ We have three ways to compute the value function.
 
   Notice that $s'$ includes all the possible successor states. Here is an example in Figure 5. This example shows that how to calculate the value of the state represented by the red circle.
 
-  ![Figure 5](https://pic4.zhimg.com/80/v2-a8997be4d72fcb8faaee4db82db495b3_hd.png)
+  ![Figure 5](https://i.postimg.cc/MHv0MXYd/rl203.png)
 
 - Iterative solution. 
 
@@ -197,7 +197,7 @@ Now let's talk about the relationships between these two value functions.
 
 Figure 6 shows the actions that an agent can choose under a specific state, the white circle represents the state while black circles represent actions.
 
-![Figure 6](https://pic1.zhimg.com/80/v2-afda4ee31b7ea7238f7c2bc15709e5a8_hd.png)
+![Figure 6](https://i.postimg.cc/D0XJ3G6k/rl204.png)
 
 We can discover that the value of a state can be denoted as
 
@@ -205,7 +205,7 @@ $V^\pi(s)=\sum_{a\in A}\pi(a|s)Q_\pi(s,a)$.
 
 In a similar way, Figure 7 shows what states that an action can lead to.
 
-![Figure 7](https://pic4.zhimg.com/80/v2-5f4535af4300fa2228348c233724227b_hd.png)
+![Figure 7](https://i.postimg.cc/KjPLwVmh/rl205.png)
 
 We can also find that 
 
@@ -225,7 +225,7 @@ $Q_\pi(s,a)=R(s,a)+\gamma\sum_{s'\in S} P(s'|s,a)\sum_{a\in A}\pi(a'|s')Q_\pi(s'
 
 The example in Figure 8 shows that how to calculate the state value of the state represented by the red circle. Notice that actions $Study$ and $Pub$ have the same probabilities $\pi(a|s)$ to be executed, which means they are all $0.5$.
 
-![Figure 8](https://pic1.zhimg.com/80/v2-1ef95dc0d203c5f2e85986faf31464b0_hd.png)
+![Figure 8](https://i.postimg.cc/7YQYD9hF/rl206.png)
 
 #### Optimality value function (Bellman optimality equation)
 

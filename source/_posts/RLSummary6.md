@@ -12,9 +12,9 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-cover: https://pic4.zhimg.com/v2-e7dd00d7fda722d5f8f70a9928e95a17_r.jpg
+cover: https://i.postimg.cc/4N9XcSGs/rl601.png
 
-thumbnail: https://pic4.zhimg.com/v2-e7dd00d7fda722d5f8f70a9928e95a17_r.jpg
+thumbnail: https://i.postimg.cc/4N9XcSGs/rl601.png
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
 excerpt: Introduction to deep reinforcement learning. 
@@ -51,9 +51,9 @@ In DNN (as well as CNN) we update weights and biases to get the desired output. 
 
 Figure 1 shows the structure of a nerual network that is relatively complex. The  important components of one of the routes is marked. Figure 2 shows the detailed structure of a node. 
 
-![Figure 1](https://astrobear.top/resource/astroblog/content/RLS6F1.jpeg)
+![Figure 1](https://i.postimg.cc/CLth08H2/RLS6F1.jpg)
 
-![Figure 2](https://astrobear.top/resource/astroblog/content/RLS6F2.png)
+![Figure 2](https://i.postimg.cc/L5QHngdn/RLS6F2.png)
 
 #### Benefits
 
@@ -68,7 +68,7 @@ CNN is widely used in computer vision. If you want to make decisions using pictu
 
 Images have structure, they have local structure and correlation. They have distictive features in space and frequency domain. CNN can extract these features and give the output. Figure 3 shows the basic process as well as some features of CNN.
 
-![Figure 3](https://astrobear.top/resource/astroblog/content/RLS6F3.png)
+![Figure 3](https://i.postimg.cc/52Cx2ts2/RLS6F3.png)
 
 Now I am going to give you a brief introduction of how a CNN works.
 
@@ -76,13 +76,13 @@ Now I am going to give you a brief introduction of how a CNN works.
 
 First, we need to randomly choose a part of the image as the input of a hidden unit. That part chosen from the image is called as *filter/kernel/receptive field* (we will call it filter after that). The range of the filter is called *filter size*. In the example showned in Figure 3, the filter size is $5\times 5$. One CNN will have many filters and they form what we called *input batch*. Input batch is connected to the hidden units. 
 
-![Figure 4](https://astrobear.top/resource/astroblog/content/RLS6F4.png)
+![Figure 4](https://i.postimg.cc/d0cJkKfm/RLS6F4.png)
 
 #### Stride
 
 Now we want the filter to scan all over the image. We can slide the $5\times5$ filter over all the input pixels. If the filter move 1 pixel each time it slides, we define that the stride length is 1. Of course we can use other stride lengths. Assume the input is $28\times28$, than we need to move $24\times24$ times and we will have a $24\times24$ first hidden-layer. For a filter, it will have 25 weights. 
 
-![Figure 5](https://astrobear.top/resource/astroblog/content/RLS6F5.png)
+![Figure 5](https://i.postimg.cc/cJ70fbyq/RLS6F5.png)
 
 #### Shared Weights and Feature Map
 
@@ -90,7 +90,7 @@ For a same feature in the image, we want the algorithm able to recognize it no m
 
 The map from the input layer to the hidden layer is therefore a *feature map*: all nodes detect the same feature in different parts. The feature map is defined by the shared weights and bias and it is the result of the application of a convolutional filter. 
 
-![Figure 6](https://astrobear.top/resource/astroblog/content/RLS6F6.png)
+![Figure 6](https://i.postimg.cc/bJ3PBSw3/RLS6F6.png)
 
 #### Convolutional Layers
 
@@ -106,7 +106,7 @@ In Figure 8, the green matrix is a image (input) while the yellow matrix in it i
 
 Pooling layers are usually used immediately after convolutional layers. They compress the information in the output from the convolutional layers. A pooling layer takes each feature map output form convolutional layer and prepares a condensed feature map. 
 
-![Figure 9](https://astrobear.top/resource/astroblog/content/RLS6F8.png)
+![Figure 9](https://i.postimg.cc/cHsZhB0v/RLS6F8.png)
 
 #### ReLU Layers
 
@@ -116,7 +116,7 @@ ReLU is the abbrivation of *rectified linear unit*. It is constructed by non-lin
 
 The process we have talked about is designed to catch the features of the image. After we have done this, we are going to do regression. This work is done by *fully connected layers*. They can do regression and output some scalers (Q-value in deep Q learning domain). 
 
-![Figure 10](https://astrobear.top/resource/astroblog/content/RLS6F9.png)
+![Figure 10](https://i.postimg.cc/prrvbV9x/RLS6F9.png)
 
 We now have a rough idea towards CNN. If you want know more about it, you can go to [this website](http://cs231n.github.io/convolutional-networks/#conv). 
 
@@ -128,7 +128,7 @@ Our target is to approximate $\hat q(s,a,\vec w)$ by using a deep neural network
 
 Atari is a video game. Researchers tried to apply DQN to train the computer to play this game. The architecture of the DQN they designed is shown in Figure 11.  
 
-![Figure 11](https://astrobear.top/resource/astroblog/content/RLS6F11.jpeg)
+![Figure 11](https://i.postimg.cc/HnNgpG5M/RLS6F11.jpg)
 
 The input to the network consists of an $84\times84\times4$ preprocessed image, followed by three convolutional layers and two fully connected layers with a single output for each valid action. Each hidden layer is followed by a rectifier nonlinearity (ReLU). The network outputs a vector containing Q-values fro each valid action. The reward is change in score for that step. 
 
@@ -159,7 +159,7 @@ In the last article, we talked about Q-learning with value function approximatio
 
 The agent's experiences (or transitions) at each time step $e_t=(s_t,a_t,r_t,s_{t+1})$ are stored in a fixed-sized dataset (or replay buffer) $D_t=\{e_1,...,e_t\}$. Figure 12 shows how a replay buffer looks like. 
 
-![Figure 12](https://astrobear.top/resource/astroblog/content/RLS6F12.png)
+![Figure 12](https://i.postimg.cc/XN13K5hv/RLS6F12.png)
 
 To perform experience replay, we need to repeat the following: 
 
@@ -182,7 +182,7 @@ To further improve the stability of learning and deal with non-stationary learni
 
 The algorithm of DQN is shown below: 
 
-![](https://astrobear.top/resource/astroblog/content/RLS6F12.5.jpeg)
+![](https://i.postimg.cc/sDBzTXd4/RLS6F12.5.jpg)
 
 #### Double Deep Q-Network (DDQN)
 
@@ -204,7 +204,7 @@ Intuitively, the advantage function sbstracts the value of the state from the Q 
 
 DQN approximates the Q-function by decoupling the value function and the advantage function. Figure 13 illustrates the dueling network architecture and the DQN for comparison. 
 
-![Figure 13](https://astrobear.top/resource/astroblog/content/RLS6F13.png)
+![Figure 13](https://i.postimg.cc/0Nvq506V/RLS6F13.png)
 
 The different between dueling network and DQN is that, the dueling network uses two streams of fully connected layers. One stream is used to provide value function estimate given a state, while the other stream is for estimating advantage function for each valid action. Finally, the two streams are comined in a way to produce and approximate the Q-function. 
 

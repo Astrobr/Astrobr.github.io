@@ -12,9 +12,9 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-cover: https://astrobear.top/resource/astroblog/thumbnail/t3.jpeg
+cover: https://i.postimg.cc/TYdmbVn4/t3.jpg
 
-thumbnail: https://astrobear.top/resource/astroblog/thumbnail/t3.jpeg
+thumbnail: https://i.postimg.cc/TYdmbVn4/t3.jpg
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
 excerpt: A brief introduction to reinforcement learning.
@@ -56,7 +56,7 @@ Because in the real world, we make decisions in a sequence in a period. Therefor
 
 Figure 1.1 shows how an agent interact with its world.
 
-![Figure 1.1](https://astrobear.top/resource/astroblog/content/rl1.1.jpeg)
+![Figure 1.1](https://i.postimg.cc/c4DKn677/rl1.1.jpg)
 
 ### How to model the world?
 

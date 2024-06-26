@@ -12,9 +12,9 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-cover: https://astrobear.top/resource/astroblog/content/RLS3F1.jpeg
+cover: https://i.postimg.cc/cCxHKNr5/RLS3F1.jpg
 
-thumbnail: https://astrobear.top/resource/astroblog/content/RLS3F1.jpeg
+thumbnail: https://i.postimg.cc/cCxHKNr5/RLS3F1.jpg
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
 excerpt: Introduction to MC and TD.
@@ -55,7 +55,7 @@ In reinforcement learning the quantity we want to estimate is $V^\pi(s)$ and we 
 
 Figure 1 shows a backup diagram for the Monte Carlo policy evaluation algorithm. And you can find that, unlike what we have talked about in the second article, Monte Carlo on policy evaluation is not a bootstraping process.
 
-![Figure 1](https://astrobear.top/resource/astroblog/content/RLS3F1.jpeg)
+![Figure 1](https://i.postimg.cc/cCxHKNr5/RLS3F1.jpg)
 
 #### How to Evaluate the Good and Bad of an Algorithm?
 
@@ -167,7 +167,7 @@ In reality, if you set $\alpha$ equals to ${1\over N}$ or a very small value, th
 
 Figure 2 shows a diagram expressing TD learning. 
 
-![Figure 2](https://astrobear.top/resource/astroblog/content/RLS3F2.png)
+![Figure 2](https://i.postimg.cc/Rhg0KbtC/RLS3F2.png)
 
 ### Summary
 
@@ -184,7 +184,7 @@ Table below gives some fundamental properties of these three algorithms (DP, MC,
 
 Figure 3 shows some other properties that may help us to choose the algorithm. 
 
-![Figure 3](https://astrobear.top/resource/astroblog/content/RLS3F3.png)
+![Figure 3](https://i.postimg.cc/L4D5chWd/RLS3F3.png)
 
 ### Batch Monte Carlo and Temporal Difference
 
@@ -192,6 +192,6 @@ The batch versions of the algorithms is that we have a set of histories that we 
 
 In the Monte Carlo batch setting, the calue at each state converges to the value that minimizes the mean squarred error with the observed returns. While in the TD setting, we converge to the value $V^\pi$ that is the value of policy $\pi$ on the maximum likelihood MDP model, where
 
-![Figure 4](https://astrobear.top/resource/astroblog/content/RLS3F4.png). 
+![Figure 4](https://i.postimg.cc/5NtybbcX/RLS3F4.png). 
 
 The value function derived from the maximum likehood MDP model is known as the *certainty equivalence estimate*. Using this relationship, we can first compute the maximum likelihoood MDP model using the batch. Then we can compute $V^\pi$ using this model and the model-based policy evaluation methods. This method is highly data efficient but is computationally expensive.

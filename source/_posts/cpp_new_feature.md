@@ -11,8 +11,8 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-cover: https://astrobear.top/resource/astroblog/thumbnail/cpp.png
-thumbnail: https://astrobear.top/resource/astroblog/thumbnail/cpp.png
+cover: https://i.postimg.cc/Gp2qj0Y6/cpp.png
+thumbnail: https://i.postimg.cc/Gp2qj0Y6/cpp.png
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
 excerpt: 最近看完了Stanford CS106L的课程，总结一下课程中学到的新知识，顺便加入课程中未提及的额外的C++新特性。

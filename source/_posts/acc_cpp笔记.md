@@ -11,8 +11,8 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-cover: https://astrobear.top/resource/astroblog/thumbnail/cpp.png
-thumbnail: https://astrobear.top/resource/astroblog/thumbnail/cpp.png
+cover: https://i.postimg.cc/Gp2qj0Y6/cpp.png
+thumbnail: https://i.postimg.cc/Gp2qj0Y6/cpp.png
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
 excerpt: C++基础知识。
