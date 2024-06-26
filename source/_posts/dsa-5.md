@@ -12,8 +12,8 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-cover:  https://astrobear.top/resource/astroblog/thumbnail/dsa.jpg
-thumbnail:  https://astrobear.top/resource/astroblog/thumbnail/dsa.jpg
+cover:  https://i.postimg.cc/bwq6sSvy/dsa.webp
+thumbnail:  https://i.postimg.cc/bwq6sSvy/dsa.webp
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
 excerpt: 主要就是二分查找。
@@ -37,7 +37,7 @@ excerpt: 主要就是二分查找。
 
 下面的图片展示了这个算法的基本思路：
 
-![二分查找基本思路](https://astrobear.top/resource/astroblog/content/dsa-5-1.png)
+![二分查找基本思路](https://i.postimg.cc/4d4PxD4W/dsa-5-1.png)
 
 经过至多两次比较操作，我们要么已经找到了目标元素，要么可以将原问题简化为一个规模更小的同类的新问题。看到这里，你应当很自然地想到使用递归的方法了。接下来要介绍的几个查找算法的不同点仅在于切分点`mi`的策略，以及每次深入递归之前所做的比较操作的次数。
 
@@ -71,7 +71,7 @@ template <typename T> static Rank binSearch ( T* S, T const& e, Rank lo, Rank hi
 
 下图给出了上面的算法的一个实例，左边的子图为`search(8, 0 ,7)`右边的子图为`search(3, 0, 7)`。左子图查找成功，右子图查找失败。
 
-![二分查找（实现1）的实例](https://astrobear.top/resource/astroblog/content/dsa-5-2.png)
+![二分查找（实现1）的实例](https://i.postimg.cc/LXyTYxn2/dsa-5-2.png)
 
 ### 复杂度
 
@@ -85,7 +85,7 @@ template <typename T> static Rank binSearch ( T* S, T const& e, Rank lo, Rank hi
 
 对于长度为$\rm n$的向量，共有种$\rm n$可能的查找。这些查找的种类分别对应于某一个元素。实际上，每一种成功查找所对应的查找长度，仅对应于$\rm n$与目标元素的秩（该元素在向量中的位置），而与向量中元素的值无关。下面的图片给出了当$\rm n = 7$时向量各种情况下对应的查找长度。图中红色节点代表查找成功，紫色节点代表查找失败，每个节点中的数字表示该情况下的查找长度。
 
-![二分查找（实现1）在长度为7的向量中各种元素的查找长度](https://astrobear.top/resource/astroblog/content/dsa-5-3.png) 
+![二分查找（实现1）在长度为7的向量中各种元素的查找长度](https://i.postimg.cc/HnVtQby5/dsa-5-3.png) 
 
 由图可知，假设待查找的目标元素等概率分布，平均成功查找长度为$(4 + 3 + 5 + 2 + 5 + 4 + 6) / 7 =4.14$。
 
@@ -122,7 +122,7 @@ template <typename T> static Rank binSearch ( T* S, T const& e, Rank lo, Rank hi
 
 这里先考虑第一个解决思路。减而治之策略并不要求向量的切分点`mi`必须居中，在这里可以考虑按照黄金分割比例来确定`mi`。不妨假设向量的长度$\rm n = fib(k) - 1$，于是斐波那契查找算法可以用`mi = fib(k - 1) - 1`作为前、后子向量的切分点。这样一来，前后子向量的长度分别为$\rm fib(k - 1) - 1$与$\rm fib(k - 2) - 1 = (fib(k) - 1) - (fib(k - 1) - 1) - 1$。由此，无论朝哪个方向深入，新向量的长度从形式上都依然是某个斐波那契数减1，就像下图一样：
 
-![斐波那契查找算法原理](https://astrobear.top/resource/astroblog/content/dsa-5-4.png)
+![斐波那契查找算法原理](https://i.postimg.cc/D0HP5mrN/dsa-5-4.png)
 
 ### 实现
 
@@ -148,7 +148,7 @@ template <typename T> static Rank fibSearch ( T* S, T const& e, Rank lo, Rank hi
 
 斐波那契查找倾向于适当加长需要1次比较方可确定的前端子向量，缩短需要2次比较方可以确定的后端子向量。通过这种方式来减小不同元素查找长度的差异。
 
-![斐波那契查找在长度为7的向量中各种元素的查找长度](https://astrobear.top/resource/astroblog/content/dsa-5-5.png)
+![斐波那契查找在长度为7的向量中各种元素的查找长度](https://i.postimg.cc/ZYMHJsGL/dsa-5-5.png)
 
 以上图为例，在假定各元素出现概率相等时，则平均成功查找长度为4，平均失败查找长度为4.38。相比于二分查找（实现1）中的平均查找长度的确有所改进。可以证明，斐波那契查找的平均查找长度为$\mathcal O (1.44\log_2n)$。
 
@@ -156,7 +156,7 @@ template <typename T> static Rank fibSearch ( T* S, T const& e, Rank lo, Rank hi
 
 现在来讨论第二种缩小前后查找长度不均衡的策略：统一往两个方向深入所需要执行的比较次数。在这个版本的二分查找算法中，无论朝哪个方向的子向量深入查找，都只需要做1次元素的大小比较。具体过程如下图所示：
 
-![二分查找算法（实现2）的基本思路](https://astrobear.top/resource/astroblog/content/dsa-5-6.png)
+![二分查找算法（实现2）的基本思路](https://i.postimg.cc/BQPgbcsf/dsa-5-6.png)
 
 如图所示，该算法在每个切分点`A[mi]`处仅做一次比较。若目标元素小于`A[mi]`，则深入前端子向量`A[lo, mi)`中继续查找；否则深入后端子向量`A[mi, hi)`中继续查找。
 
@@ -206,6 +206,6 @@ template <typename T> static Rank binSearch ( T* S, T const& e, Rank lo, Rank hi
 
 下面的图片解释了该算法的思路：
 
-![二分查找算法（实现3）的基本思路](https://astrobear.top/resource/astroblog/content/dsa-5-7.png)
+![二分查找算法（实现3）的基本思路](https://i.postimg.cc/BnWCKLQL/dsa-5-7.png)
 
 可见，这个版本的二分查找算法在查找成功时，（若有多个匹配元素）会返回众多匹配元素的最后一个；在查找失败时，会返回向量中小于目标元素的各元素中的最大者。

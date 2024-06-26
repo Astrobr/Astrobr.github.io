@@ -12,8 +12,8 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-cover:  https://astrobear.top/resource/astroblog/thumbnail/dsa.jpg
-thumbnail:  https://astrobear.top/resource/astroblog/thumbnail/dsa.jpg
+cover:  https://i.postimg.cc/bwq6sSvy/dsa.webp
+thumbnail:  https://i.postimg.cc/bwq6sSvy/dsa.webp
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
 excerpt: 正式开始介绍数据结构！

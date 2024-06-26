@@ -12,8 +12,8 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-cover: https://astrobear.top/resource/astroblog/thumbnail/dsa.jpg
-thumbnail: https://astrobear.top/resource/astroblog/thumbnail/dsa.jpg
+cover: https://i.postimg.cc/bwq6sSvy/dsa.webp
+thumbnail: https://i.postimg.cc/bwq6sSvy/dsa.webp
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
 excerpt: 新的一年，新的坑。
@@ -131,7 +131,7 @@ void bubblesort1A ( int A[], int n ) { //起泡排序算法（版本1A）：0 <=
 
 $\Theta (n)$给出了对算法复杂度的准确估计，算法在实际中的运行时间与其同阶。
 
-![三个不同记号之间的关系](https://astrobear.top/resource/astroblog/content/dsa-1-1.png)
+![三个不同记号之间的关系](https://i.postimg.cc/gk1gHt40/dsa-1-1.png)
 
 ### 空间复杂度
 

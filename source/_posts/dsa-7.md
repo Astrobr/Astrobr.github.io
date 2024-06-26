@@ -12,8 +12,8 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-cover:  https://astrobear.top/resource/astroblog/thumbnail/dsa.jpg
-thumbnail:  https://astrobear.top/resource/astroblog/thumbnail/dsa.jpg
+cover: https://i.postimg.cc/bwq6sSvy/dsa.webp
+thumbnail: https://i.postimg.cc/bwq6sSvy/dsa.webp
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
 excerpt: 列表就是链表。
@@ -182,7 +182,7 @@ public:
 
 列表中存在有头节点和尾节点，它们是私有的，对外界不可见。如果存在对外部可见的数据节点，则其中的第一个和最后一个节点分别称作首节点和末节点。列表对象内部的组成及逻辑结构如下图所示：
 
-![列表的结构](https://astrobear.top/resource/astroblog/content/dsa-7-1.png)
+![列表的结构](https://i.postimg.cc/k5sNzTNK/dsa-7-1.png)
 
 就内部结构而言，头节点紧邻于首节点之前，尾节点紧邻于末节点之后。这类封装之后从外部不可见的节点，称作哨兵节点。此处的两个哨兵节点被等效地视作`NULL`。
 
@@ -199,7 +199,7 @@ public:
 
 新创建出来的`List`对象如下图所示，其对外的有效部分初始为空，哨兵节点对外不可见，此后插入的新节点都将在两哨兵节点之间。
 
-![新创建的列表的结构](https://astrobear.top/resource/astroblog/content/dsa-7-2.png)
+![新创建的列表的结构](https://i.postimg.cc/mrBNmv9T/dsa-7-2.png)
 
 `init()`函数也会在列表的其他构造方法中被调用。该函数只需运行常数时间。
 

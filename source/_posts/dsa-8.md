@@ -12,8 +12,8 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-cover: https://astrobear.top/resource/astroblog/thumbnail/dsa.jpg
-thumbnail: https://astrobear.top/resource/astroblog/thumbnail/dsa.jpg
+cover: https://i.postimg.cc/bwq6sSvy/dsa.webp
+thumbnail: https://i.postimg.cc/bwq6sSvy/dsa.webp
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
 excerpt: 由于列表与向量都是线性的数据结构，因此其接口有不少相似之处。
@@ -57,7 +57,7 @@ ListNodePosi<T> ListNode<T>::insertAsPred ( T const& e ) {
 
 前插入的算法可以用下图表示：
 
-![列表前插入算法的执行过程](https://astrobear.top/resource/astroblog/content/dsa-8-1.png)
+![列表前插入算法的执行过程](https://i.postimg.cc/C5BjZY3s/dsa-8-1.png)
 
 如果需要将元素作为某节点的前驱插入，只需要调用该节点的前插入成员函数`insertAsPred()`即可。如果需要将元素作为列表的首节点插入，同样只需要调用列表头哨兵中的前插入函数即可。
 

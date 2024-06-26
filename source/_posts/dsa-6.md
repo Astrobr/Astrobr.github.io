@@ -12,8 +12,8 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-cover:  https://astrobear.top/resource/astroblog/thumbnail/dsa.jpg
-thumbnail:  https://astrobear.top/resource/astroblog/thumbnail/dsa.jpg
+cover:  https://i.postimg.cc/bwq6sSvy/dsa.webp
+thumbnail: https://i.postimg.cc/bwq6sSvy/dsa.webp
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
 excerpt: 刚刚接触归并排序的时候想了好久都没想明白代码的运行过程......
@@ -86,7 +86,7 @@ excerpt: 刚刚接触归并排序的时候想了好久都没想明白代码的�
 
 二路归并属于迭代式算法。每步迭代中，只需要比较两个待归并有序向量的首元素，将小者取出并追加到输出向量的末尾，该元素在原向量中的后继则成为新的首元素。如此往复，直到某一向量为空。最后，将另一非空的有序输入向量整体接至输出向量的末尾。下图给出了有序向量的二路归并实例。
 
-![有序向量的二路归并实例](https://astrobear.top/resource/astroblog/content/dsa-6-1.png)
+![有序向量的二路归并实例](https://i.postimg.cc/ht91bDfC/dsa-6-1.png)
 
 由此可知，二路归并算法在任何时刻都只需要载入两个向量的首元素，故除了归并输出的向量外，仅需要常数规模的辅助空间。另外该算法始终严格地按照顺序处理输入和输出向量，故特别适用于使用磁带机等顺序存储器的场合。
 
@@ -110,7 +110,7 @@ void Vector<T>::mergeSort ( Rank lo, Rank hi ) { //0 <= lo < hi <= size
 
 下图给出了归并排序算法的一个完整实例。由图可以清晰地看出，含8个元素的向量在递归过程中不断被均分，直到到达只有一个元素的向量的递归基。然后各子向量开始层层返回，每返回一次就进行一次二路归并。最后递归返回结束，得到整体有序的向量。
 
-![归并排序实例](https://astrobear.top/resource/astroblog/content/dsa-6-2.png)
+![归并排序实例](https://i.postimg.cc/DZzQT15D/dsa-6-2.png)
 
 ### 二路归并的实现
 

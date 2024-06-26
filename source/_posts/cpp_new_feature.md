@@ -77,7 +77,7 @@ excerpt: 最近看完了Stanford CS106L的课程，总结一下课程中学到�
 
 这里主要是对比一下`std::vector`、`std::deque`、`std::list`几个序列容器：
 
-![std::vector，std::deque，std::list对比](https://astrobear.top/resource/astroblog/content/container_compare.png)
+![std::vector，std::deque，std::list对比](https://i.postimg.cc/pVGGpLFz/container-compare.png)
 
 - `std::vector`：向量
 - `std::list`：双向链表

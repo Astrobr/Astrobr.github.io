@@ -12,8 +12,8 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-cover:  https://astrobear.top/resource/astroblog/thumbnail/dsa.jpg
-thumbnail:  https://astrobear.top/resource/astroblog/thumbnail/dsa.jpg
+cover:  https://i.postimg.cc/bwq6sSvy/dsa.webp
+thumbnail:  https://i.postimg.cc/bwq6sSvy/dsa.webp
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
 excerpt: 程序设计的基本知识，众多算法的灵魂。
@@ -65,7 +65,7 @@ int sum ( int A[], int n ) { //数组求和算法（线性递归版）
 
 下图给出了`sum()`算法的执行过程。
 
-![sum(A, n)的递归跟踪图](https://astrobear.top/resource/astroblog/content/dsa-2-1.png)
+![sum(A, n)的递归跟踪图](https://i.postimg.cc/sgSw6P04/dsa-2-1.png)
 
 由图片可看出，算法需要的计算时间等于所有递归实例的创建、执行和销毁所需要的时间总和。递归实例的创建和销毁都由操作系统完成，其时间成本可以近似常数，不会超过递归实例中实质计算步骤所需的时间。将启动递归的语句的执行时间包括进递归实例的创建时间中后，在考虑算法需要的计算时间时只需要统计递归实例中非递归调用所需要的时间。
 
@@ -169,7 +169,7 @@ int sum ( int A[], int lo, int hi ) { //数组求和算法（二分递归版，�
 
 这个算法显然是正确的。下面给出了使用该算法对数组`A`中索引为`[0, 8)`的元素进行求和的递归跟踪图。
 
-![sum(A, 0, 7)的递归跟踪图](https://astrobear.top/resource/astroblog/content/dsa-2-2.png)
+![sum(A, 0, 7)的递归跟踪图](https://i.postimg.cc/FK4G2fM5/dsa-2-2.png)
 
 由图可知，该算法的递归实例形成了一个二叉树形式的层次结构，沿着这个层次每下降一层，每个递归实例`sum(A, lo, hi)`都分裂为一对更小的实例`sum(A, lo, mi)`与`sum(A, mi+1, hi)`。
 

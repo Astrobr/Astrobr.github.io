@@ -12,8 +12,8 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-cover:  https://astrobear.top/resource/astroblog/thumbnail/dsa.jpg
-thumbnail:  https://astrobear.top/resource/astroblog/thumbnail/dsa.jpg
+cover:  https://i.postimg.cc/bwq6sSvy/dsa.webp
+thumbnail:  https://i.postimg.cc/bwq6sSvy/dsa.webp
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
 excerpt: 向量接口的实现。
@@ -189,7 +189,7 @@ template <typename T> Rank Vector<T>::uniquify() { //有序向量重复元素剔
 
 该算法的核心思想就在于：既然各组重复元素必然彼此相邻地构成一个子区间，因此只需要依次保留各个区间的起始元素。从原始向量的角度来看（假设这个算法不进行实际的删除操作），算法中的`i`与`j`指向的都是下一对相邻区间的首元素；从修改后的向量的角度来看，`i`和`j`分别指向已去重的序列的末尾和即将加入去重序列的新的最后一个元素。下图给出了该算法运行的一个实例：
 
-![有序向量唯一化算法实例](https://astrobear.top/resource/astroblog/content/dsa-4-1.png)
+![有序向量唯一化算法实例](https://i.postimg.cc/Xvkx3jWZ/dsa-4-1.png)
 
 该算法同样直接通过改变`_size`的值，将尾部多余的元素截除了。`i`为已去重序列的的最后一个元素的索引，将其加一即可得到去重向量的规模。
 
