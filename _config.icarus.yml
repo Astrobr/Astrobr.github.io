@@ -183,14 +183,14 @@ comment:
 donates:
     # Alipay donate button configurations
     -
-        type: alipay
+        #type: alipay
         # Alipay qrcode image URL
-        qrcode: '/img/alipay.JPG'
+        #qrcode: '/img/alipay.JPG'
     # Wechat donate button configurations
     -
-        type: wechat
+        #type: wechat
         # Wechat qrcode image URL
-        qrcode: '/img/wechatpay.JPG'
+        #qrcode: '/img/wechatpay.JPG'
     # "Afdian.net" donate button configurations
     #-
         #type: afdian
