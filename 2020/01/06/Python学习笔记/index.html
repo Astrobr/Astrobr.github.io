@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Python学习笔记 - Astroblog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Astroblog"><meta name="msapplication-TileImage" content="/img/favicon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Astroblog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="记录本人在学习Python时遇到的坑以及这门语言的特性。"><meta property="og:type" content="blog"><meta property="og:title" content="Python学习笔记"><meta property="og:url" content="http://astrobear.top/2020/01/06/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><meta property="og:site_name" content="Astroblog"><meta property="og:description" content="记录本人在学习Python时遇到的坑以及这门语言的特性。"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://i.postimg.cc/Qtc5QS6R/t4.png"><meta property="article:published_time" content="2020-01-06T09:00:00.000Z"><meta property="article:modified_time" content="2025-03-30T05:14:25.376Z"><meta property="article:author" content="Astrobear"><meta property="article:tag" content="Python"><meta property="article:tag" content="Programming Language"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://i.postimg.cc/Qtc5QS6R/t4.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://astrobear.top/2020/01/06/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"},"headline":"Python学习笔记","image":["https://i.postimg.cc/Qtc5QS6R/t4.png"],"datePublished":"2020-01-06T09:00:00.000Z","dateModified":"2025-03-30T05:14:25.376Z","author":{"@type":"Person","name":"Astrobear"},"publisher":{"@type":"Organization","name":"Astroblog","logo":{"@type":"ImageObject","url":"http://astrobear.top/img/logo.png"}},"description":"记录本人在学习Python时遇到的坑以及这门语言的特性。"}</script><link rel="canonical" href="http://astrobear.top/2020/01/06/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><link rel="icon" href="/img/favicon.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css"><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.2"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.png" alt="Astroblog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/2020/01/03/Gallery">Gallery</a><a class="navbar-item" href="/2020/01/03/About">About</a></div><div class="navbar-end"><a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="https://i.postimg.cc/Qtc5QS6R/t4.png" alt="Python学习笔记"></span></div><article class="card-content article" role="article"><h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">Python学习笔记</h1><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><i class="far fa-calendar-alt"> </i><time dateTime="${date_xml(page.date)}" title="${date_xml(page.date)}">2020-01-06</time></span><span class="level-item is-hidden-mobile"><i class="far fa-calendar-check"> </i><time dateTime="${date_xml(page.updated)}" title="${date_xml(page.updated)}">2025-03-30</time></span><span class="level-item"><i class="far fa-folder-open has-text-grey"></i> <a class="link-muted" href="/categories/CS/">CS</a></span><span class="level-item"><i class="far fa-clock"></i> 18 minutes read (About 2644 words)</span><span class="level-item" id="busuanzi_container_page_pv"><i class="far fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><div class="content"><blockquote>
+<p>这篇文章主要记录本人在学习Python时遇到的坑以及这个语言的一些特性，内容以时间顺序整理，比较零散杂乱。对于从零开始的同学，请参考官方文档<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/">Python 3.8.1 中文文档</a>或其他网络上的教程。本文章将持续更新。</p>
+</blockquote>
+<h3 id="19-x2F-9-x2F-14"><a href="#19-x2F-9-x2F-14" class="headerlink" title="19&#x2F;9&#x2F;14"></a>19&#x2F;9&#x2F;14</h3><ul>
+<li>注释方法：<code>#（一行注释）</code>，<code>“”“ ”“”（多行注释）</code></li>
+<li>for循环：<code>for （变量） in （范围）</code>，范围可以用<code>range</code>函数</li>
+<li><code>Input</code>函数的输入是<code>char</code>类型的</li>
+<li><code>// </code>是整除运算</li>
+<li>逗号不可以用来分隔语句</li>
+<li>使用缩进（4个空格）来代替C&#x2F;C++中的大括号</li>
+</ul>
+<h3 id="19-x2F-9-x2F-15"><a href="#19-x2F-9-x2F-15" class="headerlink" title="19&#x2F;9&#x2F;15"></a>19&#x2F;9&#x2F;15</h3><ul>
+<li><code>for...in</code>循环中，<code>_ </code>可以作为循环变量，这时候仅循环指定次数，而不需要关心循环变量的值；事实上，<code>_ </code>是一个合法的标识符，如果不关心这个变量，就可以将其定义成这个值，它是一个垃圾桶</li>
+<li>定义函数时，使用<code>函数名(*参数名)</code>的定义方式， <code>*</code> 代表函数的参数是可变参数，可以有0到多个参数</li>
+<li>一个文件代表一个模块(module)，若在不同的模块中含有同名函数，那么可以通过<code>import</code>导入指定的模块中的函数，如<code>from 模块 import 函数</code>，或者<code>import 模块 as 自定义模块名称</code>，再通过<code>自定义模块名称.函数</code>的方式调用</li>
+<li><code>__name__</code>是Python中一个隐含的变量，代表了模块的名字，只用直接执行的模块的名字才是<code>__main__</code></li>
+<li>可以使用<code>global</code>指定使用的是一个全局变量，如果全局变量中没有找到对应的，那么会定义一个新的全局变量</li>
+<li>嵌套作用域：对于函数a内部的函数b而言，a中定义的变量对b来说是在嵌套作用域中的，若要指定修改嵌套作用域中的变量，可以使用<code>nonlocal</code>指示变量来自嵌套作用域</li>
+<li><code>pass</code>是一个空语句，只起到占位作用</li>
+<li>可以定义一个<code>main</code>函数（或者与模块名字相同的函数），再按照<code>if __name__ = &#39;__main__&#39;</code>的格式使脚本执行</li>
+</ul>
+<h3 id="19-x2F-9-x2F-17"><a href="#19-x2F-9-x2F-17" class="headerlink" title="19&#x2F;9&#x2F;17"></a>19&#x2F;9&#x2F;17</h3><ul>
+<li>与字符串有关的函数的调用方式为：<code>字符串名称.字符串操作函数()</code>，在此时字符串是一个对象，字符串操作函数的作用是向字符串对象发送一个消息</li>
+<li>字符串实质上是一个数组，可以进行下标运算</li>
+<li>字符串切片可以在下标运算中使用冒号进行运算，<code>[起始字符:结束字符:间隔]</code>，若不定义起始与终止字符，则默认为整个字符串，当间隔为负值时，以为着切片操作反向</li>
+<li>字符串的索引为负值时，意味着索引从右到左数</li>
+<li>列表可以理解为一个数组，其操作与字符串类似</li>
+<li>可使用<code>sorted</code>函数对列表进行排序</li>
+<li>可以使用生成式语法创建列表：<code>f = [x for x in range(1, 10)]</code>（此方法在创建列表后元素已经准备就绪，耗费较多内存），或<code>f = (x for x in range(1, 10))</code>（此方法创建的是一个生成器对象，需要数据时列表通过生成器产生，节省内存但是耗费较多时间）</li>
+<li>可以使用<code>yield</code>关键字来实现迭代，使用<code>yield</code>就是产生了一个生成器，每次遇到<code>yield</code>时函数会暂停并保存当前所有的运行信息，返回<code>yield</code>的值，并在下一次执行此方法是从当前位置开始运行</li>
+<li>可以定义元组，其相当于不能修改的数组，一个元组中的元素数据类型可以不同，定义元组使用<code>t = ()</code></li>
+<li>列表和元组可以互相转换</li>
+<li>可以定义集合，定义集合可以使用<code>set = &#123;&#125;</code>，元组可以转换为集合</li>
+<li>字典类似于数组，但是它是由多组键值对组成的</li>
+</ul>
+<h3 id="19-x2F-9-x2F-19"><a href="#19-x2F-9-x2F-19" class="headerlink" title="19&#x2F;9&#x2F;19"></a>19&#x2F;9&#x2F;19</h3><ul>
+<li>使用class关键字定义类，再在类中定义函数，如：<code>class 类名(object)</code></li>
+<li><code>__init__</code>函数是用于在创建对象时进行的初始化操作</li>
+<li>self是类的本身，是它的实例变量，在类中所有函数的第一个参数就是self，在类中修改属性值需使用<code>self.属性值 = x</code>的语法</li>
+<li>实例化类的方法：<code>对象名 = 类名(初始化函数参数)</code></li>
+<li>对象中方法的引用可以采用<code>对象.方法（也即函数）</code>的语句，通过此方式向对象发送消息</li>
+<li>Python中，属性和方法的访问权限只有<code>public</code>和<code>private</code>，若希望属性或方法是私有的，在给它们命名的时候要使用<code>__</code>开头，但是不建议将属性设置为私有的</li>
+<li>使用<code>_</code>开头暗示属性或方法是受保护(protected)的，访问它们建议通过特定的方法，但实际上它们还是可以直接被外部访问</li>
+<li>可以通过在类中定义方法以访问对象受保护的属性，在定义这些方法（函数）时，要在上一行使用<code>@property</code>包装这些方法</li>
+<li>对于被保护的属性，在访问它们时采用<code>getter</code>方法，需添加<code>@property</code>，在修改它们时采用<code>setter</code>方法，需添加<code>@函数（即方法）名.setter</code></li>
+<li>Python可以对对象动态绑定新的属性或方法</li>
+<li>可以使用<code>__slots__</code>限定对象只能绑定某些属性，但是它只对当前类的对象生效，对子类不起作用</li>
+<li>可以通过给类发送消息，在类的对象被创建出来之前直接使用其中的方法，此种方法被称为静态方法，需要在定义时添加<code>@staticmethod</code>，此类方法的参数不含有<code>self</code></li>
+<li>通过类方法可以获取类相关的信息并且可以__创建出类的对象__，需要在定义时添加<code>@classmethod</code>，类方法的第一个参数是<code>cls</code>，这个<code>cls</code>相当于就是在外部实例化类时定义的对象名，只不过它是放在类的内部使用了，其功能就是可以像在外部调用对象的属性和方法一样在类的内部使用对象（类）的属性和方法</li>
+</ul>
+<h3 id="19-x2F-9-x2F-20"><a href="#19-x2F-9-x2F-20" class="headerlink" title="19&#x2F;9&#x2F;20"></a>19&#x2F;9&#x2F;20</h3><ul>
+<li>类之间的关系：<ul>
+<li>is-a：继承或者泛化，如：<strong>student</strong> is a <strong>human being__，__cell phone</strong> is a <strong>electronic device</strong></li>
+<li>has-a：关联，如 <strong>department</strong> has an <strong>employee</strong></li>
+<li>use-a：依赖，如 <strong>driver</strong> use a <strong>car</strong></li>
+</ul>
+</li>
+<li>类与类之间可以继承，提供继承信息的成为父类（超类或者基类），得到继承的称为子类（派生类或者衍生类）</li>
+<li>Python中继承的写法：<code>class 子类名(基类名)</code></li>
+<li>在编程中一般使用子类去替代基类</li>
+<li>在子类中，通过重新定义父类中的方法，可以让同一种方法在不同的子类中有不同的行为，这称为重写</li>
+</ul>
+<h3 id="20-x2F-1-x2F-11"><a href="#20-x2F-1-x2F-11" class="headerlink" title="20&#x2F;1&#x2F;11"></a>20&#x2F;1&#x2F;11</h3><ul>
+<li>Python中提供两个重要的功能：异常处理和断言（Assertions）来处理运行中出现的异常和错误，他们的功能是用于调试Python程序</li>
+<li>异常：无法正常处理程序时会发生异常，是一个对象，如果不捕获异常，程序会终止执行</li>
+<li>Python中异常处理的写法：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>: </span><br><span class="line">	<span class="comment">#operation1</span></span><br><span class="line"><span class="keyword">except</span> exception_type, argument:</span><br><span class="line">	<span class="comment">#if error occurs in operation1, execute operation2</span></span><br><span class="line">  <span class="comment">#operation2</span></span><br><span class="line"><span class="keyword">else</span>: </span><br><span class="line">	<span class="comment">#if no error occurs in operation1, execute operation3</span></span><br><span class="line">  <span class="comment">#operation3</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用<code>except</code>可以不带异常类型，但是会让<code>try-except</code>语句捕获所有的异常，不建议这样写</li>
+<li>可以使用<code>expect(exception1[, expection2[, expection3]])</code>来添加多个异常类型</li>
+<li><code>argument</code>为异常的参数，可以用于输出异常信息的异常值</li>
+<li>也可以使用如下方法，但是与<code>try-except</code>有所不同：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	<span class="comment">#operation1</span></span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">	<span class="comment">#in error occurs in operation1, directly execute operation2, otherwise, execute operation2 after operation1 finished</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>finally</code>和<code>except</code>不可以同时使用</p>
+</li>
+<li><p>可以使用<code>raise</code>触发异常</p>
+</li>
+<li><p><code>append()</code>方法用于在列表末尾添加新的对象，对于一个数组<code>list</code>，可以这样使用：<code>list.append()</code></p>
+</li>
+<li><p>多线程用于同时执行多个不同的程序，可以把占据长时间的程序中的任务放到后台处理</p>
+</li>
+<li><p>线程与进程：独立的线程有自己的程序入口、执行序列、程序出口，但是线程不可以独立执行，必须依存在应用程序中，由应用程序提供多个线程执行控制</p>
+</li>
+<li><p>在Python中使用线程：<code>thread.start_new_thread(function, args[, kwargs])</code>，其中<code>function</code>为线程函数，这个函数需要提前定义好，<code>args</code>为传递给线程函数的参数，是一个元组，<code>kwargs</code>为可选参数，此种方式称为函数式，线程的结束一般靠函数的自然结束</p>
+</li>
+<li><p>此外还可以使用Python所提供的<code>threading</code>模块，直接从<code>threading.Thread</code>继承：<code>class myThread(threading.Thread)</code>，然后重写<code>__init__</code>和<code>run</code>方法，把需要执行的代码写到<code>run</code>方法里面，<code>__init__</code>的重写方法如下：</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, threadID, name, counter</span>):</span><br><span class="line">	threading.Thread.__init__(self)</span><br><span class="line">	self.threadID = threadID</span><br><span class="line">	self.name = name</span><br><span class="line">	self.counter = counter</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>上述<code>thread</code>类提供了以下方法：<ul>
+<li><code>run()</code>：表示线程活动的方法</li>
+<li><code>start</code>：启动线程</li>
+<li><code>join()</code>：等待直到线程终止</li>
+<li><code>isAlive()</code>：查询线程是否活动</li>
+<li><code>getName()</code>：返回线程名</li>
+<li><code>setName()</code>：设置线程名</li>
+</ul>
+</li>
+<li>为了避免两个或多个线程同时运行，产生冲突，可以使用线程锁来控制线程执行的优先顺序，被锁定的线程优先执行，其他进程必须停止</li>
+<li>可以使用<code>threading.Lock().acquire()</code>和<code>threading.Lock().release()</code>来锁定和释放线程</li>
+<li>可以建立一个空数组用于存放线程，再通过<code>append</code>方法将线程添加至该数组中，通过遍历数组可以对其中的线程做同样的操作</li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Python学习笔记</p><p><a href="http://astrobear.top/2020/01/06/Python学习笔记/">http://astrobear.top/2020/01/06/Python学习笔记/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Astrobear</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2020-01-06</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2025-03-30</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="icon fab fa-creative-commons"></i><i class="icon fab fa-creative-commons-by"></i><i class="icon fab fa-creative-commons-nc"></i><i class="icon fab fa-creative-commons-sa"></i></a></p></div></div></div></div></div><hr style="height:1px;margin:1rem 0"><div class="level is-mobile is-flex"><div class="article-tags is-size-7 is-uppercase"><i class="fas fa-tags has-text-grey"></i> <a class="link-muted" rel="tag" href="/tags/Python/">Python, </a><a class="link-muted" rel="tag" href="/tags/Programming-Language/">Programming Language </a></div></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=6120a56e41a28700129debe7&amp;product=inline-share-buttons" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2020/01/08/%E5%8D%8E%E4%B8%BA%E4%BA%91+nginx%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">华为云+nginx服务器搭建总结</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/01/03/Gallery/"><span class="level-item">Gallery</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="comment-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+            id: "766c54f3b1052cc12c7709030ed81bb6",
+            repo: "astroblog",
+            owner: "Astrobr",
+            clientID: "fa589cf3f78c8e8e4357",
+            clientSecret: "e97fdd7cc6bd46454d3d6216f6099c9caea80829",
+            admin: ["Astrobr"],
+            createIssueManually: false,
+            distractionFreeMode: false,
+            perPage: 10,
+            pagerDirection: "last",
+            proxy: "https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token",
+            
+            enableHotKey: true,
+            language: "en",
+        })
+        gitalk.render('comment-container')</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/avatar.jpeg" alt="Astrobear"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Astrobear</p><p class="is-size-6 is-block">(I cannot) Build my fortress.</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>PRC</span></p></div></div></nav><nav class="level menu-list is-mobile" style="margin-bottom:1rem"><a class="level-item has-text-centered is-marginless" href="/archives"><div><p class="heading">Posts</p><div><p class="title">29</p></div></div></a><a class="level-item has-text-centered is-marginless" href="/categories"><div><p class="heading">Categories</p><div><p class="title">3</p></div></div></a><a class="level-item has-text-centered is-marginless" href="/tags"><div><p class="heading">Tags</p><div><p class="title">27</p></div></div></a></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/Astrobr" target="_blank" rel="noopener"><i class="fab fa-github"></i>  Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/Astrobr"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://www.facebook.com/astrobearforwork"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Instagram" href="https://www.instagram.com/astrobarchen/"><i class="fab fa-instagram"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#19-x2F-9-x2F-14"><span class="level-left"><span class="level-item">1</span><span class="level-item">19/9/14</span></span></a></li><li><a class="level is-mobile" href="#19-x2F-9-x2F-15"><span class="level-left"><span class="level-item">2</span><span class="level-item">19/9/15</span></span></a></li><li><a class="level is-mobile" href="#19-x2F-9-x2F-17"><span class="level-left"><span class="level-item">3</span><span class="level-item">19/9/17</span></span></a></li><li><a class="level is-mobile" href="#19-x2F-9-x2F-19"><span class="level-left"><span class="level-item">4</span><span class="level-item">19/9/19</span></span></a></li><li><a class="level is-mobile" href="#19-x2F-9-x2F-20"><span class="level-left"><span class="level-item">5</span><span class="level-item">19/9/20</span></span></a></li><li><a class="level is-mobile" href="#20-x2F-1-x2F-11"><span class="level-left"><span class="level-item">6</span><span class="level-item">20/1/11</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.png" alt="Astroblog" height="28"></a><p class="is-size-7"><span>&copy; 2025 Astrobear</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span><br><a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备19039261号-1</a><br><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802030906" target="_blank" rel="noopener">京公网安备 11010802030906号</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fab fa-creative-commons"></i> <i class="fab fa-creative-commons-by"></i> <i class="fab fa-creative-commons-nc"></i> <i class="fab fa-creative-commons-sa"></i> </a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Astrobear" href="https://github.com/Astrobr"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><div id="outdated"><h6>Your browser is out-of-date!</h6><p>Update your browser to view this website correctly.&amp;npsb;<a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p><p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">×</a></p></div><script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script><script>window.addEventListener("load", function () {
+            outdatedBrowser({
+                bgColor: '#f25648',
+                color: '#ffffff',
+                lowerThan: 'object-fit' // display on IE11 or below
+            });
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><script src="/js/night.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body><script type="text/javascript" src="/js/mathjax-config.js"></script></html>
