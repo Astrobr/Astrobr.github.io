@@ -15,7 +15,7 @@ cover: https://postimg.cc/VdnvhdWd
 thumbnail: https://postimg.cc/VdnvhdWd
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
-excerpt: 
+excerpt: 忙里偷闲整理一下。
 
 #If you don't want to show the ToC (Table of Content) at sidebar, delete the well number below. 
 #toc: false

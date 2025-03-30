@@ -182,12 +182,12 @@ comment:
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Donation/
 donates:
     # Alipay donate button configurations
-    -
+    #-
         #type: alipay
         # Alipay qrcode image URL
         #qrcode: '/img/alipay.JPG'
     # Wechat donate button configurations
-    -
+    #-
         #type: wechat
         # Wechat qrcode image URL
         #qrcode: '/img/wechatpay.JPG'
