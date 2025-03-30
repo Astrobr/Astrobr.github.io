@@ -11,8 +11,8 @@ tags:
 	#...
 
 #If you need a thumbnail photo for your post, delete the well number below and finish the directory.
-cover: https://postimg.cc/VdnvhdWd
-thumbnail: https://postimg.cc/VdnvhdWd
+cover: https://i.postimg.cc/28XWVWqF/temp-Imagegqh-N1-F.avif
+thumbnail: https://i.postimg.cc/28XWVWqF/temp-Imagegqh-N1-F.avif
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
 excerpt: 忙里偷闲整理一下。
@@ -105,15 +105,15 @@ git reset --staged .
 git commit -m "your commit message"
 
 # 将工作区内容提交到本地仓库，并对上一次 commit 记录进行覆盖
-## 例如先执行 git commit -m "commit1" 提交了文件a，commit_sha为hash1；再执行 git commit -m "commit2" --amend 提交文件b，commit_sha为hash2。最终显示的是a，b文件的 commit 信息都是 "commit2"，commit_sha都是hash2
+# 例如先执行 git commit -m "commit1" 提交了文件a，commit_sha为hash1；再执行 git commit -m "commit2" --amend 提交文件b，commit_sha为hash2。最终显示的是a，b文件的 commit 信息都是 "commit2"，commit_sha都是hash2
 git commit -m "new message" --amend
 
 # 将工作区内容提交到本地仓库，并跳过 commit 信息填写
-## 例如先执行 git commit -m "commit1" 提交了文件a，commit_sha为hash1；再执行 git commit --amend --no-edit 提交文件b，commit_sha为hash2。最终显示的是a，b文件的 commit 信息都是 "commit1"，commit_sha都是hash1
+# 例如先执行 git commit -m "commit1" 提交了文件a，commit_sha为hash1；再执行 git commit --amend --no-edit 提交文件b，commit_sha为hash2。最终显示的是a，b文件的 commit 信息都是 "commit1"，commit_sha都是hash1
 git commit --amend --no-edit
 
 # 跳过校验直接提交，很多项目配置 git hooks 验证代码是否符合 eslint、husky 等规则，校验不通过无法提交
-## 通过 --no-verify 可以跳过校验（为了保证代码质量不建议此操作QwQ）
+# 通过 --no-verify 可以跳过校验（为了保证代码质量不建议此操作QwQ）
 git commit --no-verify -m "commit message"
 
 # 一次性从工作区提交到本地仓库，相当于 git add . + git commit -m
@@ -124,7 +124,7 @@ git commit -am
 
 ```shell
 # 将某个版本的 commit 从本地仓库退回到工作区（取消 commit 和 add 操作，不改变文件内容）
-## 默认不加 -- 参数时时 mixed
+# 默认不加 -- 参数时时 mixed
 git reset --mixed <commit_sha>
 
 # 将某个版本的 commit 从本地仓库退回到缓存区（取消 commit 操作，不取消 add，不改变文件内容）
@@ -133,7 +133,7 @@ git reset --soft <commit_sha>
 # 取消某次 commit 的记录（取消 commit 和 add，且改变文件内容）
 git reset --hard <commit_sha>
 
-## 以上三种操作退回了 commit，都是退回本地仓库的 commit，没有改变远程仓库的 commit。通常再次修改后配合如下命令覆盖远程仓库的 commit：
+# 以上三种操作退回了 commit，都是退回本地仓库的 commit，没有改变远程仓库的 commit。通常再次修改后配合如下命令覆盖远程仓库的 commit：
 git push -f
 
 # 取消某次 commit 内容，但是保留 commit 记录
@@ -150,7 +150,7 @@ git push
 git push --set-upstream origin branch1
 
 # 强制提交
-## 例如用在代码回滚后内容
+# 例如用在代码回滚后内容
 git push -f
 ```
 
@@ -169,7 +169,7 @@ git checkout -b branch2
 # 基于远程分支 branch1 创建一个新分支 branch2，并切换至 branch2
 git checkout origin/branch1 -b branch2
 
-## 当前创建的 branch2 关联的上游分支是 origin/branch1，所以 push 时需要如下命令关联到远程 branch2
+# 当前创建的 branch2 关联的上游分支是 origin/branch1，所以 push 时需要如下命令关联到远程 branch2
 git push --set-upstream origin branch2
 
 # 删除分支
@@ -217,8 +217,8 @@ git log --graph --decorate
 git rm --cache -- <文件名>
 
 # 清除所有文件的索引
-## 例如你首次提交了很多文件，后来你建立了一个 .gitignore 文件，有些文件不想推送到远端仓库，但此时有的文件已经被推送了
-## 使用此命令可以是 .gitignore 重新作用一遍，从远程仓库中取消这些文件，但不会更改你本地文件
+# 例如你首次提交了很多文件，后来你建立了一个 .gitignore 文件，有些文件不想推送到远端仓库，但此时有的文件已经被推送了
+# 使用此命令可以是 .gitignore 重新作用一遍，从远程仓库中取消这些文件，但不会更改你本地文件
 git rm -r --cached .
 ```
 
@@ -242,7 +242,7 @@ Host github.com
 使用下面的命令测试，如果出现了注释中的内容则说明配置成功。
 
 ```shell
-$ ssh -T -p 443 git@ssh.github.com
+ssh -T -p 443 git@ssh.github.com
 # Hi USERNAME! You've successfully authenticated, but GitHub does not
 # provide shell access.
 ```

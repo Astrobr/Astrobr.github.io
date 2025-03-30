@@ -180,7 +180,7 @@ comment:
     proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
 # Donate plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Donation/
-donates:
+#donates:
     # Alipay donate button configurations
     #-
         #type: alipay

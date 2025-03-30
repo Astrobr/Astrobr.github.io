@@ -40,10 +40,6 @@ class Footer extends Component {
                             {showVisitorCounter ? <br /> : null}
                             {showVisitorCounter ? <span id="busuanzi_container_site_uv"
                                 dangerouslySetInnerHTML={{ __html: visitorCounterTitle }}></span> : null}
-                            <br/>
-                            <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备19039261号-1</a>
-                            <br/>
-                            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802030906" target="_blank" rel="noopener">京公网安备 11010802030906号</a>
                         </p>
                     </div>
                     <div class="level-end">
