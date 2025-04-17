@@ -234,9 +234,9 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 
 ```shell
 Host github.com
-  AddKeysToAgent yes
-  UseKeychain yes
-  IdentityFile ~/.ssh/id_ed25519
+    Hostname ssh.github.com
+    Port 443
+    User git
 ```
 
 使用下面的命令测试，如果出现了注释中的内容则说明配置成功。
