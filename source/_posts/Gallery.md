@@ -59,7 +59,7 @@ widgets: []
 
 ![](https://i.postimg.cc/Y2NxcqpQ/g13.jpg)
 
-![](https://i.postimg.cc/8zcdrRLb/g14.jpg)
+![](https://i.postimg.cc/Kz6YsvwP/g14.jpg)
 
 ![](https://i.postimg.cc/768ScjdB/g15.jpg)
 
