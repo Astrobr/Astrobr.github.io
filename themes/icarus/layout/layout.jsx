@@ -38,7 +38,6 @@ module.exports = class extends Component {
                 <Scripts site={site} config={config} helper={helper} page={page} />
                 <Search config={config} helper={helper} />
             </body>
-            <script type="text/javascript" src="/js/mathjax-config.js"></script>
         </html>;
     }
 };
