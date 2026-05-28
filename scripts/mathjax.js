@@ -3,11 +3,24 @@
 const htmlEscapeMap = {
     '&': '&amp;',
     '<': '&lt;',
-    '>': '&gt;'
+    '>': '&gt;',
+    '{': '&#123;',
+    '}': '&#125;'
 };
 
+const mathOpenBracePlaceholder = '\uE000';
+const mathCodeBlockPattern = /<hexoPostRenderCodeBlock>[\s\S]+?<\/hexoPostRenderCodeBlock>/g;
+
 function escapeHtml(str) {
-    return str.replace(/[&<>]/g, ch => htmlEscapeMap[ch]);
+    return str.replace(/[&<>{}]/g, ch => htmlEscapeMap[ch]);
+}
+
+function restoreMathPlaceholders(str) {
+    return str.split(mathOpenBracePlaceholder).join('{');
+}
+
+function protectNunjucksOpeners(str) {
+    return str.replace(/\{(?=[{#%])/g, mathOpenBracePlaceholder);
 }
 
 function findClosingDelimiter(src, delimiter, start) {
@@ -29,6 +42,99 @@ function findClosingDelimiter(src, delimiter, start) {
     }
 
     return -1;
+}
+
+function findClosingDelimiterMultiline(src, delimiter, start) {
+    for (let index = start; index < src.length; index++) {
+        if (src.startsWith(delimiter, index)) {
+            let slashCount = 0;
+            for (let cursor = index - 1; cursor >= 0 && src[cursor] === '\\'; cursor--) {
+                slashCount++;
+            }
+
+            if (slashCount % 2 === 0) {
+                return index;
+            }
+        }
+    }
+
+    return -1;
+}
+
+function getNextMathStart(src, start) {
+    const starts = [
+        src.indexOf('$$', start),
+        src.indexOf('\\[', start),
+        src.indexOf('\\(', start),
+        src.indexOf('$', start)
+    ].filter(index => index !== -1);
+
+    return starts.length ? Math.min(...starts) : -1;
+}
+
+function protectMathInText(src) {
+    let result = '';
+    let index = 0;
+
+    while (index < src.length) {
+        const start = getNextMathStart(src, index);
+
+        if (start === -1) {
+            result += src.slice(index);
+            break;
+        }
+
+        result += src.slice(index, start);
+
+        let end = -1;
+        let closeLength = 0;
+
+        if (src.startsWith('$$', start)) {
+            end = findClosingDelimiterMultiline(src, '$$', start + 2);
+            closeLength = 2;
+        } else if (src.startsWith('\\[', start)) {
+            end = findClosingDelimiterMultiline(src, '\\]', start + 2);
+            closeLength = 2;
+        } else if (src.startsWith('\\(', start)) {
+            end = findClosingDelimiter(src, '\\)', start + 2);
+            closeLength = 2;
+        } else if (src[start] === '$' && src[start + 1] !== '$') {
+            end = findClosingDelimiter(src, '$', start + 1);
+            closeLength = 1;
+        }
+
+        if (end === -1) {
+            result += src[start];
+            index = start + 1;
+            continue;
+        }
+
+        result += protectNunjucksOpeners(src.slice(start, end + closeLength));
+        index = end + closeLength;
+    }
+
+    return result;
+}
+
+function protectMathSegments(data) {
+    if (!data || typeof data.content !== 'string') {
+        return data;
+    }
+
+    let result = '';
+    let lastIndex = 0;
+
+    data.content.replace(mathCodeBlockPattern, (match, offset) => {
+        result += protectMathInText(data.content.slice(lastIndex, offset));
+        result += match;
+        lastIndex = offset + match.length;
+        return match;
+    });
+
+    result += protectMathInText(data.content.slice(lastIndex));
+    data.content = result;
+
+    return data;
 }
 
 function createMathExtensions() {
@@ -62,7 +168,7 @@ function createMathExtensions() {
                 }
             },
             renderer(token) {
-                return `<div class="mathjax-block">$$\n${escapeHtml(token.text)}\n$$</div>\n`;
+                return `<div class="mathjax-block">$$\n${escapeHtml(restoreMathPlaceholders(token.text))}\n$$</div>\n`;
             }
         },
         {
@@ -118,11 +224,13 @@ function createMathExtensions() {
                 };
             },
             renderer(token) {
-                return `<span class="mathjax-inline">$${escapeHtml(token.text)}$</span>`;
+                return `<span class="mathjax-inline">$${escapeHtml(restoreMathPlaceholders(token.text))}$</span>`;
             }
         }
     ];
 }
+
+hexo.extend.filter.register('before_post_render', protectMathSegments, 20);
 
 hexo.extend.filter.register('marked:extensions', extensions => {
     extensions.push(...createMathExtensions());
