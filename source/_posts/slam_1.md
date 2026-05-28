@@ -15,7 +15,7 @@ cover: https://i.postimg.cc/sgqd35kQ/slam.png
 thumbnail: https://i.postimg.cc/sgqd35kQ/slam.png
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
-excerpt: SLAM系列的第一篇文章。
+#excerpt: SLAM系列的第一篇文章。
 
 #If you don't want to show the ToC (Table of Content) at sidebar, delete the well number below. 
 #toc: false

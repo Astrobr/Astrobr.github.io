@@ -88,7 +88,7 @@ module.exports = class extends Component {
                         </div>
                     </div> : null}
                     {/* Content/Excerpt */}
-                    <div class="content" dangerouslySetInnerHTML={{ __html: index && page.excerpt ? page.excerpt : page.content }}></div>
+                    <div class="content" dangerouslySetInnerHTML={{ __html: index ? (page.excerpt || '') : page.content }}></div>
                     {/* Licensing block */}
                     {!index && article && article.licenses && Object.keys(article.licenses)
                         ? <ArticleLicensing.Cacheable page={page} config={config} helper={helper} /> : null}
@@ -102,7 +102,7 @@ module.exports = class extends Component {
                         })}
                     </div> : null}
                     {/* "Read more" button */}
-                    {index && page.excerpt ? <a class="article-more button is-small is-size-7" href={`${url_for(page.link || page.path)}#more`}><i class="fas fa-book-reader has-text-grey"></i>&nbsp;&nbsp;{__('article.more')}</a> : null}
+                    {index ? <a class="article-more button is-small is-size-7" href={page.excerpt ? `${url_for(page.link || page.path)}#more` : url_for(page.link || page.path)}><i class="fas fa-book-reader has-text-grey"></i>&nbsp;&nbsp;{__('article.more')}</a> : null}
                     </div>
                     {/* Share button */}
                     {!index ? <Share config={config} page={page} helper={helper} /> : null}
