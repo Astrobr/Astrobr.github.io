@@ -81,7 +81,7 @@ x_3=w_3x_2+v_3
 $$
 这个关系可以表示为下面的图
 
-<img src="https://i.postimg.cc/NMvmYNJ7/image-20250811190137731.png" alt="A toy example" style="zoom:25%;" />
+<img src="https://i.postimg.cc/NMvmYNJ7/image-20250811190137731.png" style="zoom:25%;" />
 
 其中，$v_i$为温度的随机变化，它们相互独立，且各自服从均值为0，协方差为$\sigma^2_i$的高斯分布。根据协方差的计算公式可以写出$\boldsymbol x=[x_1,x_2,x_3]^\top$的协方差矩阵$\boldsymbol\Sigma$。对两个随机变量$X$和$Y$，它们的协方差矩阵的计算公式为
 $$
@@ -173,7 +173,7 @@ $$
 
 假设有这样的一个最小二乘系统
 $$
-\boldsymbol{\xi}=\underset{\boldsymbol{\xi}}{\operatorname*{\operatorname*{argmin}}}\frac{1}{2}\sum_{i=1}^5\left\|\mathbf{r}_i\right\|_{\boldsymbol{\Sigma}_i}^2
+\boldsymbol{\xi}=\underset{\boldsymbol{\xi}}{\operatorname*{argmin}}\frac{1}{2}\sum_{i=1}^5\left\|\mathbf{r}_i\right\|_{\boldsymbol{\Sigma}_i}^2
 $$
 其中
 $$
