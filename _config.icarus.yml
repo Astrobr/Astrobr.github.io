@@ -172,7 +172,7 @@ comment:
     # Name of the comment plugin
     type: gitalk
     owner: 'Astrobr'         
-    repo: 'astroblog'         
+    repo: 'Astrobr.github.io'
     client_id: 'fa589cf3f78c8e8e4357'    
     client_secret: 'e97fdd7cc6bd46454d3d6216f6099c9caea80829'
     admin: ['Astrobr']
