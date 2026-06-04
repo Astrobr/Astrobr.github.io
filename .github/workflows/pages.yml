@@ -33,6 +33,12 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Initialize Gitalk issues
+        env:
+          GITALK_TOKEN: ${{ secrets.GITALK_TOKEN }}
+          GITALK_ROOT: ./public
+        run: npm run gitalk:init
+
       - name: Disable Jekyll
         run: touch ./public/.nojekyll
 

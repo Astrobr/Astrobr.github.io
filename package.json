@@ -6,6 +6,7 @@
     "build": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
+    "gitalk:init": "node tools/gitalk-init-issues.js",
     "server": "hexo server"
   },
   "hexo": {
