@@ -12,6 +12,7 @@ const BASE_LABEL = process.env.GITALK_LABEL || 'Gitalk';
 const BASE_LABEL_COLOR = process.env.GITALK_LABEL_COLOR || '3b82f6';
 const ID_LABEL_COLOR = process.env.GITALK_ID_LABEL_COLOR || '94a3b8';
 const USER_AGENT = 'astroblog-gitalk-issue-init';
+const MAX_REDIRECTS = 5;
 
 function walkHtmlFiles(dir) {
   if (!fs.existsSync(dir)) {
@@ -101,12 +102,19 @@ function extractGitalkPages() {
   return [...byKey.values()].sort((a, b) => a.file.localeCompare(b.file));
 }
 
-function api(method, endpoint, body) {
+function api(method, endpoint, body, redirects = 0) {
   return new Promise((resolve, reject) => {
     const payload = body ? JSON.stringify(body) : '';
+    const url = new URL(endpoint, 'https://api.github.com');
+
+    if (url.hostname !== 'api.github.com') {
+      reject(new Error(`Refusing to follow GitHub API redirect to ${url.hostname}`));
+      return;
+    }
+
     const request = https.request({
-      hostname: 'api.github.com',
-      path: endpoint,
+      hostname: url.hostname,
+      path: `${url.pathname}${url.search}`,
       method,
       headers: {
         Accept: 'application/vnd.github+json',
@@ -121,6 +129,19 @@ function api(method, endpoint, body) {
       response.on('data', chunk => chunks.push(chunk));
       response.on('end', () => {
         const text = Buffer.concat(chunks).toString('utf8');
+
+        if ([301, 302, 303, 307, 308].includes(response.statusCode) && response.headers.location) {
+          if (redirects >= MAX_REDIRECTS) {
+            reject(new Error(`GitHub API redirect limit exceeded for ${method} ${endpoint}`));
+            return;
+          }
+
+          const redirectMethod = response.statusCode === 303 ? 'GET' : method;
+          const redirectBody = redirectMethod === 'GET' ? null : body;
+          resolve(api(redirectMethod, response.headers.location, redirectBody, redirects + 1));
+          return;
+        }
+
         let data = null;
         if (text) {
           try {
@@ -150,6 +171,34 @@ function api(method, endpoint, body) {
     }
     request.end();
   });
+}
+
+const repoCache = new Map();
+
+async function resolveRepo(owner, repo) {
+  const key = `${owner}/${repo}`;
+  if (repoCache.has(key)) {
+    return repoCache.get(key);
+  }
+
+  if (DRY_RUN) {
+    const resolved = { owner, repo };
+    repoCache.set(key, resolved);
+    return resolved;
+  }
+
+  const repository = await api('GET', `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}`);
+  const resolved = {
+    owner: repository.owner.login,
+    repo: repository.name
+  };
+
+  if (resolved.owner !== owner || resolved.repo !== repo) {
+    console.log(`Resolved Gitalk repo ${owner}/${repo} -> ${resolved.owner}/${resolved.repo}`);
+  }
+
+  repoCache.set(key, resolved);
+  return resolved;
 }
 
 function endpointForLabel(owner, repo, label) {
@@ -247,7 +296,8 @@ async function main() {
 
   let created = 0;
   for (const page of pages) {
-    const result = await ensureIssue(page);
+    const repo = await resolveRepo(page.owner, page.repo);
+    const result = await ensureIssue({ ...page, ...repo });
     if (result.created) {
       created += 1;
     }
