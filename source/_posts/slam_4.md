@@ -201,7 +201,7 @@ $$
 $$
 
 $$
-\boldsymbol{J}_{2}^{\top}\boldsymbol \Sigma_{2}^{-1}\boldsymbol{J}_2 = \begin{bmatrix} (\frac{\partial \mathbf{r}_{13}}{\partial \boldsymbol{\xi}_{1}})^{\top} \boldsymbol\Sigma_{2}^{-1} \frac{\partial \mathbf{r}_{13}}{\partial \boldsymbol{\xi}_{1}} & \boldsymbol 0 & (\frac{\partial \mathbf{r}_{13}}{\partial \boldsymbol{\xi}_{1}})^{\top} \boldsymbol\Sigma_{2}^{-1} \frac{\partial \mathbf{r}_{13}}{\partial \boldsymbol{\xi}_{3}} & \boldsymbol0 & \boldsymbol0 \\ \boldsymbol0 & \boldsymbol0 & \boldsymbol0 & \boldsymbol0 & \boldsymbol0 \\ (\frac{\partial \mathbf{r}_{13}}{\partial \boldsymbol{\xi}_{3}})^{\top} \boldsymbol\Sigma_{2}^{-1} \frac{\partial \mathbf{r}_{13}}{\partial \boldsymbol{\xi}_{1}} & \boldsymbol0 & (\frac{\partial \mathbf{r}_{13}}{\partial \boldsymbol{\xi}_{3}})^{\top} \boldsymbol\Sigma_{2}^{-1} \frac{\partial \mathbf{r}_{13}}{\partial \boldsymbol{\xi}_{3}} & \boldsymbol0 & \boldsymbol0 \\ \boldsymbol0 & \boldsymbol0 & \boldsymbol0 & \boldsymbol0 & \boldsymbol0 \\ \boldsymbol0 & \boldsymbol0 & \boldsymbol0 & \boldsymbol0 & \boldsymbol0 \end{bmatrix}
+\boldsymbol{J}_{2}^{\top}\boldsymbol \Sigma_{2}^{-1}\boldsymbol{J}_2 = \begin{bmatrix} (\frac{\partial \mathbf{r}_{13}}{\partial \boldsymbol{\xi}_{1}})^{\top} \boldsymbol\Sigma_{2}^{-1} \frac{\partial \mathbf{r}_{13}}{\partial \boldsymbol{\xi}_{1}} & \boldsymbol 0 & (\frac{\partial \mathbf{r}_{13}}{\partial \boldsymbol{\xi}_{1}})^{\top} \boldsymbol\Sigma_{2}^{-1} \frac{\partial \mathbf{r}_{13}}{\partial \boldsymbol{\xi}_{3}} & \boldsymbol0 & \boldsymbol0 & \boldsymbol0 \\ \boldsymbol0 & \boldsymbol0 & \boldsymbol0 & \boldsymbol0 & \boldsymbol0 & \boldsymbol0 \\ (\frac{\partial \mathbf{r}_{13}}{\partial \boldsymbol{\xi}_{3}})^{\top} \boldsymbol\Sigma_{2}^{-1} \frac{\partial \mathbf{r}_{13}}{\partial \boldsymbol{\xi}_{1}} & \boldsymbol0 & (\frac{\partial \mathbf{r}_{13}}{\partial \boldsymbol{\xi}_{3}})^{\top} \boldsymbol\Sigma_{2}^{-1} \frac{\partial \mathbf{r}_{13}}{\partial \boldsymbol{\xi}_{3}} & \boldsymbol0 & \boldsymbol0 & \boldsymbol0 \\ \boldsymbol0 & \boldsymbol0 & \boldsymbol0 & \boldsymbol0 & \boldsymbol0 & \boldsymbol0 \\ \boldsymbol0 & \boldsymbol0 & \boldsymbol0 & \boldsymbol0 & \boldsymbol0 & \boldsymbol0 \\ \boldsymbol0 & \boldsymbol0 & \boldsymbol0 & \boldsymbol0 & \boldsymbol0 & \boldsymbol0\end{bmatrix}
 $$
 
 同理可知，其他的$\boldsymbol J_i^\top\boldsymbol\Sigma^{-1}_i\boldsymbol J_i$也是稀疏的。将5个$\boldsymbol \Lambda_i$矩阵加起来可以得到一个同样稀疏的$\boldsymbol\Lambda$矩阵。这个过程可以用下面的图表示，其中蓝色的元素为非零元素。
@@ -249,7 +249,7 @@ $$
 
 ![](https://i.postimg.cc/0ymNx9TN/image-20250812163059129.png)
 
-在上面的因子图中，包括11帧图像的位姿。现在，我们想将第0帧相关的变量边缘化掉。图中画出了与第0帧相关的所有边。在上图中，第0帧观测到的特征点中有42个与第1帧形成共视，有29个与第2帧形成共视，有16个与第3帧形成共视，有14个与其他剩余帧形成共视。因此，与第0帧有关的视觉因子（约束）一共有185个，另外还有一个IMU预积分因子（约束）。在这个问题中，$\boldsymbol H$矩阵的维度由优化变量的数目决定：2个速度零偏顶点带来18维，11个位姿顶点带来66维，1个外参顶点带来6维，还有42个特征点带来42维。所以$\boldsymbol H$矩阵的维度为132维。图中用圆角矩形框住的部分为需要边缘化掉的优化变量，这部分在$\boldsymbol H$矩阵中占据了57维：1个速度零偏顶点带来9维，1个位姿顶点带来6维，42个特征点带来42维。之后，可以计算出剩下需要保留的变量的维度为66维。于是，可以构造边缘化中使用的$\boldsymbol H$矩阵
+在上面的因子图中，包括11帧图像的位姿。现在，我们想将第0帧相关的变量边缘化掉。图中画出了与第0帧相关的所有边。在上图中，第0帧观测到的特征点中有42个与第1帧形成共视，有29个与第2帧形成共视，有16个与第3帧形成共视，有14个与其他剩余帧形成共视。因此，与第0帧有关的视觉因子（约束）一共有185个，另外还有一个IMU预积分因子（约束）。在这个问题中，$\boldsymbol H$矩阵的维度由优化变量的数目决定：2个速度零偏顶点带来18维，11个位姿顶点带来66维，1个外参顶点带来6维，还有42个特征点带来42维。所以$\boldsymbol H$矩阵的维度为132维。图中用圆角矩形框住的部分为需要边缘化掉的优化变量，这部分在$\boldsymbol H$矩阵中占据了57维：1个速度零偏顶点带来9维，1个位姿顶点带来6维，42个特征点带来42维。之后，可以计算出剩下需要保留的变量的维度为75维。于是，可以构造边缘化中使用的$\boldsymbol H$矩阵
 
 <img src="https://i.postimg.cc/7LnYGmY8/image-20250813113703626.png" style="zoom:40%;" />
 
@@ -326,13 +326,13 @@ $$
 VINS的边缘化策略并不是一味地将新帧添加到滑窗内而移除老帧。为了处理一些静止（或小视差变化），VINS做了些策略调整，具体如下：
 
 - MARGIN OLD：如果次新帧是关键帧，则丢弃滑动窗口内最老帧，同时对与该图像帧关联的约束项进行边缘化处理，丢弃 IMU 预积分，保留有共视特征点；
-- MARGIN NEW：如果次新帧不是关键帧，则丢弃当前帧的前一帧，因为判断当前帧不是关键帧的条件是当前帧与前一帧视差很小，这种情况下直接丢弃前一帧，去掉特征点与次新帧的共视关系，而两段IMU预积分拼接到一块，保证 IMU 预积分的连贯性。
+- MARGIN SECOND NEW：如果次新帧不是关键帧，则丢弃当前帧的前一帧，因为判断当前帧不是关键帧的条件是当前帧与前一帧视差很小，这种情况下直接丢弃前一帧，去掉特征点与次新帧的共视关系，而两段IMU预积分拼接到一块，保证IMU预积分的连贯性。
 
-利用这种策略可以处理运动变化较小的情况，通过频繁的MARGIN NEW保留那些比较老但是视差比较大的位姿。但是如果一直MARGIN OLD的话，视觉约束不够强，状态估计会受IMU积分误差影响，具有较大的累计误差。
+利用这种策略可以处理运动变化较小的情况，通过频繁的MARGIN SECOND NEW保留那些比较老但是视差比较大的位姿。但是如果一直MARGIN OLD的话，视觉约束不够强，状态估计会受IMU积分误差影响，具有较大的累计误差。
 
 ### 边缘化后先验因子的雅可比与残差
 
-之前我们说过，可以通过直接操作系统的$\boldsymbol H$矩阵进行舒尔补实现边缘化。这里将舒尔补的过程重新再写一遍，假设我们要边缘化$\mathbf x_m$
+之前我们说过，可以通过直接操作系统的$\boldsymbol H$矩阵进行舒尔补实现边缘化。这里将舒尔补的过程重新再写一遍，假设我们要边缘化$\boldsymbol x_m$
 $$
 \begin{align*}
 \begin{bmatrix} \boldsymbol H_{mm} & \boldsymbol H_{bm}^\top \\ \boldsymbol H_{bm} & \boldsymbol H_{bb} \end{bmatrix} \begin{bmatrix} \delta \boldsymbol {x}_{m} \\ \delta \boldsymbol {x}_{b} \end{bmatrix} &= \begin{bmatrix} \boldsymbol {b}_{m} \\ \boldsymbol {b}_{b} \end{bmatrix} \\
