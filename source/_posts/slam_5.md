@@ -417,7 +417,7 @@ s\mathbf p^{c_0}_{b_i}=s\mathbf p^{c_r}_{b_i}-s\mathbf p^{c_r}_{b_0}
 $$
 然后，之前优化得到的速度都是表示在IMU坐标系下的，需要将它们左乘一个$\mathbf R^{c_r}_{b_i}$以表示在伪世界坐标系下
 $$
-\mathbf v^{c_r}_{b_i}=\mathbf R^{c_r}_{b_i}
+\mathbf v^{c_r}_{b_i}=\mathbf R^{c_r}_{b_i}\mathbf v^{b_i}_i
 $$
 之后，求出第0帧IMU坐标系相对世界坐标系的姿态：$\mathbf R^w_{b_0}=\mathbf R^{w}_{c_r}\mathbf R^{c_r}_{b_0}$。我们可以根据下式求出在世界坐标系下参考帧相对第0帧的航向角
 $$
