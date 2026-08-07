@@ -243,7 +243,7 @@ widgets:
         # Author title
         author_title: 
         # Author's current location
-        location: PRC
+        location: Beijing
         # URL or path to the avatar image
         avatar: /img/avatar.jpeg
         # Whether show the rounded avatar image
