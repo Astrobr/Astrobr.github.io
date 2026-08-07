@@ -1,5 +1,5 @@
 ---
-title: 欢迎来到Astroblog！
+title: 关于我和我的博客
 date: 2020-1-3 20:47
 categories: 
 	- [Others]
@@ -17,7 +17,7 @@ cover: https://i.postimg.cc/5yw3tfdQ/t2.jpg
 thumbnail: https://i.postimg.cc/5yw3tfdQ/t2.jpg
 
 #If you need to customize your excerpt, delete the well number below and input something. You can also input <!-- more --> in your article to divide the excerpt and other contents.
-excerpt: Astroblog是Astrobear的基地！这里有知识，方法，还有更多！
+# excerpt: 
 
 toc: false
 
@@ -30,9 +30,9 @@ widgets:
         # Author name
         author: Astrobear
         # Author title
-        author_title: Building my fortress.
+        # author_title:
         # Author's current location
-        location: PRC
+        location: Beijing
         # URL or path to the avatar image
         avatar: /img/avatar.jpeg
         # Whether show the rounded avatar image
@@ -46,9 +46,6 @@ widgets:
             Github:
                 icon: fab fa-github
                 url: 'https://github.com/Astrobr'
-            Facebook:
-                icon: fab fa-facebook
-                url: 'https://www.facebook.com/astrobearforwork'
             Instagram:
                 icon: fab fa-instagram
                 url: 'https://www.instagram.com/astrobarchen/'
@@ -98,14 +95,15 @@ widgets:
 
 ---
 
-## 简介
+在更新这个自我介绍的时候，我在电脑屏幕面前坐了很久，却迟迟敲不出来一个字：我觉得如果把这个空间当作我的履历展示区，实在有些无趣。
 
-Astroblog是我个人的技术总结与备忘，其中可能包括以下内容：
+虽然说打标签是让陌生人了解自己的一种最高效的方式，但是在这个地方，我不希望仍然用职业、成就或某种性格类型这样的标签概括自己。
 
-- 课程学习总结
-- 与计算机技术相关的总结，比如一些教程或方法等，用作备忘
+这些信息当然都是真实的一部分，但很难等同于一个人本身。相比“我拥有什么”和“我属于哪一类”，我更关心自己如何感受、如何理解，以及在一次次选择中逐渐成为谁。
 
-- 模拟飞行与民航知识，音乐知识，天文摄影后期技术总结
-- 个人摄影作品以及其他优秀摄影作品的展览
-- 其他内容
+这是我的博客，我在这里记录阅读、生活、学习和思考中留下的痕迹。写下这些文章，不光是为了让别人了解我，而且可以帮助我更好地认识自己。
+
+欢迎来到这里。
+
+
 

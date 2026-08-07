@@ -9,7 +9,7 @@ widgets:
         # Author title
         # author_title:
         # Author's current location
-        location: PRC
+        location: Beijing
         # URL or path to the avatar image
         avatar: /img/avatar.jpeg
         # Whether show the rounded avatar image
@@ -23,9 +23,6 @@ widgets:
             Github:
                 icon: fab fa-github
                 url: 'https://github.com/Astrobr'
-            # Facebook:
-            #     icon: fab fa-facebook
-            #     url: 'https://www.facebook.com/astrobearforwork'
             Instagram:
                 icon: fab fa-instagram
                 url: 'https://www.instagram.com/astroxiong/'
