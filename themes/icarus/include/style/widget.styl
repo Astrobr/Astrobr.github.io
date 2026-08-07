@@ -29,6 +29,27 @@
             color: $white-invert
 #toc
     max-height: calc(100vh - 22px)
+    overflow-x: hidden
+    overflow-y: auto
+
+    .menu-list
+        a.level
+            max-width: 100%
+
+        .level-left
+            min-width: 0
+            width: 100%
+
+        .level-item
+            &:not(:only-child):first-child
+                flex-grow: 0
+                flex-shrink: 0
+
+            &:last-child
+                min-width: 0
+                overflow-wrap: anywhere
+                word-break: break-word
+                white-space: normal
 
 .level.is-multiline
     flex-wrap: wrap
@@ -45,6 +66,7 @@
         right: 0
         bottom: 0
         z-index: 100
+        overflow: hidden
 
         .card-content
             padding: 0
