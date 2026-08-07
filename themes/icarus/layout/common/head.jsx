@@ -107,6 +107,19 @@ module.exports = class extends Component {
             structuredImages = page.photos;
         }
 
+        const themeInitializer = `(function () {
+            var isNight = false;
+            try {
+                var savedTheme = localStorage.getItem('night');
+                isNight = savedTheme === null
+                    ? window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+                    : savedTheme === 'true';
+            } catch (e) {
+                isNight = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            }
+            document.documentElement.classList.add(isNight ? 'night' : 'light');
+        }());`;
+
         let followItVerificationCode = null;
         if (Array.isArray(config.widgets)) {
             const widget = config.widgets.find(widget => widget.type === 'followit');
@@ -118,6 +131,7 @@ module.exports = class extends Component {
         return <head>
             <meta charset="utf-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+            <script dangerouslySetInnerHTML={{ __html: themeInitializer }}></script>
             {meta && meta.length ? <MetaTags meta={meta} /> : null}
 
             <title>{getPageTitle(page, config.title, helper)}</title>
